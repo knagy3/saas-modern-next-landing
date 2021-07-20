@@ -4,12 +4,12 @@ import 'swiper/swiper-bundle.min.css';
 import 'assets/css/slick.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import 'rc-drawer/assets/index.css';
-import { initGA, logPageView } from 'analytics';
 import 'typeface-dm-sans';
 import 'react-modal-video/css/modal-video.min.css';
 import '../assets/css/video.css';
 
-
+import { initGA, logPageView } from 'analytics';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 export default function CustomApp({ Component, pageProps }) {
   useEffect(() => {
@@ -18,5 +18,9 @@ export default function CustomApp({ Component, pageProps }) {
     Router.events.on('routeChangeComplete', logPageView);
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <LanguageProvider>
+      <Component {...pageProps} />
+    </LanguageProvider>
+  ); 
 }

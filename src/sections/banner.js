@@ -1,25 +1,24 @@
 /** @jsx jsx */
-import { jsx, Box, Container, Heading, Text, Button } from 'theme-ui';
+import { jsx, Box, Container, Heading, Text } from 'theme-ui';
 import { rgba } from 'polished';
 
 import bannerBg from 'assets/images/banner-bg.jpg';
-
+import useTranslation from '../hooks/useTranslation';
 
 export default function Banner() {
+  const { t } = useTranslation();
+
   return (
     <Box as="section" id="home" sx={styles.section}>
       <Container>
         <Box sx={styles.contentWrapper}>
           <Box sx={styles.bannerContent}>
             <Heading as="h1" sx={styles.heroTitle}>
-              Coworking space that will feel like home.
+              {t("banner_slogan")}
             </Heading>
             <Text as="p" sx={styles.desc}>
-              Whether you’re an established enterprise or a growing startup,
-              discover spaces that inspire which will best your most impactful
-              work.
+              {t("banner")}
             </Text>
-            
           </Box>
         </Box>
       </Container>
@@ -65,6 +64,7 @@ const styles = {
     },
   },
   heroTitle: {
+    justifyContent: 'center',
     fontSize: [22, 28, 28, 40, , 5, 6],
     fontWeight: 700,
     letterSpacing: 'heading',

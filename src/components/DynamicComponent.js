@@ -5,7 +5,6 @@ import ModalVideo from 'react-modal-video';
 export default function DynamicComponent({ videoOpen, setVideoOpen }) {
 
   if (typeof window === 'undefined') {
-    console.log("alma")
     return null;
   }
 

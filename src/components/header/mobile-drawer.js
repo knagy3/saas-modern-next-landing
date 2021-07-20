@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Box } from 'theme-ui';
 import { Scrollbars } from 'react-custom-scrollbars';
 import Drawer from 'components/drawer';
@@ -11,6 +11,8 @@ import {
   FaGithubAlt,
   FaDribbble,
 } from 'react-icons/fa';
+
+import useTranslation from '../../hooks/useTranslation';
 import menuItems from './header.data';
 
 const social = [
@@ -26,6 +28,9 @@ const social = [
     path: '/',
     icon: <FaGithubAlt />,
   },
+];
+
+const features = [
   {
     path: '/',
     icon: <FaDribbble />,
@@ -34,6 +39,28 @@ const social = [
 
 const MobileDrawer = () => {
   const { state, dispatch } = useContext(DrawerContext);
+  const { setLocale, locales } = useTranslation();
+  const [isEngish, setIsEngish] = useState(true);
+
+  useEffect(() => {
+    // if (typeof window === 'undefined') {
+    //   return null;
+    // }
+    if (localStorage.getItem('lang') === "hu") setIsEngish(false);
+  }, []);
+
+  const handleLocaleChange = (e) => {
+    e.preventDefault();
+    if (isEngish) {
+      localStorage.setItem('lang', 'hu');
+      setLocale('hu');
+      setIsEngish(false);
+    } else {
+      localStorage.setItem('lang', 'en');
+      setLocale('en');
+      setIsEngish(true);
+    }
+  };
 
   // Toggle drawer
   const toggleHandler = React.useCallback(() => {
@@ -81,6 +108,11 @@ const MobileDrawer = () => {
                   <Link to={path}>{icon}</Link>
                 </Box>
               ))}
+              {features.map(({ icon }, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link onClick={(e) => handleLocaleChange(e)}>{icon}</Link>
+                </Box>
+              ))}
             </Box>
           </Box>
         </Box>
@@ -91,6 +123,7 @@ const MobileDrawer = () => {
 
 const styles = {
   handler: {
+    cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -106,6 +139,7 @@ const styles = {
     width: '100%',
     height: '100%',
     backgroundColor: 'white',
+    cursor: 'pointer'
   },
 
   close: {
