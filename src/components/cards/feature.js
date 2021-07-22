@@ -25,7 +25,7 @@ const styles = {
       fontSize: [18, null, null, null, null, 20],
     },
     p: {
-      color: rgba('#343D48', 0.75),
+      color: (theme) => theme.colors.heading_tertiary,
       fontSize: [null, null, null, null, 14, 15],
       lineHeight: 1.47,
     },

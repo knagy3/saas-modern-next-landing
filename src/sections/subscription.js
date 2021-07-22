@@ -9,7 +9,7 @@ const Subscription = () => {
     console.log(`Submitted...`);
   };
   return (
-    <Box as="section" sx={styles.section}>
+    <Box id="contact" as="section" sx={styles.section}>
       <Container>
         <Box sx={styles.content}>
           <SectionHeading
@@ -34,12 +34,12 @@ export default Subscription;
 
 const styles = {
   section: {
-    backgroundColor: '#020718',
+    backgroundColor: (theme) => theme.colors.background_footer,
     pt: '60px',
     pb: '70px',
   },
   heading: {
-    color: '#fff',
+    color: (theme) => theme.colors.background,
     mb: [30, 30, 50],
     h2: {
       fontSize: [22, 28, '36px'],
@@ -50,7 +50,7 @@ const styles = {
       lineHeight: [2, 3.12],
       mt: [20, 0],
       letterSpacing: 'heading',
-      color: rgba('#fff', 0.6),
+      color: (theme) => theme.colors.background,
     },
   },
   content: {
@@ -62,10 +62,10 @@ const styles = {
     alignItems: 'center',
     display: ['block', 'flex'],
     input: {
-      backgroundColor: rgba('#fff', 0.08),
+      backgroundColor: (theme) => theme.colors.background_subscribe_button,
       borderRadius: '5px',
       borderColor: 'transparent',
-      color: rgba('#fff', 0.8),
+      color: (theme) => theme.colors.background_subscribe_ph,
       flexGrow: 1,
       fontFamily: 'body',
       height: 'auto',
@@ -74,12 +74,12 @@ const styles = {
       minHeight: [50, 50, 60],
       width: ['100%', 'auto'],
       '::placeholder': {
-        color: rgba('#fff', 0.8),
+        color: (theme) => theme.colors.background_subscribe_ph,
       },
     },
     button: {
-      backgroundColor: '#fff',
-      color: '#020718',
+      backgroundColor: (theme) => theme.colors.background,
+      color: (theme) => theme.colors.text,
       minHeight: [50, 50, 60],
       fontSize: [14, 16],
       padding: '0 30px',
@@ -88,8 +88,8 @@ const styles = {
       ml: [0, 3],
       mt: [4, 0],
       ':hover': {
-        backgroundColor: '#fff',
-        color: '#020718',
+        backgroundColor: (theme) => theme.colors.background,
+        color: (theme) => theme.colors.primary,
       },
     },
   },

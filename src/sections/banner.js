@@ -37,7 +37,8 @@ const styles = {
     minHeight: [null, null, null, null, '50vh', '100vh'],
   },
   bannerContent: {
-    backgroundColor: rgba('#fff', 0.93),
+    // backgroundColor: rgba('#fff', 0.93),
+    backgroundColor: (theme) => theme.colors.banner,
     boxShadow: [
       '0px 10px 16px rgba(52, 61, 72, 0.12)',
       null,

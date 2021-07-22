@@ -2,18 +2,22 @@
 import { jsx, Container, Flex, Button } from 'theme-ui';
 import { keyframes } from '@emotion/core';
 import { Link } from 'react-scroll';
+import { useColorMode } from 'theme-ui';
+
 import Logo from 'components/logo';
-import LogoDark from 'assets/images/logo.svg';
 import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
 export default function Header({ className }) {
+  const [mode] = useColorMode();
+  const color = mode !== 'light';
+
   return (
     <DrawerProvider>
       <header sx={styles.header} className={className} id="header">
         <Container sx={styles.container}>
-          <Logo src={LogoDark} />
+          <Logo white={color} />
 
           <Flex as="nav" sx={styles.nav}>
             {menuItems.map(({ path, label }, i) => (
@@ -61,7 +65,7 @@ const positionAnim = keyframes`
 
 const styles = {
   header: {
-    color: 'text',
+    color: (theme) => theme.colors.text,
     fontWeight: 'body',
     py: 4,
     width: '100%',
@@ -78,12 +82,12 @@ const styles = {
     },
     '&.sticky': {
       position: 'fixed',
-      backgroundColor: 'background',
-      color: '#000000',
-      boxShadow: '0 1px 2px rgba(0, 0, 0, 0.06)',
+      backgroundColor: (theme) => theme.colors.background,
+      color: (theme) => theme.colors.text,
+      boxShadow: (theme) => theme.colors.header_shadow,
       py: 3,
       'nev > a': {
-        color: 'text',
+        color: (theme) => theme.colors.text,
       },
     },
   },

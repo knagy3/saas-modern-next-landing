@@ -8,6 +8,10 @@ export default [
     label: 'Clients',
   },
   {
+    path: 'service',
+    label: 'Service',
+  },
+  {
     path: 'feature',
     label: 'Feature',
   },
@@ -16,11 +20,19 @@ export default [
     label: 'Gallery',
   },
   {
-    path: 'pricing',
-    label: 'Pricing',
+    path: 'numbers',
+    label: 'Results',
   },
   {
     path: 'blog',
     label: 'Blog',
+  },
+  {
+    path: 'faq',
+    label: 'Q&A',
+  },
+  {
+    path: 'contact',
+    label: 'Contact',
   },
 ];

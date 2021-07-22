@@ -1,10 +1,15 @@
+import { rgba } from 'polished';
+
 export default {
   // example colors with dark mode
   colors: {
+    initialColorModeName: 'light',
     text: '#343D48', // body color and primary color
     text_secondary: '#02073E', // secondary body color
+    header_shadow: '0 1px 2px rgba(0, 0, 0, 0.15)',
     heading: '#0F2137', // primary heading color
     heading_secondary: '#343D48', // heading color
+    heading_tertiary: rgba('#343D48', 0.75),
     background: '#FFFFFF', // body background color
     background_secondary: '#F9FBFD', // secondary background color
     border_color: '#E9EDF5', // border color
@@ -13,15 +18,32 @@ export default {
     muted: '#7B8188', // muted color
     accent: '#609', // a contrast color for emphasizing UI
     dark: '#10132D',
+    banner: rgba('#fff', 0.85),
+    cardBoxShadow: '0px 4px 10px rgba(38,78,118,0.52)',
+    cardBoxShadowHover: '0px 5px 20px rgba(38,78,118,0.55)',
+    background_footer: '#020718',
+    background_subscribe_button: rgba('#fff', 0.08),
+    background_subscribe_ph: rgba('#fff', 0.8),
 
     // highlight	a background color for highlighting text
     modes: {
       dark: {
         text: '#fff',
         background: '#000',
+        background_secondary: '#FFFFFF',
+        background_footer: rgba('#fff', 0.97),
+        banner: rgba('#000', 0.85),
         primary: '#0cf',
         secondary: '#09c',
         muted: '#111',
+        header_shadow: '0 1px 2px rgba(244, 244, 244, 0.6)',
+        heading: '#fff', // primary heading color
+        heading_secondary: '#fff', // heading color
+        heading_tertiary: rgba('#fff', 0.75),
+        cardBoxShadow: '0px 4px 10px rgba(242,244,246,1.12)',
+        cardBoxShadowHover: '0px 5px 20px rgba(242,244,246,1.15)',
+        background_subscribe_button: rgba('#000', 0.08),
+        background_subscribe_ph: rgba('#000', 0.8),
       },
     },
   },
@@ -225,10 +247,10 @@ export default {
     muted: {
       variant: 'buttons.default',
       backgroundColor: '#EDF0F2',
-      color: 'text',
+      color: 'background',
       ':hover': {
         backgroundColor: 'primary',
-        color: '#fff',
+        color: 'text',
       },
     },
     white: {
@@ -291,9 +313,10 @@ export default {
     mt: ['-3px', null, -1],
     marginBottom: ['50px', null, '60px', null, null, '65px', null, '80px'],
     mx: 'auto',
+    
     title: {
       fontSize: ['24px', null, '28px', null, null, '32px', null, '36px'],
-      color: 'heading',
+      // color: 'heading',
       lineHeight: [1.3, null, null, 1.25],
       textAlign: 'center',
       fontWeight: '700',
@@ -302,7 +325,7 @@ export default {
 
     subTitle: {
       fontSize: [0, '13px', null, '14px'],
-      color: 'primary',
+      // color: 'primary',
       textAlign: 'center',
       letterSpacing: ['1.5px', null, '2px'],
       textTransform: 'uppercase',

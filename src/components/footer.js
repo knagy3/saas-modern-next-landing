@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Text, Container } from 'theme-ui';
+import { useColorMode } from 'theme-ui';
+import { rgba } from 'polished';
+
 import { Link } from 'components/link';
 import Logo from 'components/logo';
-import { rgba } from 'polished';
 
 const navItems = [
   {
@@ -33,14 +35,17 @@ const navItems = [
 ];
 
 export default function Footer() {
+  const [mode] = useColorMode();
+  const color = mode === 'light';
+
   return (
     <Box as="footer" sx={styles.footer}>
       <Container sx={styles.container}>
         <Flex sx={styles.content}>
           <Flex sx={styles.copyright}>
-            <Logo white />
+            <Logo white={color} />
             <Text as="span">
-              All right reserved - Design &amp; Developed by RedQ, Inc
+              All right reserved - Design &amp; Developed by NKr
             </Text>
           </Flex>
 
@@ -59,7 +64,7 @@ export default function Footer() {
 
 const styles = {
   footer: {
-    backgroundColor: '#020718',
+    backgroundColor: (theme) => theme.colors.background_footer,
   },
   content: {
     alignItems: 'center',
@@ -80,7 +85,7 @@ const styles = {
     span: {
       fontSize: '14px',
       lineHeight: [1.8, null, null, 1.29],
-      color: rgba('#FFFFFF', 0.7),
+      color: (theme) => theme.colors.background,
       marginTop: 1,
       display: 'inline-flex',
     },
@@ -101,7 +106,7 @@ const styles = {
         mb: 4,
       },
       a: {
-        color: 'white',
+        color: (theme) => theme.colors.background,
         display: 'inline-flex',
         textAlign: 'right',
         textDecoration: 'none',

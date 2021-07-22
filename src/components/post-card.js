@@ -33,13 +33,13 @@ export default function PostCard({
 
 const styles = {
   card: {
-    backgroundColor: 'white',
-    boxShadow: '0px 4px 10px rgba(38,78,118,0.12)',
+    backgroundColor: (theme) => theme.colors.background,
+    boxShadow: (theme) => theme.colors.cardBoxShadow,
     borderRadius: '7px',
     m: '0 15px 40px',
     transition: 'all 0.3s',
     '&:hover': {
-      boxShadow: '0px 5px 20px rgba(38,78,118,0.15)',
+      boxShadow: (theme) => theme.colors.cardBoxShadowHover,
     },
   },
 

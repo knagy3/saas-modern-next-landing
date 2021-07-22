@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { rgba } from 'polished';
 import CountUp from 'react-countup';
 import { jsx, Box, Text } from 'theme-ui';
 
@@ -33,7 +32,7 @@ const styles = {
   title: {
     fontSize: [1, null, null, '15px', 17],
     lineHeight: 1.77,
-    color: rgba('#0F2137', 0.6),
+    color: (theme) => theme.colors.heading_tertiary,
     mt: [1],
   },
 };

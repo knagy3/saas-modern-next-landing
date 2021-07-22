@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Box } from 'theme-ui';
+import { useColorMode } from 'theme-ui';
 import { Scrollbars } from 'react-custom-scrollbars';
 import Drawer from 'components/drawer';
 import { DrawerContext } from '../../contexts/drawer/drawer.context';
@@ -10,6 +11,7 @@ import {
   FaTwitter,
   FaGithubAlt,
   FaDribbble,
+  FaGithubSquare,
 } from 'react-icons/fa';
 
 import useTranslation from '../../hooks/useTranslation';
@@ -24,6 +26,9 @@ const social = [
     path: '/',
     icon: <FaTwitter />,
   },
+];
+
+const gits = [
   {
     path: '/',
     icon: <FaGithubAlt />,
@@ -41,6 +46,7 @@ const MobileDrawer = () => {
   const { state, dispatch } = useContext(DrawerContext);
   const { setLocale, locales } = useTranslation();
   const [isEngish, setIsEngish] = useState(true);
+  const [mode, setMode] = useColorMode();
 
   useEffect(() => {
     // if (typeof window === 'undefined') {
@@ -79,7 +85,8 @@ const MobileDrawer = () => {
       }
       open={state.isOpen}
       toggleHandler={toggleHandler}
-      closeButton={<IoMdClose size="24px" color="#000000" />}
+      closeButton={<IoMdClose size="24px" color={(theme) => theme.colors.text} />}
+      // color={(theme) => theme.colors.text}
       drawerStyle={styles.drawer}
       closeBtnStyle={styles.close}
     >
@@ -108,6 +115,16 @@ const MobileDrawer = () => {
                   <Link to={path}>{icon}</Link>
                 </Box>
               ))}
+              {gits.map(({ icon }, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link onClick={(e) => { const next = mode === 'dark' 
+                    ? 'light' : 'dark'
+                    setMode(next)}}
+                  >
+                    {icon}
+                  </Link>
+                </Box>
+              ))}
               {features.map(({ icon }, i) => (
                 <Box as="span" key={i} sx={styles.social.icon}>
                   <Link onClick={(e) => handleLocaleChange(e)}>{icon}</Link>
@@ -129,7 +146,6 @@ const styles = {
     justifyContent: 'center',
     flexShrink: '0',
     width: '30px',
-
     '@media screen and (min-width: 1024px)': {
       display: '',
     },
@@ -138,8 +154,8 @@ const styles = {
   drawer: {
     width: '100%',
     height: '100%',
-    backgroundColor: 'white',
-    cursor: 'pointer'
+    backgroundColor: (theme) => theme.colors.background,
+    cursor: 'pointer',
   },
 
   close: {
