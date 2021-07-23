@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Heading, Text } from 'theme-ui';
-import { rgba } from 'polished';
 
 import bannerBg from 'assets/images/banner-bg.jpg';
 import useTranslation from '../hooks/useTranslation';

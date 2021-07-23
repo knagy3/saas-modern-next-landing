@@ -9,9 +9,10 @@ import { Link } from 'react-scroll';
 import {
   FaFacebookF,
   FaTwitter,
-  FaGithubAlt,
+  FaSun,
   FaDribbble,
-  FaGithubSquare,
+  FaGlobeAmericas,
+  FaMoon,
 } from 'react-icons/fa';
 
 import useTranslation from '../../hooks/useTranslation';
@@ -28,17 +29,10 @@ const social = [
   },
 ];
 
-const gits = [
-  {
-    path: '/',
-    icon: <FaGithubAlt />,
-  },
-];
-
 const features = [
   {
     path: '/',
-    icon: <FaDribbble />,
+    icon: <FaGlobeAmericas />,
   },
 ];
 
@@ -115,16 +109,23 @@ const MobileDrawer = () => {
                   <Link to={path}>{icon}</Link>
                 </Box>
               ))}
-              {gits.map(({ icon }, i) => (
-                <Box as="span" key={i} sx={styles.social.icon}>
-                  <Link onClick={(e) => { const next = mode === 'dark' 
-                    ? 'light' : 'dark'
-                    setMode(next)}}
-                  >
-                    {icon}
-                  </Link>
-                </Box>
-              ))}
+              { mode === 'dark' 
+                ? ( <Box as="span" sx={styles.social.icon}>
+                      <Link onClick={(e) => { const next = mode === 'dark' 
+                        ? 'light' : 'dark'
+                        setMode(next)}}
+                      >
+                        <FaSun/>
+                      </Link>
+                    </Box>)
+                : ( <Box as="span" sx={styles.social.icon}>
+                      <Link onClick={(e) => { const next = mode === 'dark' 
+                        ? 'light' : 'dark'
+                        setMode(next)}}
+                      >
+                        <FaMoon />
+                      </Link>
+                    </Box>)}
               {features.map(({ icon }, i) => (
                 <Box as="span" key={i} sx={styles.social.icon}>
                   <Link onClick={(e) => handleLocaleChange(e)}>{icon}</Link>
@@ -150,14 +151,12 @@ const styles = {
       display: '',
     },
   },
-
   drawer: {
     width: '100%',
     height: '100%',
     backgroundColor: (theme) => theme.colors.background,
     cursor: 'pointer',
   },
-
   close: {
     display: 'flex',
     alignItems: 'center',
@@ -168,7 +167,6 @@ const styles = {
     zIndex: '1',
     cursor: 'pointer',
   },
-
   content: {
     width: '100%',
     height: '100%',
@@ -178,7 +176,6 @@ const styles = {
     pb: '40px',
     px: '30px',
   },
-
   menu: {
     width: '100%',
     display: 'flex',
@@ -199,7 +196,6 @@ const styles = {
       },
     },
   },
-
   menuFooter: {
     width: '100%',
     display: 'flex',
@@ -207,13 +203,11 @@ const styles = {
     alignItems: 'center',
     mt: 'auto',
   },
-
   social: {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-
     icon: {
       display: 'flex',
       alignItems: 'center',
@@ -231,9 +225,8 @@ const styles = {
       },
     },
   },
-
   button: {
-    color: 'white',
+    color: (theme) => theme.colors.background,
     fontSize: '14px',
     fw: '700',
     height: '45px',
