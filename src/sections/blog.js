@@ -77,8 +77,8 @@ export default function Blog() {
     <Box id="blog" as="section" sx={styles.section}>
       <Container>
         <SectionHeader
-          slogan="our blog"
-          title="Explore our products for your business solution"
+          slogan="SIMILAR PROJECTS"
+          title="Explore our projects for your business solution"
         />
         <Box sx={styles.carouselWrapper}>
           <Carousel

@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Container, Input, Button } from 'theme-ui';
 import SectionHeading from 'components/section-heading';
-import { rgba } from 'polished';
 
 const Subscription = () => {
   const handleSubmit = (e) => {

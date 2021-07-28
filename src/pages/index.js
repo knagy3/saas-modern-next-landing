@@ -2,10 +2,10 @@ import React from 'react';
 import { ThemeProvider } from 'theme-ui';
 import theme from 'theme';
 
-import SEO from 'components/seo';
+// import SEO from 'components/seo';
 import Layout from 'components/layout';
 import Banner from 'sections/banner';
-import Blog from 'sections/blog';
+// import Blog from 'sections/blog';
 import Clients from 'sections/clients';
 import Faq from 'sections/faq';
 import FeaturedSpace from 'sections/featured-space';
@@ -27,7 +27,7 @@ export default function IndexPage() {
           <FeaturedSpace />
           <Gallery />
           <Services />
-          <Blog />
+          {/* <Blog /> */}
           <Faq />
           <Subscription />
         </Layout>
