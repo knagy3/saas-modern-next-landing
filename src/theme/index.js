@@ -247,10 +247,10 @@ export default {
     muted: {
       variant: 'buttons.default',
       backgroundColor: '#EDF0F2',
-      color: 'background',
+      color: 'text',
       ':hover': {
         backgroundColor: 'primary',
-        color: 'text',
+        color: 'background',
       },
     },
     white: {

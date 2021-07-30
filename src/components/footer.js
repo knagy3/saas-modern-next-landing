@@ -2,34 +2,41 @@
 import { jsx, Box, Flex, Text, Container } from 'theme-ui';
 import { useColorMode } from 'theme-ui';
 import { rgba } from 'polished';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
 
-import { Link } from 'components/link';
+import { NavLink, Link } from 'components/link';
 import Logo from 'components/logo';
 
 const navItems = [
   {
     id: 1,
-    link: '#!',
+    path: '/',
+    link: 'home',
     title: 'Home',
   },
   {
     id: 2,
+    path: '/projects/1',
     link: '#!',
-    title: 'Advertise',
+    title: 'Projects',
   },
   {
     id: 3,
+    path: '#!',
     link: '#!',
     title: 'Supports',
   },
   {
     id: 4,
+    path: '#!',
     link: '#!',
     title: 'Marketing',
   },
   {
     id: 5,
-    link: '#!',
+    path: '/',
+    link: 'faq',
     title: 'FAQ',
   },
 ];
@@ -37,6 +44,16 @@ const navItems = [
 export default function Footer() {
   const [mode] = useColorMode();
   const color = mode === 'light';
+  const [issDefaultPath, setIsDefaultPath] = useState(true);
+  const { asPath } = useRouter();
+
+  useEffect(() => {
+    if (asPath.length > 5) {
+      setIsDefaultPath(false);
+    } else {
+      setIsDefaultPath(true);
+    }
+  }, [asPath])
 
   return (
     <Box as="footer" sx={styles.footer}>
@@ -48,11 +65,19 @@ export default function Footer() {
               All right reserved - Design &amp; Developed by NKr
             </Text>
           </Flex>
-
           <Flex as="ul" sx={styles.nav}>
             {navItems?.map((item) => (
               <li key={item.id}>
-                <Link path={item.link}>{item.title}</Link>
+                {!issDefaultPath 
+                  ? (<Link sx={{cursor: 'pointer'}} path={item.path}>
+                      {item.title}
+                    </Link>
+                  ) : (
+                    <NavLink 
+                      sx={{cursor: 'pointer'}} 
+                      label={item.title}
+                      path={item.link}
+                    /> )}
               </li>
             ))}
           </Flex>

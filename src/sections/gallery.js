@@ -2,8 +2,10 @@
 import { jsx, Box, Container, Image, Button } from 'theme-ui';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import Masonry from 'react-masonry-component';
+
 import SectionHeading from 'components/section-heading';
 import GalleryCard from 'components/cards/gallery-card';
+import { useRouter } from "next/router";
 
 import gallery1 from 'assets/images/gallery/1.png';
 import gallery2 from 'assets/images/gallery/2.png';
@@ -50,6 +52,8 @@ const masonryOptions = {
 };
 
 const Gallery = () => {
+  const router = useRouter();
+
   return (
     <Box id="gallery" as="section" sx={styles.section}>
       <Container sx={styles.container}>
@@ -63,7 +67,11 @@ const Gallery = () => {
             <GalleryCard key={item.id} item={item} />
           ))}
         </Box>
-        <Button variant="muted" sx={styles.button}>
+        <Button 
+          variant="muted" 
+          sx={styles.button}
+          onClick={() => router.push("/projects/1")}
+        >
           Explore More <RiArrowRightSLine size="20px" />
         </Button>
       </Container>

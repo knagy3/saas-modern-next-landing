@@ -24,10 +24,6 @@ export default [
     label: 'Results',
   },
   {
-    path: 'blog',
-    label: 'Blog',
-  },
-  {
     path: 'faq',
     label: 'Q&A',
   },

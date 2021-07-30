@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Button } from 'theme-ui';
+import React, { useState, useEffect } from 'react';
 import { keyframes } from '@emotion/core';
 import { Link } from 'react-scroll';
 import { useColorMode } from 'theme-ui';
+import { useRouter } from "next/router";
 
 import Logo from 'components/logo';
 import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
@@ -10,31 +12,41 @@ import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
 export default function Header({ className }) {
+  const [issDefaultPath, setIsDefaultPath] = useState(true);
   const [mode] = useColorMode();
   const color = mode !== 'light';
+  const { asPath } = useRouter();
+
+  useEffect(() => {
+    if (asPath.length > 5) {
+      setIsDefaultPath(false);
+    } else {
+      setIsDefaultPath(true);
+    }
+  }, [asPath])
 
   return (
     <DrawerProvider>
       <header sx={styles.header} className={className} id="header">
         <Container sx={styles.container}>
           <Logo white={color} />
-
-          <Flex as="nav" sx={styles.nav}>
-            {menuItems.map(({ path, label }, i) => (
-              <Link
-                activeClass="active"
-                to={path}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                key={i}
-              >
-                {label}
-              </Link>
-            ))}
-          </Flex>
-
+          { issDefaultPath &&
+            <Flex as="nav" sx={styles.nav}>
+              {menuItems.map(({ path, label }, i) => (
+                <Link
+                  activeClass="active"
+                  to={path}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  key={i}
+                >
+                  {label}
+                </Link>
+              ))}
+            </Flex>
+          }
           {/* <Button
             sx={styles.joinNow}
             variant="primaryMd"
@@ -42,7 +54,6 @@ export default function Header({ className }) {
           >
             Get Started
           </Button> */}
-
           <MobileDrawer />
         </Container>
       </header>

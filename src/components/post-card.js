@@ -1,7 +1,9 @@
 /** @jsx jsx */
 import { jsx, Image, Box, Heading, Text, Flex, Link } from 'theme-ui';
+import { useRouter } from "next/router";
 
 export default function PostCard({
+  id,
   src,
   alt,
   postLink,
@@ -9,24 +11,37 @@ export default function PostCard({
   authorName,
   date,
 }) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/projects/${id}`);
+    // window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <Box sx={styles.card}>
-      <Box sx={styles.thumbnail}>
-        <Image src={src} alt={alt} />
-      </Box>
+    <Box sx={styles.card} >
+      <Link path="/">
+        <Box sx={styles.thumbnail}>
+          <Image src={src} alt={alt} />
+        </Box>
 
-      <Flex sx={styles.postContent}>
-        <Heading sx={styles.title}>
-          <Link href={postLink} variant="blog">
+        <Flex sx={styles.postContent}>
+          <Heading sx={styles.title} 
+            onClick={() => handleClick()}
+          >
+            {/* <Link href={postLink} variant="blog">
+              {title}
+            </Link> */}
             {title}
-          </Link>
-        </Heading>
+          </Heading>
 
-        <Flex sx={styles.postFooter}>
-          <Text sx={styles.postFooter.name}>{authorName}</Text>
-          <Text sx={styles.postFooter.date}>{date}</Text>
+          <Flex sx={styles.postFooter}>
+            <Text sx={styles.postFooter.name}>{authorName}</Text>
+            <Text sx={styles.postFooter.date}>{date}</Text>
+          </Flex>
         </Flex>
-      </Flex>
+      </Link>
     </Box>
   );
 }
@@ -57,12 +72,21 @@ const styles = {
     padding: ['15px 20px', '25px 30px'],
   },
   title: {
+    cursor: 'pointer',
     fontSize: [3, null, null, null, null, 4],
     color: 'heading',
     lineHeight: [1.4, 1.5],
     fontWeight: 700,
     mb: [3, 4, 5],
     pr: [0, null, null, null, 5],
+    display: 'block',
+    px: 0,
+    color: 'inherit',
+    textDecoration: 'none',
+    transition: 'color 0.25s',
+    '&:hover': {
+      color: 'primary',
+    },
   },
   postFooter: {
     width: '100%',

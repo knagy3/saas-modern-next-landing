@@ -7,6 +7,7 @@ import { DrawerContext } from '../../contexts/drawer/drawer.context';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
 import { Link } from 'react-scroll';
 import {
+  FaHome,
   FaFacebookF,
   FaTwitter,
   FaSun,
@@ -14,9 +15,11 @@ import {
   FaGlobeAmericas,
   FaMoon,
 } from 'react-icons/fa';
+import { useRouter } from "next/router";
 
 import useTranslation from '../../hooks/useTranslation';
 import menuItems from './header.data';
+import projectItems from '../projects/project.data';
 
 const social = [
   {
@@ -37,17 +40,28 @@ const features = [
 ];
 
 const MobileDrawer = () => {
+  const router = useRouter();
+  const { asPath } = useRouter();
   const { state, dispatch } = useContext(DrawerContext);
   const { setLocale, locales } = useTranslation();
   const [isEngish, setIsEngish] = useState(true);
   const [mode, setMode] = useColorMode();
-
+  const [issDefaultPath, setIsDefaultPath] = useState(true);
+  
   useEffect(() => {
     // if (typeof window === 'undefined') {
     //   return null;
     // }
     if (localStorage.getItem('lang') === "hu") setIsEngish(false);
   }, []);
+
+  useEffect(() => {
+    if (asPath.length > 5) {
+      setIsDefaultPath(false);
+    } else {
+      setIsDefaultPath(true);
+    }
+  }, [asPath]);
 
   const handleLocaleChange = (e) => {
     e.preventDefault();
@@ -79,52 +93,73 @@ const MobileDrawer = () => {
       }
       open={state.isOpen}
       toggleHandler={toggleHandler}
-      closeButton={<IoMdClose size="24px" color={(theme) => theme.colors.text} />}
+      closeButton={
+        <IoMdClose size="24px" color={(theme) => theme.colors.text} />
+      }
       // color={(theme) => theme.colors.text}
       drawerStyle={styles.drawer}
       closeBtnStyle={styles.close}
     >
       <Scrollbars autoHide>
         <Box sx={styles.content}>
-          <Box sx={styles.menu}>
-            {menuItems.map(({ path, label }, i) => (
-              <Link
-                activeClass="active"
-                to={path}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                key={i}
-              >
-                {label}
-              </Link>
-            ))}
-          </Box>
-
+          { issDefaultPath 
+            ? (<Box sx={styles.menu}>
+                {menuItems.map(({ path, label }, i) => (
+                  <Link
+                    activeClass="active"
+                    to={path}
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    key={i}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </Box>) 
+            : (<Box sx={styles.menu}>
+                {projectItems.map(({ id, name }, i) => (
+                  <Box
+                    sx={styles.link}
+                    key={i}
+                    onClick={() => router.push(`/projects/${id}`)}
+                  >
+                    {name}
+                  </Box>
+                ))}
+              </Box>)
+          }
           <Box sx={styles.menuFooter}>
             <Box sx={styles.social}>
+              <Box as="span" sx={styles.social.icon}>
+                <Box onClick={() => router.push("/")}>
+                  <FaHome/>
+                </Box>
+              </Box>
               {social.map(({ path, icon }, i) => (
                 <Box as="span" key={i} sx={styles.social.icon}>
-                  <Link to={path}>{icon}</Link>
+                  <Box >
+                    {icon}
+                  </Box>
                 </Box>
               ))}
               { mode === 'dark' 
                 ? ( <Box as="span" sx={styles.social.icon}>
-                      <Link onClick={(e) => { const next = mode === 'dark' 
+                      <Box onClick={(e) => { const next = mode === 'dark' 
                         ? 'light' : 'dark'
                         setMode(next)}}
                       >
                         <FaSun/>
-                      </Link>
+                      </Box>
                     </Box>)
                 : ( <Box as="span" sx={styles.social.icon}>
-                      <Link onClick={(e) => { const next = mode === 'dark' 
+                      <Box onClick={(e) => { const next = mode === 'dark' 
                         ? 'light' : 'dark'
                         setMode(next)}}
                       >
                         <FaMoon />
-                      </Link>
+                      </Box>
                     </Box>)}
               {features.map(({ icon }, i) => (
                 <Box as="span" key={i} sx={styles.social.icon}>
@@ -155,7 +190,7 @@ const styles = {
     width: '100%',
     height: '100%',
     backgroundColor: (theme) => theme.colors.background,
-    cursor: 'pointer',
+    // cursor: 'pointer',
   },
   close: {
     display: 'flex',
@@ -175,6 +210,21 @@ const styles = {
     pt: '100px',
     pb: '40px',
     px: '30px',
+  },
+  link: {
+    fontSize: '16px',
+    fontWeight: '500',
+    color: 'text_white',
+    py: '15px',
+    cursor: 'pointer',
+    borderBottom: '1px solid #e8e5e5',
+    transition: 'all 0.25s',
+    '&:hover': {
+      color: 'secondary',
+    },
+    '&.active': {
+      color: 'secondary',
+    },
   },
   menu: {
     width: '100%',

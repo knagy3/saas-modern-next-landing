@@ -1,10 +1,21 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Image } from 'theme-ui';
+import { useRouter } from "next/router";
 
 const GalleryCard = ({ item }) => {
+  const router = useRouter();
+
   return (
-    <Flex as="figure" sx={styles.figure}>
-      <Image loading="lazy" src={item?.image} alt={item?.title} />
+    <Flex 
+      as="figure" 
+      sx={styles.figure} 
+      onClick={() => router.push(`/projects/${item?.id}`)}
+    >
+      <Image 
+        loading="lazy" 
+        src={item?.image} 
+        alt={item?.title}
+      />
       <Box as="figcaption">{item?.title}</Box>
     </Flex>
   );

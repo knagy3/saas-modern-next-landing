@@ -73,6 +73,7 @@ export default function Faq() {
 
 const styles = {
   section: {
+    pt: [7, null, 8, null, null],
     pb: [8, null, 9, null, null],
   },
   carouselWrapper: {

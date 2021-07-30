@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ThemeProvider } from 'theme-ui';
+import { useRouter } from "next/router";
 
 import Layout from 'components/layout';
 import { StickyProvider } from 'contexts/app/app.provider';
@@ -9,13 +10,15 @@ import Details from 'components/projects/details';
 import Blog from 'sections/blog';
 import Subscription from 'sections/subscription';
 
-function Project({props}) {
+function Project({  } ) {
+    const { asPath } = useRouter();
+
     return (
         <ThemeProvider theme={theme}>
             <StickyProvider>
                 <Layout>
-                    <Banner />
-                    <Details />
+                    <Banner id={asPath.substr(-1)}/>
+                    <Details id={asPath.substr(-1)}/>
                     <Blog />
                     <Subscription />
                 </Layout>

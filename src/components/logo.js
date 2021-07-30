@@ -12,6 +12,7 @@ export default function Logo({ white }) {
       sx={{
         variant: 'links.logo',
         paddingRight: '10px',
+        cursor: 'pointer',
       }}
     >
       <Image src={white ? logoWhite : logo} alt="startup landing logo" />

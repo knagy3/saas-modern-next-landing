@@ -2,14 +2,15 @@
 import { jsx, Link as A } from 'theme-ui';
 import { Link as MenuLink } from 'react-scroll';
 import NextLink from 'next/link';
+
 export function NavLink({ path, label, children, ...rest }) {
   return (
     <MenuLink
       to={path}
       spy={true}
-      offset={-70}
+      offset={-60}
       smooth={true}
-      duration={500}
+      duration={400}
       className="nav-item"
       activeClass="active"
       {...rest}
@@ -18,6 +19,7 @@ export function NavLink({ path, label, children, ...rest }) {
     </MenuLink>
   );
 }
+
 // export function NavLink({ path, label, children, ...rest }) {
 //   return (
 //     <NextLink href={path}>
@@ -25,6 +27,7 @@ export function NavLink({ path, label, children, ...rest }) {
 //     </NextLink>
 //   );
 // }
+
 export function Link({ path, label, children, ...rest }) {
   return (
     <NextLink href={path}>

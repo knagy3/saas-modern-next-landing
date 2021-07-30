@@ -1,13 +1,14 @@
 import React from 'react'
 import { Box, Divider, Grid, Image } from 'theme-ui'
 
+import projectItems from './project.data';
+
 import Pic1 from 'assets/images/projects/1.jpg';
 import Pic2 from 'assets/images/projects/2.jpg';
 import Pic3 from 'assets/images/projects/3.jpg';
 import Pic4 from 'assets/images/projects/4.jpg';
 
-export default function Details() {
-
+export default function Details({ id }) {
     return (
         <Box sx={styles.section}>
             <Grid  width={[250, 250, 250]} sx={styles.grid}>
@@ -21,27 +22,27 @@ export default function Details() {
                     <Image src={Pic3} alt="pic3"/>
                 </Box>
             </Grid>
-            <Grid gap={0} columns={['1fr 2fr']} width={[250, 550]}  sx={styles.grid}>
+            <Grid gap={0} columns={['1fr 2fr']} width={[250, 450]}  sx={styles.grid}>
                 <Box sx={styles.heading}>
                     <Box >
                         <h2>DATE</h2>
-                        <p>April 10, 021</p>
+                        <p>{projectItems[id]?.date}</p>
                     </Box>
                     <Box >
                         <h2>CLIENT</h2>
-                        <p>Studio Massimo, Italy</p>
+                        <p>{projectItems[id]?.client}</p>
                     </Box>
                     <Box >
                         <h2>PROJECT TYPE</h2>
-                        <p>Contruction, Brading</p>
+                        <p>{projectItems[id]?.project_type}</p>
                     </Box>
                     <Box >
                         <h2>LOCATION</h2>
-                        <p>Mountain View CA 94043</p>
+                        <p>{projectItems[id]?.location}</p>
                     </Box>
                     <Box >
                         <h2>YEAR</h2>
-                        <p>2021</p>
+                        <p>{projectItems[id]?.year}</p>
                     </Box>
                 </Box>
                 <Box sx={styles.imageL} >
@@ -91,7 +92,7 @@ const styles = {
         color: (theme) => theme.colors.text,
         h2: {
             m: [0, 0],
-            fontSize: [22, 28, '32px'],
+            fontSize: [22, 28, '28px'],
             // lineHeight: 1.4,
             letterSpacing: 'heading',
         },
@@ -115,7 +116,7 @@ const styles = {
         color: (theme) => theme.colors.text,
         h2: {
             m: [0, 0],
-            fontSize: [22, 28, '32px'],
+            fontSize: [22, 28, '28px'],
             letterSpacing: 'heading',
         },
         p: {

@@ -1,19 +1,32 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Heading, Text } from 'theme-ui';
+import React, { useState } from 'react'
 
-import bannerBg from 'assets/images/banner-bg.jpg';
+import bannerBg1 from 'assets/images/projects/banners/1.jpg';
+import bannerBg2 from 'assets/images/projects/banners/2.jpg';
 import useTranslation from '../../hooks/useTranslation';
+import projectItems from './project.data';
 
-export default function Banner() {
+export default function Banner({ id }) {
   const { t } = useTranslation();
 
+  const isEven = (n) => {
+    return n % 2 == 0;
+  }
+
   return (
-    <Box as="div" sx={styles.section}>
+    <Box 
+      as="div" 
+      sx={ isEven(parseInt(id))
+        ? styles.section1 
+        : styles.section2
+      }
+    >
       <Container>
         <Box sx={styles.contentWrapper}>
           <Box sx={styles.bannerContent}>
             <Heading as="h1" sx={styles.heroTitle}>
-              {t("banner_slogan")}
+              {projectItems[id]?.slogan}
             </Heading>
             <Text as="p" sx={styles.desc}>
               {t("banner")}
@@ -26,8 +39,12 @@ export default function Banner() {
 }
 
 const styles = {
-  section: {
-    background: `url(${bannerBg}) no-repeat center top / cover`,
+  section1: {
+    background: `url(${bannerBg1}) no-repeat center top / cover`,
+    backgroundSize: ['100%', null, null, null, 'cover'],
+  },
+  section2: {
+    background: `url(${bannerBg2}) no-repeat center top / cover`,
     backgroundSize: ['100%', null, null, null, 'cover'],
   },
   contentWrapper: {
@@ -65,17 +82,17 @@ const styles = {
   },
   heroTitle: {
     justifyContent: 'center',
-    fontSize: [22, 28, 28, 40, , 5, 6],
+    fontSize: [22, 28, 28, 32, 36, 36],
     fontWeight: 700,
     letterSpacing: 'heading',
-    lineHeight: [1.4, null, null, null, null, null, 1.57],
+    lineHeight: [1.1, null, null, null, null, null, 1.2],
     '@media only screen and (min-height: 720px) and (max-height: 760px), (min-width: 1501px) and (max-width: 1560px) ': {
       fontSize: 22,
     },
   },
   desc: {
     fontSize: [15, 16, 15, 20],
-    lineHeight: [1.53, 1.53, 1.53, 2, 2.4, 2, 2.48],
+    lineHeight: [1.53, 1.53, 1.53, 2, 2, 2, 2],
     maxWidth: 440,
     marginTop: [15, 15, 15, null, null, null, 20],
     '@media only screen and (min-height: 720px) and (max-height: 760px), (min-width: 1501px) and (max-width: 1560px) ': {

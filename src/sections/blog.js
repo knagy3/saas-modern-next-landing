@@ -106,6 +106,7 @@ export default function Blog() {
             {data.map((item) => (
               <PostCard
                 key={item.id}
+                id={item.id}
                 src={item.imgSrc}
                 alt={item.altText}
                 postLink={item.postLink}
