@@ -6,9 +6,12 @@ import SectionHeading from 'components/section-heading';
 import Progressbar from 'components/progressbar';
 import Feature from 'components/cards/feature';
 import Image from 'components/image';
-import expand from 'assets/images/icons/expand.png';
-import users from 'assets/images/icons/users.png';
-import wifi from 'assets/images/icons/wifi.png';
+import {
+  FaWifi,
+  FaExpand,
+  FaUsers
+} from 'react-icons/fa';
+
 import slider1 from 'assets/images/features/1.png';
 import slider2 from 'assets/images/features/2.webp';
 import slider3 from 'assets/images/features/3.png';
@@ -23,19 +26,21 @@ const data = {
   feature: [
     {
       id: 1,
-      icon: expand,
+      icon: <FaExpand/>,
+      // icon: expand,
       title: '1000 ft2',
       description: 'you will get 1000ft square space facility here.',
     },
     {
       id: 2,
-      icon: users,
+      icon: <FaUsers/>,
+      // icon: users,
       title: '80 Members',
       description: 'you will get advantage to live 80+ member here.',
     },
     {
       id: 3,
-      icon: wifi,
+      icon: <FaWifi/>,
       title: '100 mbps',
       description: 'Internet speed is much better than others.',
     },

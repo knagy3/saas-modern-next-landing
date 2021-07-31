@@ -6,28 +6,58 @@ import 'react-multi-carousel/lib/styles.css';
 import 'rc-drawer/assets/index.css';
 import 'typeface-dm-sans';
 import 'react-modal-video/css/modal-video.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import '../assets/css/video.css';
+
 import { useRouter } from "next/router";
 
 import { initGA, logPageView } from 'analytics';
 import { LanguageProvider } from '../contexts/LanguageContext';
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function CustomApp({ Component, pageProps }) {
   const { pathname } = useRouter();
+  const router= useRouter();
+
+  // const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+  const transition = { duration: 0.7 };
+  const frameVariants = {
+    pageInitial: {
+      opacity: 0, 
+      // scale: 0.9, opacity: 0, 
+    },
+    pageAnimate: {
+      opacity: 1, transition
+      // scale: 1, opacity: 1, transition,
+    },
+    // enter: { scale: 1, opacity: 1, transition },
+    pageExit: {
+      // scale: 0.5,
+      opacity: 0,
+      transition: { duration: 1 }
+    }
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
 
-  useEffect(() => {
-    initGA();
-    logPageView();
-    Router.events.on('routeChangeComplete', logPageView);
-  }, []);
+  // useEffect(() => {
+  //   initGA();
+  //   logPageView();
+  //   Router.events.on('routeChangeComplete', logPageView);
+  // }, []);
 
   return (
     <LanguageProvider>
-      <Component {...pageProps} />
+      <AnimatePresence >
+        <motion.div key={router.route} 
+          initial="pageInitial" animate="pageAnimate" exit="pageExit" 
+          variants={frameVariants}
+        >
+          <Component {...pageProps} />
+        </motion.div>
+      </AnimatePresence>
     </LanguageProvider>
   ); 
 }

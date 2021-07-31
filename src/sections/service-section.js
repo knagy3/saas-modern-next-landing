@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 /** @jsx jsx */
 import {
   jsx,
@@ -10,15 +9,21 @@ import {
   Button,
   Image,
 } from 'theme-ui';
+import { useEffect, useState } from 'react';
 import { keyframes } from '@emotion/core';
 import TextFeature from 'components/text-feature';
 import { IoIosPlay } from 'react-icons/io';
-
+import { buildUrl } from 'cloudinary-build-url'
+import { IconContext } from "react-icons";
+import { useColorMode } from 'theme-ui';
 import DynamicComponent from 'components/DynamicComponent';
 import ServiceThumb from 'assets/images/service-thumb.png';
+import {
+  FaCrown,
+  FaBriefcase,
+} from 'react-icons/fa';
 
-import Smart from 'assets/images/services/smart.svg';
-import Secure from 'assets/images/services/secure.svg';
+import colors from '../theme/index';
 
 const data = {
   subTitle: 'our services',
@@ -26,7 +31,7 @@ const data = {
   features: [
     {
       id: 1,
-      imgSrc: Smart,
+      icon: <FaCrown/>,
       altText: 'Smart Features',
       title: 'Smart Features',
       text:
@@ -34,7 +39,7 @@ const data = {
     },
     {
       id: 2,
-      imgSrc: Secure,
+      icon: <FaBriefcase/>,
       altText: 'Secure Contents',
       title: 'Secure Contents',
       text:
@@ -44,18 +49,36 @@ const data = {
 };
 
 export default function ServiceSection() {
+  const [ mode ] = useColorMode();
+  const [colorPrim, setColorPrim] = useState('');
   // modal popup video handler
   const [videoOpen, setVideoOpen] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
     setVideoOpen(true);
   };
+  const url = buildUrl('service/service-thumb_tp65iy', {
+    cloud: {
+      cloudName: 'daki'
+    }
+  });
+
+  useEffect(() => {
+    if( mode === 'dark' ) {
+      setColorPrim(colors.colors.modes.dark.primary);
+    } else {
+      setColorPrim(colors.colors.primary);
+    }
+  }, [mode])
 
   return (
     <Box id="service" as="section" sx={styles.section}>
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-          <Image src={ServiceThumb} alt="Thumbnail" />
+          <Image 
+            src={url}
+            alt="Thumbnail" 
+          />
           <Button
             variant="primaryMd"
             sx={styles.videoBtn}
@@ -71,10 +94,16 @@ export default function ServiceSection() {
           <TextFeature subTitle={data.subTitle} title={data.title} />
 
           <Grid sx={styles.grid}>
-            {data.features.map((item) => (
+            {data?.features?.map((item) => (
               <Box sx={styles.card} key={item.id}>
-                <Image src={item.imgSrc} alt={item.altText} sx={styles.icon} />
-
+                {/* <Image src={item.imgSrc} alt={item.altText} sx={styles.icon} /> */}
+                <IconContext.Provider
+                  value={{ color: colorPrim, size: '50px' }}
+                >
+                  <Box sx={styles.icon}>
+                    {item.icon}
+                  </Box>
+                </IconContext.Provider>
                 <Box sx={styles.wrapper}>
                   <Heading sx={styles.wrapper.title}>{item.title}</Heading>
                   <Text sx={styles.wrapper.subTitle}>{item.text}</Text>

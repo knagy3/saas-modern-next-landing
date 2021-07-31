@@ -39,7 +39,7 @@ const features = [
   },
 ];
 
-const MobileDrawer = () => {
+const MobileDrawer = ({ setUrl }) => {
   const router = useRouter();
   const { asPath } = useRouter();
   const { state, dispatch } = useContext(DrawerContext);
@@ -123,7 +123,10 @@ const MobileDrawer = () => {
                   <Box
                     sx={styles.link}
                     key={i}
-                    onClick={() => router.push(`/projects/${id}`)}
+                    onClick={() => { 
+                      router.push(`/projects/${id}`);
+                      setUrl(`/projects/${id}`);
+                  }}
                   >
                     {name}
                   </Box>
@@ -239,10 +242,10 @@ const styles = {
       borderBottom: '1px solid #e8e5e5',
       transition: 'all 0.25s',
       '&:hover': {
-        color: 'secondary',
+        color: (theme) => theme.colors.primary,
       },
       '&.active': {
-        color: 'secondary',
+        color: (theme) => theme.colors.primary,
       },
     },
   },
@@ -271,7 +274,7 @@ const styles = {
         mr: '0',
       },
       '&:hover': {
-        color: 'secondary',
+        color: (theme) => theme.colors.primary,
       },
     },
   },

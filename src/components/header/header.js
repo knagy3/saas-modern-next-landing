@@ -11,7 +11,7 @@ import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
-export default function Header({ className }) {
+export default function Header({ className, setUrl }) {
   const [issDefaultPath, setIsDefaultPath] = useState(true);
   const [mode] = useColorMode();
   const color = mode !== 'light';
@@ -54,7 +54,7 @@ export default function Header({ className }) {
           >
             Get Started
           </Button> */}
-          <MobileDrawer />
+          <MobileDrawer setUrl={setUrl}/>
         </Container>
       </header>
     </DrawerProvider>

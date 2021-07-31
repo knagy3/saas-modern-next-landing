@@ -1,12 +1,22 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Container, Input, Button } from 'theme-ui';
 import SectionHeading from 'components/section-heading';
+import { ToastContainer, toast } from 'react-toastify';
+import { useColorMode } from 'theme-ui';
 
 const Subscription = () => {
+  const [ mode ] = useColorMode();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Submitted...`);
+
+    if (mode === 'dark') {
+      toast("We will contact you soon!");
+    } else {
+      toast.dark("We will contact you soon!");
+    }
   };
+
   return (
     <Box id="contact" as="section" sx={styles.section}>
       <Container>
@@ -24,6 +34,14 @@ const Subscription = () => {
             <Button variant="white">Contact us</Button>
           </Flex>
         </Box>
+        <ToastContainer
+          style={{ color: 'black' }} 
+          position="top-center"
+          autoClose={40000}
+          hideProgressBar
+          closeOnClick
+          pauseOnHover
+        />
       </Container>
     </Box>
   );

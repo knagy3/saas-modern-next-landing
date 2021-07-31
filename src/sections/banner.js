@@ -1,24 +1,39 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Heading, Text } from 'theme-ui';
+import { motion } from "framer-motion";
 
 import bannerBg from 'assets/images/banner-bg.jpg';
 import useTranslation from '../hooks/useTranslation';
 
 export default function Banner() {
   const { t } = useTranslation();
-
+  
+  
   return (
     <Box as="section" id="home" sx={styles.section}>
       <Container>
         <Box sx={styles.contentWrapper}>
-          <Box sx={styles.bannerContent}>
+          <motion.div
+            animate={{
+              scale: [1, 2, 2, 1, 1],
+              rotate: [0, 0, 270, 270, 0],
+              // borderRadius: ["20%", "20%", "50%", "50%", "20%"]
+            }}
+            transition={{
+              delay: 2,
+              duration: 2,
+              ease: "easeInOut",
+              times: [0, 0.2, 0.5, 0.8, 1]
+            }}
+            sx={styles.bannerContent}
+          >
             <Heading as="h1" sx={styles.heroTitle}>
               {t("banner_slogan")}
             </Heading>
             <Text as="p" sx={styles.desc}>
               {t("banner")}
             </Text>
-          </Box>
+          </motion.div>
         </Box>
       </Container>
     </Box>
@@ -65,12 +80,12 @@ const styles = {
   },
   heroTitle: {
     justifyContent: 'center',
-    fontSize: [22, 28, 28, 40, , 5, 6],
+    fontSize: [22, 28, 28, 32, 36, 36],
     fontWeight: 700,
     letterSpacing: 'heading',
-    lineHeight: [1.4, null, null, null, null, null, 1.57],
+    lineHeight: [1.4, 1.57],
     '@media only screen and (min-height: 720px) and (max-height: 760px), (min-width: 1501px) and (max-width: 1560px) ': {
-      fontSize: 40,
+      fontSize: [28, 40],
     },
   },
   desc: {

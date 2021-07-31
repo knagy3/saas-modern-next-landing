@@ -7,45 +7,7 @@ import SectionHeading from 'components/section-heading';
 import GalleryCard from 'components/cards/gallery-card';
 import { useRouter } from "next/router";
 
-import gallery1 from 'assets/images/gallery/1.png';
-import gallery2 from 'assets/images/gallery/2.png';
-import gallery3 from 'assets/images/gallery/3.png';
-import gallery4 from 'assets/images/gallery/4.png';
-import gallery5 from 'assets/images/gallery/5.png';
-import gallery6 from 'assets/images/gallery/6.png';
-
-const data = [
-  {
-    id: 1,
-    image: gallery1,
-    title: 'Front working space',
-  },
-  {
-    id: 2,
-    image: gallery2,
-    title: 'Meeting corner',
-  },
-  {
-    id: 3,
-    image: gallery3,
-    title: 'Guest meeting room',
-  },
-  {
-    id: 4,
-    image: gallery4,
-    title: 'Guest rest room',
-  },
-  {
-    id: 6,
-    image: gallery6,
-    title: 'Kitchen room',
-  },
-  {
-    id: 5,
-    image: gallery5,
-    title: 'Single working space',
-  },
-];
+import projectItems from '../components/projects/project.data';
 
 const masonryOptions = {
   transitionDuration: 0,
@@ -63,12 +25,12 @@ const Gallery = () => {
           title="Let’s meet our interior room decoration"
         />
         <Box as={Masonry} options={masonryOptions} sx={styles.galleryWrapper}>
-          {data?.map((item) => (
+          {projectItems?.map((item) => (
             <GalleryCard key={item.id} item={item} />
           ))}
         </Box>
         <Button 
-          variant="muted" 
+          variant="muted_2" 
           sx={styles.button}
           onClick={() => router.push("/projects/1")}
         >

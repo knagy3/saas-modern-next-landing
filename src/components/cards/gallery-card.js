@@ -14,9 +14,9 @@ const GalleryCard = ({ item }) => {
       <Image 
         loading="lazy" 
         src={item?.image} 
-        alt={item?.title}
+        alt={item?.name}
       />
-      <Box as="figcaption">{item?.title}</Box>
+      <Box as="figcaption">{item?.name}</Box>
     </Flex>
   );
 };
@@ -25,6 +25,7 @@ export default GalleryCard;
 
 const styles = {
   figure: {
+    cursor: 'pointer', 
     borderRadius: 5,
     position: 'relative',
     overflow: 'hidden',
@@ -61,7 +62,7 @@ const styles = {
       },
     },
     figcaption: {
-      color: '#fff',
+      color: (theme) => theme.colors.primary,
       position: 'absolute',
       fontWeight: 700,
       fontSize: 18,

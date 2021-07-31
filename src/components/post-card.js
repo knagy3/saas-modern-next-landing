@@ -10,11 +10,13 @@ export default function PostCard({
   title,
   authorName,
   date,
+  setUrl
 }) {
   const router = useRouter();
 
   const handleClick = () => {
     router.push(`/projects/${id}`);
+    setUrl(`/projects/${id}`);
     // window.scrollTo(0, 0);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
