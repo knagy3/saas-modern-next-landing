@@ -17,7 +17,7 @@ export default [
   },
   {
     path: 'gallery',
-    label: 'Gallery',
+    label: 'Projects',
   },
   {
     path: 'numbers',

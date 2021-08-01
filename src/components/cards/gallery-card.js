@@ -13,7 +13,7 @@ const GalleryCard = ({ item }) => {
     >
       <Image 
         loading="lazy" 
-        src={item?.image} 
+        src={item?.homeImage} 
         alt={item?.name}
       />
       <Box as="figcaption">{item?.name}</Box>

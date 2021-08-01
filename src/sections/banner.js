@@ -8,7 +8,6 @@ import useTranslation from '../hooks/useTranslation';
 export default function Banner() {
   const { t } = useTranslation();
   
-  
   return (
     <Box as="section" id="home" sx={styles.section}>
       <Container>
@@ -89,8 +88,8 @@ const styles = {
     },
   },
   desc: {
-    fontSize: [15, 16, 15, 17],
-    lineHeight: [1.53, 1.53, 1.53, 2, 2.4, 2, 2.48],
+    fontSize: [15, 16, 15, 17, 19],
+    lineHeight: [1.53, 1.53, 1.53, 2, 2, 2,],
     maxWidth: 440,
     marginTop: [15, 15, 15, null, null, null, 30],
     '@media only screen and (min-height: 720px) and (max-height: 760px), (min-width: 1501px) and (max-width: 1560px) ': {

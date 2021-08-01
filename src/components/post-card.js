@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx, Image, Box, Heading, Text, Flex, Link } from 'theme-ui';
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 export default function PostCard({
   id,
@@ -22,7 +23,11 @@ export default function PostCard({
   };
 
   return (
-    <Box sx={styles.card} >
+    <motion.div 
+      whileHover={{ scale: 1.05 }} 
+      whileTap={{ scale: 0.8 }} 
+      sx={styles.card} 
+    >
       <Link path="/">
         <Box sx={styles.thumbnail}>
           <Image src={src} alt={alt} />
@@ -44,7 +49,7 @@ export default function PostCard({
           </Flex>
         </Flex>
       </Link>
-    </Box>
+    </motion.div>
   );
 }
 

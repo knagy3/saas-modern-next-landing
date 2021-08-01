@@ -5,7 +5,7 @@ import { IconContext } from "react-icons";
 import { useColorMode } from 'theme-ui';
 import { useEffect, useState } from 'react';
 
-import colors from '../../theme/index'
+import colors from '../../theme/index';
 
 const Feature = ({ data: feature }) => {
   const [ mode ] = useColorMode();

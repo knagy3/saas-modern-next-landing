@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import Router from 'next/router';
+// import Router from 'next/router';
+import 'react-image-lightbox/style.css';
 import 'swiper/swiper-bundle.min.css';
 import 'assets/css/slick.min.css';
 import 'react-multi-carousel/lib/styles.css';
@@ -8,6 +9,7 @@ import 'typeface-dm-sans';
 import 'react-modal-video/css/modal-video.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '../assets/css/video.css';
+
 
 import { useRouter } from "next/router";
 

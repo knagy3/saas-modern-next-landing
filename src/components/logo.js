@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Image } from 'theme-ui';
 import { Link } from 'components/link';
-import logo from 'assets/images/logo.png';
+import logo from 'assets/images/logo.svg';
 import logoWhite from 'assets/images/logo-white.png';
 // import LogoDark from 'assets/images/logo.svg';
 

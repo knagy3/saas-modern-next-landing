@@ -14,7 +14,7 @@ export default function DynamicComponent({ videoOpen, setVideoOpen }) {
         style={{width:'100%'}}
         channel="youtube"
         isOpen={videoOpen}
-        videoId="ZNA9rmDsYVE"
+        videoId="U1HhcXjAkRc"
         onClose={() => setVideoOpen(false)}
       />
     </Box>

@@ -1,20 +1,87 @@
 export const LangStrings = {
   en: {
-    about: 'About',
-    aboutText:
-      'Site feito para mostrar a criação de um site bilíngue utilizando o Next.js. O tutorial está em um artigo do meu blog. Fique a vontade para ver o código-fonte, fazer um fork, ou até usá-lo em seus projetos.',
-    articles: 'Articles',
-    home: 'Home',
     banner_slogan: 'Coworking space that will feel like home',
-    banner: 'Whether you’re an established enterprise or a growing startup, discover spaces that inspire which will best your most impactful work.'
+    banner: 'Whether you’re an established enterprise or a growing startup, discover spaces that inspire which will best your most impactful work.',
+    projects_0_slogan: 'Helping you and your house become better acquainted',
+    projects_0_project_type: 'Contruction',
+    projects_0_header: 'Creating a sustainable future through building preservation, green architecture and smart design',
+    projects_0_p1: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+    projects_0_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+  
+    projects_1_slogan: 'Helping you and your house become better acquainted',
+    projects_1_project_type: 'Contruction',
+    projects_1_header: 'Creating a sustainable future through building preservation, green architecture and smart design',
+    projects_1_p1: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+    projects_1_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+  
+    projects_2_slogan: 'Helping you and your house become better acquainted',
+    projects_2_project_type: 'Contruction',
+    projects_2_header: 'Creating a sustainable future through building preservation, green architecture and smart design',
+    projects_2_p1: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+    projects_2_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+  
+    projects_3_slogan: 'Helping you and your house become better acquainted',
+    projects_3_project_type: 'Contruction',
+    projects_3_header: 'Creating a sustainable future through building preservation, green architecture and smart design',
+    projects_3_p1: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+    projects_3_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+  
+    projects_4_slogan: 'Helping you and your house become better acquainted',
+    projects_4_project_type: 'Contruction',
+    projects_4_header: 'Creating a sustainable future through building preservation, green architecture and smart design',
+    projects_4_p1: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+    projects_4_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+  
+    projects_5_slogan: 'Helping you and your house become better acquainted',
+    projects_5_project_type: 'Contruction',
+    projects_5_header: 'Creating a sustainable future through building preservation, green architecture and smart design',
+    projects_5_p1: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
+    projects_5_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
   },
   hu: {
-    about: 'Sobre',
-    aboutText:
-      'Site made to showcase the creation of a bilingual website using Next.js. The tutorial is in an article on my blog. Feel free to view the source code, fork it, or even use it in your projects.',
-    articles: 'Artigos',
-    home: 'Início',
     banner_slogan: 'Munkahely ahol otthon erezheti magat',
-    banner: 'Legyen Ön már bejegyzett vállalkozás vagy növekvő induló vállalkozás, fedezze fel azokat a tereket, amelyek inspirálják a legjobban a leghatékonyabb munkát.'
+    banner: 'Legyen Ön már bejegyzett vállalkozás vagy növekvő induló vállalkozás, fedezze fel azokat a tereket, amelyek inspirálják a legjobban a leghatékonyabb munkát.',
+    projects_0_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_0_project_type: 'Építkezés',
+    projects_0_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_0_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_0_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    
+    projects_0_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_0_project_type: 'Építkezés',
+    projects_0_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_0_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_0_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+  
+    projects_1_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_1_project_type: 'Építkezés',
+    projects_1_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_1_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_1_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+  
+    projects_2_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_2_project_type: 'Építkezés',
+    projects_2_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_2_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_2_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+  
+    projects_3_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_3_project_type: 'Építkezés',
+    projects_3_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_3_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_3_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+  
+    projects_4_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_4_project_type: 'Építkezés',
+    projects_4_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_4_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_4_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+  
+    projects_5_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
+    projects_5_project_type: 'Építkezés',
+    projects_5_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',
+    projects_5_p1: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+    projects_5_p2: 'A tervezők szörnyűnek tartanak mindent, amit valaki más tett, és hogy ők maguk is jobban meg tudnák csinálni, ami megmagyarázza, miért terveztem saját nappali szőnyeget. az építész sem dionüszoszi, sem apollinai állapotot nem képvisel: itt az akarat hatalmas cselekedete, az akarat mozgatja a hegyeket, az erős akarat mámorosa, amely művészi kifejezést követel.',
+  
   },
 };

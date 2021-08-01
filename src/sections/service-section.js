@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import { keyframes } from '@emotion/core';
 import TextFeature from 'components/text-feature';
 import { IoIosPlay } from 'react-icons/io';
-import { buildUrl } from 'cloudinary-build-url'
+import { buildUrl } from 'cloudinary-build-url';
 import { IconContext } from "react-icons";
 import { useColorMode } from 'theme-ui';
 import DynamicComponent from 'components/DynamicComponent';

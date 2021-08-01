@@ -223,10 +223,10 @@ const styles = {
     borderBottom: '1px solid #e8e5e5',
     transition: 'all 0.25s',
     '&:hover': {
-      color: 'secondary',
+      color: (theme) => theme.colors.primary,
     },
     '&.active': {
-      color: 'secondary',
+      color: (theme) => theme.colors.primary,
     },
   },
   menu: {

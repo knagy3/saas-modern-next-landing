@@ -2,25 +2,19 @@
 import { jsx, Box, Container, Heading, Text } from 'theme-ui';
 import { motion } from "framer-motion";
 
-import bannerBg1 from 'assets/images/projects/banners/1.jpg';
-import bannerBg2 from 'assets/images/projects/banners/2.jpg';
 import useTranslation from '../../hooks/useTranslation';
 import projectItems from './project.data';
 
 export default function Banner({ id }) {
   const { t } = useTranslation();
 
-  const isEven = (n) => {
-    return n % 2 == 0;
-  }
-
   return (
     <Box 
       as="div" 
-      sx={ isEven(parseInt(id))
-        ? styles.section1 
-        : styles.section2
-      }
+      sx={{ 
+        background: `url(${projectItems[id]?.bannerImg}) no-repeat center top / cover`,
+        backgroundSize: ['100%', null, null, null, 'cover'],
+      }}
     >
       <Container>
         <Box sx={styles.contentWrapper}>
@@ -39,7 +33,7 @@ export default function Banner({ id }) {
             sx={styles.bannerContent}
           >
             <Heading as="h1" sx={styles.heroTitle}>
-              {projectItems[id]?.slogan}
+              {t(`projects_${id}_slogan`)}
             </Heading>
             <Text as="p" sx={styles.desc}>
               -{" "}{projectItems[id]?.name}
@@ -52,14 +46,10 @@ export default function Banner({ id }) {
 }
 
 const styles = {
-  section1: {
-    background: `url(${bannerBg1}) no-repeat center top / cover`,
-    backgroundSize: ['100%', null, null, null, 'cover'],
-  },
-  section2: {
-    background: `url(${bannerBg2}) no-repeat center top / cover`,
-    backgroundSize: ['100%', null, null, null, 'cover'],
-  },
+  // section: {
+  //   background: `url(${bannerBg1}) no-repeat center top / cover`,
+  //   backgroundSize: ['100%', null, null, null, 'cover'],
+  // },
   contentWrapper: {
     display: 'flex',
     alignItems: 'center',
