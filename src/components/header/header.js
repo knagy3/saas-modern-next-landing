@@ -3,7 +3,6 @@ import { jsx, Container, Flex, Button } from 'theme-ui';
 import React, { useState, useEffect } from 'react';
 import { keyframes } from '@emotion/core';
 import { Link } from 'react-scroll';
-import { useColorMode } from 'theme-ui';
 import { useRouter } from "next/router";
 
 import Logo from 'components/logo';
@@ -13,8 +12,6 @@ import menuItems from './header.data';
 
 export default function Header({ className, setUrl }) {
   const [issDefaultPath, setIsDefaultPath] = useState(true);
-  const [mode] = useColorMode();
-  const color = mode !== 'light';
   const { asPath } = useRouter();
 
   useEffect(() => {
@@ -29,7 +26,7 @@ export default function Header({ className, setUrl }) {
     <DrawerProvider>
       <header sx={styles.header} className={className} id="header">
         <Container sx={styles.container}>
-          <Logo white={color} />
+          <Logo header={true}/>
           { issDefaultPath &&
             <Flex as="nav" sx={styles.nav}>
               {menuItems.map(({ path, label }, i) => (
