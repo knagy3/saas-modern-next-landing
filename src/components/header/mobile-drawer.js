@@ -52,7 +52,11 @@ const MobileDrawer = ({ setUrl }) => {
     // if (typeof window === 'undefined') {
     //   return null;
     // }
-    if (localStorage.getItem('lang') === "hu") setIsEngish(false);
+    if (localStorage.getItem('lang') === "en") {
+      setIsEngish(true);
+    } else {
+      setIsEngish(false);
+    }
   }, []);
 
   useEffect(() => {
