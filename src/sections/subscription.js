@@ -3,17 +3,56 @@ import { jsx, Box, Flex, Container, Input, Button } from 'theme-ui';
 import SectionHeading from 'components/section-heading';
 import { ToastContainer, toast } from 'react-toastify';
 import { useColorMode } from 'theme-ui';
+import emailjs, { init } from 'emailjs-com';
+import { useEffect, useRef, useState } from 'react';
 
 const Subscription = () => {
   const [ mode ] = useColorMode();
+  const emailRef = useRef();
+  const [template, setTemplate] = useState(true);
+
+  useEffect(() => {
+    init("user_wRxlWz2LJqPGZl452bdTJ");
+  }, []);
+
+  const sendEmail = () => {
+    const templateParams = {
+      to_email: emailRef.current.value,
+    };
+    // emailjs.send(serviceID, templateID, templateParams, userID);
+    emailjs.send(
+      'service_6o2sfwg', 
+      template, 
+      templateParams, 
+      'user_wRxlWz2LJqPGZl452bdTJ')
+      .then((result) => {
+
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
+  function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (mode === 'dark') {
-      toast("We will contact you soon!");
+    if (localStorage.getItem('lang') === "en") {
+      setTemplate('template_0wudgxp');
     } else {
-      toast.dark("We will contact you soon!");
+      setTemplate('template_fd27i38');
+    }
+
+    if (validateEmail(emailRef.current.value)) {
+      if (mode === 'dark') {
+        toast("We will contact you soon!");
+      } else {
+        toast.dark("We will contact you soon!");
+      }
+      sendEmail();
     }
   };
 
@@ -30,14 +69,14 @@ const Subscription = () => {
             <Box as="label" htmlFor="email" variant="styles.srOnly">
               Email
             </Box>
-            <Input type="email" id="email" placeholder="Enter your email" />
+            <Input type="email" id="email" ref={emailRef} placeholder="Enter your email" />
             <Button variant="white">Contact us</Button>
           </Flex>
         </Box>
         <ToastContainer
           style={{ color: 'black' }} 
           position="top-center"
-          autoClose={40000}
+          autoClose={5000}
           hideProgressBar
           closeOnClick
           pauseOnHover
