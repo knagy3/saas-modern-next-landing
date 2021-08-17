@@ -2,7 +2,7 @@
 import { jsx, Box, Button, Container, Image } from 'theme-ui';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import Slider from 'react-slick';
-import SectionHeading from 'components/section-heading';
+import SectionHeader from 'components/section-header';
 import uber from 'assets/images/clients/uber.png';
 import google from 'assets/images/clients/google.png';
 import paypal from 'assets/images/clients/paypal.png';
@@ -95,9 +95,9 @@ const Clients = () => {
   return (
     <Box id="clients" as="section" sx={styles.section}>
       <Container>
-        <SectionHeading
+        <SectionHeader
           slogan="Meet Our Clients"
-          title="This guys are using our service and they're more than happier ever."
+          title="Our reputation is as solid as concrete"
         />
         <Slider sx={styles.clients} {...settings}>
           {clients?.map((client) => (
@@ -122,7 +122,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    pt: [0, 0, 25, 25, 25, 6],
+    pt: [0, 0, 15, 15, 15, 3],
     '&.slick-slider': {
       marginBottom: '40px',
     },

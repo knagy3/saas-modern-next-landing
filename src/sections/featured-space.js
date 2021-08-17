@@ -114,14 +114,21 @@ const FeaturedSpace = () => {
           <Box sx={styles.leftContent}>
             <SectionHeading
               sx={styles.heading}
-              title="Some good place to where can build your startup business"
-              description="Co-working offers beautifully crafted workspaces where people can create, connect, and grow their businesses at prime locations in multiple cities."
+              title="In our work we have pride, quality is what we provide"
+              description="Our staff are well-trained, helpful, purposeful professionals with good
+              problem-solving skills. They have a high load capacity and several years of professional
+              experience."
             />
-            <Box sx={styles.featureWrapper}>
+            <SectionHeading
+              sx={styles.heading2}
+              description="The technical management is performed by our civil engineers and foremen with many years
+              of domestic and international professional experience."
+            />
+            {/* <Box sx={styles.featureWrapper}>
               {data?.feature?.map((feature) => (
                 <Feature key={feature.id} data={feature} />
               ))}
-            </Box>
+            </Box> */}
           </Box>
           <Box sx={styles.rightContent}>
             <Progressbar
@@ -179,7 +186,7 @@ const styles = {
   heading: {
     textAlign: ['center', null, null, null, 'left'],
     maxWidth: 490,
-    margin: ['0 auto 40px', null, null, null, '0 0 80px'],
+    margin: ['0 auto 10px', null, null, null, '0 0 40px'],
     h2: {
       fontSize: [22, null, null, 30, null, 36, 46],
       lineHeight: [1.6, null, null, 1.41],
@@ -188,6 +195,20 @@ const styles = {
     p: {
       fontSize: ['15px', null, null, '17px'],
       mt: [3, null, null, 5],
+    },
+  },
+  heading2: {
+    textAlign: ['center', null, null, null, 'left'],
+    maxWidth: 490,
+    margin: ['0 auto 40px', null, null, null, '0 0 80px'],
+    h2: {
+      fontSize: [22, null, null, 30, null, 36, 46],
+      lineHeight: [1.6, null, null, 1.41],
+      fontWeight: [500, null, null, 400],
+    },
+    p: {
+      fontSize: ['15px', null, null, '17px'],
+      mt: [1, null, null, 2],
     },
   },
   featureWrapper: {

@@ -2,50 +2,56 @@
 import { Fragment } from 'react';
 import { jsx, Box, Container, Grid } from 'theme-ui';
 import TrackVisibility from 'react-on-screen';
-import SectionHeading from 'components/section-heading';
+// import SectionHeading from 'components/section-heading';
 import StatItem from 'components/cards/stat-item';
-
+import { FaExpand, FaUsers } from 'react-icons/fa';
+import { GiConcreteBag, GiMetalBar } from "react-icons/gi";
+import SectionHeader from 'components/section-header';
 
 const data = {
   stats: [
     {
       id: 1,
-      value: 254,
+      icon: <FaUsers/>,
+      value: 62,
       suffix: '',
-      title: 'Successful Project',
+      title: 'people is employed per year',
     },
     {
       id: 2,
-      value: 3783,
-      suffix: '',
-      title: 'People Impacted',
+      icon: <GiConcreteBag/>,
+      value: 3220,
+      suffix: ' m2',
+      title: 'of concrete are processed per year',
     },
     {
       id: 3,
-      value: 8,
-      suffix: 'M',
-      title: 'Money Donated',
+      icon: <GiMetalBar/>,
+      value: 1250,
+      suffix: ' tons',
+      title: 'of rebar are installed per year',
     },
     {
       id: 4,
-      value: 60,
-      suffix: '+',
-      title: 'Volunteer Involved',
+      icon: <FaExpand/>,
+      value: 5250,
+      suffix: ' m2',
+      title: 'of shutter are installed per year',
     },
   ],
 };
 
-const Services = () => {
+const Numbers = () => {
   return (
     <Box as="section" id="numbers" sx={styles.section}>
       <Container>
-        <SectionHeading
-          slogan="Service we work for"
-          title="What care we do for your family"
+        <SectionHeader
+          slogan="Our Services"
+          title="Our everyday lives in numbers"
         />
         <Grid sx={styles.statsGrid}>
           {data.stats.map((stat) => (
-            <TrackVisibility key={stat.id} once>
+            <TrackVisibility key={stat.id} once >
               <StatItem stat={stat} />
             </TrackVisibility>
           ))}
@@ -55,7 +61,7 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Numbers;
 
 const styles = {
   section: {

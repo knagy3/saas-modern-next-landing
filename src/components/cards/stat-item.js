@@ -1,10 +1,31 @@
 /** @jsx jsx */
 import CountUp from 'react-countup';
 import { jsx, Box, Text } from 'theme-ui';
+import { IconContext } from "react-icons";
+import { useColorMode } from 'theme-ui';
+import { useEffect, useState } from 'react';
+
+import colors from '../../theme/index';
 
 const StatItem = ({ stat, isVisible }) => {
+  const [ mode ] = useColorMode();
+  const [colorPrim, setColorPrim] = useState('');
+
+  useEffect(() => {
+    if( mode === 'dark' ) {
+      setColorPrim(colors.colors.modes.dark.primary);
+    } else {
+      setColorPrim(colors.colors.primary);
+    }
+  }, [mode])
+
   return (
     <Box sx={styles.item}>
+      <IconContext.Provider
+        value={{ color: colorPrim ,size: '70px' }}
+      >
+        {stat.icon}
+      </IconContext.Provider>
       <Text sx={styles.value}>
         {isVisible && <CountUp end={stat.value} suffix={stat.suffix} />}
       </Text>

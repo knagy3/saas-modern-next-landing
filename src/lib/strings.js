@@ -39,8 +39,8 @@ export const LangStrings = {
     projects_5_p2: 'Designers think everything done by someone else is awful, and that they could do it better themselves, which explains why I designed my own living room carpet, I suppose. the architect represents neither a Dionysian nor an Apollinian condition: here it is the mighty act of will, the will which moves mountains, the intoxication of the strong will, which demands artistic expression.',
   },
   hu: {
-    banner_slogan: 'Munkahely ahol otthon erezheti magat',
-    banner: 'Legyen Ön már bejegyzett vállalkozás vagy növekvő induló vállalkozás, fedezze fel azokat a tereket, amelyek inspirálják a legjobban a leghatékonyabb munkát.',
+    banner_slogan: 'A mi szenvedélyünk a beton',
+    banner: 'Dinamikusan fejlődő vállalatként működünk az építőipari piacon. Szerkezetépítőként számos beruházás meghatározó szereplőjévé váltunk az évek során az ország egész területén.',
     projects_0_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
     projects_0_project_type: 'Építkezés',
     projects_0_header: 'Fenntartható jövő megteremtése az épületek megőrzése, a zöld építészet és az intelligens tervezés révén',

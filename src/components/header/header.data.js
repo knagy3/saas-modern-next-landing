@@ -4,24 +4,16 @@ export default [
     label: 'Home',
   },
   {
-    path: 'clients',
-    label: 'Clients',
-  },
-  {
     path: 'service',
-    label: 'Service',
+    label: 'About Us',
   },
   {
-    path: 'feature',
-    label: 'Feature',
-  },
-  {
-    path: 'gallery',
+    path: 'clients',
     label: 'Projects',
   },
   {
-    path: 'numbers',
-    label: 'Results',
+    path: 'career',
+    label: 'Career',
   },
   {
     path: 'faq',

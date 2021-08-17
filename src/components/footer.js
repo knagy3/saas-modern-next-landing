@@ -93,7 +93,8 @@ const styles = {
   },
   content: {
     alignItems: 'center',
-    borderTop: `1px solid ${rgba('#fff', 0.15)}`,
+    borderTop: '1px solid',
+    borderTopColor: (theme) => theme.colors.background,
     display: ['block', null, null, null, 'flex'],
     justifyContent: 'space-between',
     paddingTop: '20px',

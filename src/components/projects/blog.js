@@ -7,7 +7,7 @@ import PostCard from 'components/post-card.js';
 import ButtonGroup from 'components/button-group';
 import Carousel from 'react-multi-carousel';
 
-import projectItems from '../components/projects/project.data';
+import projectItems from './project.data';
 
 const responsive = {
   desktop: {

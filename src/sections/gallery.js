@@ -3,7 +3,7 @@ import { jsx, Box, Container, Image, Button } from 'theme-ui';
 import { RiArrowRightSLine } from 'react-icons/ri';
 import Masonry from 'react-masonry-component';
 
-import SectionHeading from 'components/section-heading';
+import SectionHeader from 'components/section-header';
 import GalleryCard from 'components/cards/gallery-card';
 import { useRouter } from "next/router";
 
@@ -19,7 +19,7 @@ const Gallery = () => {
   return (
     <Box id="gallery" as="section" sx={styles.section}>
       <Container sx={styles.container}>
-        <SectionHeading
+        <SectionHeader
           sx={styles.heading}
           slogan="Working space"
           title="Let’s meet our interior room decoration"

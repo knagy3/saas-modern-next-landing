@@ -26,24 +26,24 @@ import {
 import colors from '../theme/index';
 
 const data = {
-  subTitle: 'our services',
-  title: 'Business Goals Achieved with Design',
+  subTitle: 'about us',
+  title: 'Commited to High Quality Service',
   features: [
     {
       id: 1,
       icon: <FaCrown/>,
-      altText: 'Smart Features',
-      title: 'Smart Features',
+      altText: 'Foundation',
+      title: 'Foundation',
       text:
-        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
+        'DAKI-ÉP Kft. was founded in 2018, our main activity is the construction of residential and non-residential buildings.',
     },
     {
       id: 2,
       icon: <FaBriefcase/>,
-      altText: 'Secure Contents',
-      title: 'Secure Contents',
+      altText: 'Always dedicated',
+      title: 'Always dedicated',
       text:
-        'Get your blood tests delivered at let home collect sample from the victory of the managements. your blood tests.',
+        'It is important for us to be reliable partners in structural construction for our customers. We guarantee outstanding performance, accurate and professional work.',
     },
   ],
 };
