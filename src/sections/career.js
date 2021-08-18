@@ -1,14 +1,15 @@
 /** @jsx jsx */
 import { jsx, Container, Heading, Text, Box, Image } from 'theme-ui';
+import Carousel from 'react-multi-carousel';
+import { TiArrowForward } from "react-icons/ti";
+import { IconContext } from "react-icons";
+import { useEffect, useState } from 'react';
+import { useColorMode } from 'theme-ui';
+
 import SectionHeader from 'components/section-header';
 // import Rating from 'components/rating';
 import ButtonGroup from 'components/button-group';
-import Carousel from 'react-multi-carousel';
-
-import Avatar1 from 'assets/images/career/avatar1.png';
-import Avatar2 from 'assets/images/career/avatar2.png';
-import Avatar3 from 'assets/images/career/avatar3.png';
-import Avatar4 from 'assets/images/career/avatar4.png';
+import colors from '../theme/index';
 
 const data = [
   {
@@ -16,40 +17,28 @@ const data = [
     title: 'Modern look & trending design',
     description:
       'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    avatar: Avatar1,
     name: 'Denny Hilguston',
-    designation: '@denny.hil',
-    review: 4,
   },
   {
     id: 2,
     title: 'Design Quality & performance',
     description:
       'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    avatar: Avatar2,
     name: 'Denny Hilguston',
-    designation: '@denny.hil',
-    review: 5,
   },
   {
     id: 3,
     title: 'Layout and organized layers',
     description:
       'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    avatar: Avatar3,
     name: 'Denny Hilguston',
-    designation: '@denny.hil',
-    review: 5,
   },
   {
     id: 4,
     title: 'Modern look & trending design',
     description:
       'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    avatar: Avatar4,
     name: 'Denny Hilguston',
-    designation: '@denny.hil',
-    review: 4,
   },
 ];
 
@@ -82,6 +71,22 @@ const responsive = {
 };
 
 export default function CareerCard() {
+  const [ mode ] = useColorMode();
+  const [colorPrim, setColorPrim] = useState('');
+
+  useEffect(() => {
+    if( mode === 'dark' ) {
+      setColorPrim(colors.colors.modes.dark.primary);
+    } else {
+      setColorPrim(colors.colors.primary);
+    }
+  }, [mode]);
+
+  const handleClick = () => {
+    // window.scrollTo(0, 0);
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  };
+
   return (
     <section id="career" sx={{ variant: 'section.testimonial' }}>
     {/* <section id="career" > */}
@@ -119,15 +124,16 @@ export default function CareerCard() {
               </Heading>
               <Text sx={styles.description}>{item.description}</Text>
               <div className="card-footer">
-                <div className="image">
-                  <Image src={item.avatar} alt="Client Image" />
-                </div>
-                <div className="reviewer-info">
+                <Box sx={styles.apply} onClick={() => handleClick()}>
                   <Heading as="h4" sx={styles.heading}>
-                    {item.name}
+                    Apply 
                   </Heading>
-                  <Text sx={styles.designation}>{item.designation}</Text>
-                </div>
+                  <IconContext.Provider
+                    value={{ color: colorPrim ,size: '24px' }}
+                  >
+                    <TiArrowForward/>
+                  </IconContext.Provider>
+                </Box>
               </div>
             </Box>
           ))}
@@ -138,13 +144,19 @@ export default function CareerCard() {
 }
 
 const styles = {
+  apply: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    cursor: 'pointer',
+  },
   carouselWrapper: {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
     '.carousel-container': {
-      // mx: -3,
+      mx: -3,
       width: '100%',
       maxWidth: [
         '100%',
@@ -205,7 +217,7 @@ const styles = {
     ],
     textAlign: 'left',
     m: [
-      '28px 5px 30px 5px',
+      '28px 15px 30px 15px',
       '28px 20px 30px 20px',
       '28px 15px 30px 15px',
       '28px 15px 30px 15px',
@@ -256,7 +268,7 @@ const styles = {
   },
   title: {
     fontSize: [1, 2],
-    fontWeight: 700,
+    fontWeight: 750,
     mb: [3, null, null, '22px'],
     color: 'text',
     lineHeight: 1.6,
@@ -268,14 +280,13 @@ const styles = {
     lineHeight: [1.85, null, 2],
   },
   heading: {
-    fontSize: [1, null, null, 2],
-    fontWeight: 700,
-    mb: '3px',
-    color: 'text',
-    lineHeight: 1.3,
+    fontSize: ['12px', null, null, '18px'],
+    // fontWeight: 620,
+    color: (theme) => theme.colors.primary,
+    lineHeight: 1.4,
   },
   designation: {
-    color: 'primary',
+    color: (theme) => theme.colors.primary,
     fontWeight: '500',
     fontSize: 1,
     lineHeight: 1.4,

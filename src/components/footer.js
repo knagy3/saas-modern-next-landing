@@ -4,6 +4,8 @@ import { useColorMode } from 'theme-ui';
 import { rgba } from 'polished';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
+import { AiOutlineMail } from "react-icons/ai";
+import { MdPlace } from "react-icons/md";
 
 import { NavLink, Link } from 'components/link';
 import Logo from 'components/logo';
@@ -64,8 +66,20 @@ export default function Footer() {
             <Text as="span">
               All right reserved - Design &amp; Developed by NKr
             </Text>
+            <Flex sx={styles.data}>
+              <Box sx={styles.row}>
+                <AiOutlineMail/>
+                <Text sx={{mx:'10px'}}> iroda@mostepker.com </Text>
+              </Box>
+              <Box sx={styles.row}>
+                <MdPlace/>
+                <Text sx={{mx:'10px'}}> 9024 Győr, Bartók Béla út 16. </Text>
+              </Box>
+            </Flex>
           </Flex>
-          <Flex as="ul" sx={styles.nav}>
+          
+
+          {/* <Flex as="ul" sx={styles.nav}>
             {navItems?.map((item) => (
               <li key={item.id}>
                 {!issDefaultPath 
@@ -80,7 +94,7 @@ export default function Footer() {
                     /> )}
               </li>
             ))}
-          </Flex>
+          </Flex> */}
         </Flex>
       </Container>
     </Box>
@@ -96,7 +110,7 @@ const styles = {
     borderTop: '1px solid',
     borderTopColor: (theme) => theme.colors.background,
     display: ['block', null, null, null, 'flex'],
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     paddingTop: '20px',
     paddingBottom: '60px',
     textAlign: ['center', null, null, null],
@@ -104,15 +118,30 @@ const styles = {
       pb: 50,
     },
   },
+  data: {
+    my: ['5px', null],
+    display: 'flex',
+    alignItems: [ 'center', 'flex-start'],
+    justifyContent: ['center', null, null, null],
+    flexDirection: 'column',
+  },
+  row: {
+    my: ['10px', '2px'],
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    color: (theme) => theme.colors.background,
+  },
   copyright: {
+    width: '100%',
     display: ['block', 'flex'],
     alignItems: 'center',
-    justifyContent: ['center', null, null, null],
+    justifyContent: ['center', null, null, 'space-between'],
     span: {
       fontSize: '14px',
       lineHeight: [1.8, null, null, 1.29],
       color: (theme) => theme.colors.background,
-      marginTop: 1,
+      marginTop: [4, 1],
       display: 'inline-flex',
     },
   },

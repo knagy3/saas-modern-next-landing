@@ -7,7 +7,7 @@ import Layout from 'components/layout';
 import Banner from 'sections/banner';
 import Clients from 'sections/clients';
 import CareerCard from 'sections/career';
-import Faq from 'sections/faq';
+// import Faq from 'sections/faq';
 import FeaturedSpace from 'sections/featured-space';
 import Numbers from 'sections/numbers';
 import Gallery from 'sections/gallery';
@@ -28,7 +28,7 @@ export default function IndexPage() {
           <Clients />
           <Gallery />
           <CareerCard />
-          <Faq />
+          {/* <Faq /> */}
           <Subscription />
         </Layout>
       </StickyProvider>

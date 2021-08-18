@@ -15,10 +15,10 @@ export default [
     path: 'career',
     label: 'Career',
   },
-  {
-    path: 'faq',
-    label: 'Q&A',
-  },
+  // {
+  //   path: 'faq',
+  //   label: 'Q&A',
+  // },
   {
     path: 'contact',
     label: 'Contact',

@@ -17,7 +17,7 @@ const StatItem = ({ stat, isVisible }) => {
     } else {
       setColorPrim(colors.colors.primary);
     }
-  }, [mode])
+  }, [mode]);
 
   return (
     <Box sx={styles.item}>

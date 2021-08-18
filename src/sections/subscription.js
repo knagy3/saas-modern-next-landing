@@ -5,19 +5,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useColorMode } from 'theme-ui';
 import emailjs, { init } from 'emailjs-com';
 import { useEffect, useRef, useState } from 'react';
+import { rgba } from 'polished';
 
 const Subscription = () => {
   const [ mode ] = useColorMode();
   const emailRef = useRef();
-  const [template, setTemplate] = useState(true);
+  const [plan, setPlan] = useState('business');
 
   useEffect(() => {
     init("user_wRxlWz2LJqPGZl452bdTJ");
   }, []);
 
-  const sendEmail = () => {
+  const sendEmail = (template, object) => {
     const templateParams = {
       to_email: emailRef.current.value,
+      object: object,
     };
     // emailjs.send(serviceID, templateID, templateParams, userID);
     emailjs.send(
@@ -39,20 +41,28 @@ const Subscription = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (localStorage.getItem('lang') === "en") {
-      setTemplate('template_0wudgxp');
-    } else {
-      setTemplate('template_fd27i38');
-    }
+    let object = 'Köszönjük a megkeresést';
+    let template = 'template_fd27i38';
 
     if (validateEmail(emailRef.current.value)) {
+      if (localStorage.getItem('lang') === "en") {
+        template ='template_0wudgxp';
+        plan === 'business'
+          ? object = 'Thank you for your inquiry'
+          : object = 'Thank you for your interest for the position';
+      } else {
+        if (plan !== 'business') {
+          object = 'Köszönjük az érdeklődését a pozíció iránt';
+        }
+      }
       if (mode === 'dark') {
         toast("We will contact you soon!");
       } else {
         toast.dark("We will contact you soon!");
       }
-      sendEmail();
+      sendEmail(template, object);
+    } else {
+      toast.error("The e-mail address is not valid!");
     }
   };
 
@@ -65,12 +75,28 @@ const Subscription = () => {
             title="Subscribe to get best offers."
             description="By subscribing with your mail, you will agree with terms"
           />
+          <Flex sx={styles.priceSwitcher}>
+            <Button
+              variant="text"
+              className={plan === 'business' ? 'active' : ''}
+              onClick={() => setPlan('business')}
+            >
+              Business
+            </Button>
+            <Button
+              variant="text"
+              className={plan === 'career' ? 'active' : ''}
+              onClick={() => setPlan('career')}
+            >
+              Career
+            </Button>
+          </Flex>
           <Flex as="form" sx={styles.form} onSubmit={handleSubmit}>
             <Box as="label" htmlFor="email" variant="styles.srOnly">
               Email
             </Box>
             <Input type="email" id="email" ref={emailRef} placeholder="Enter your email" />
-            <Button variant="white">Contact us</Button>
+            <Button variant="white">{plan === 'business' ? (<>Contact Us</>) : (<>Join Us</>)}</Button>
           </Flex>
         </Box>
         <ToastContainer
@@ -93,6 +119,33 @@ const styles = {
     backgroundColor: (theme) => theme.colors.background_footer,
     pt: '60px',
     pb: '70px',
+  },
+  priceSwitcher: {
+    justifyContent: 'space-around',
+    borderRadius: '5px',
+    border: `1px solid `,
+    borderColor: (theme) => theme.colors.background_subscribe_button,
+    margin: ['0 auto 30px', '0 auto 30px', '0 auto 30px', '0 auto 60px'],
+    maxWidth: [175, 175, 175, 255],
+    p: 2,
+    button: {
+      backgroundColor: (theme) => theme.colors.background_subscribe_button,
+      color: (theme) => theme.colors.background_subscribe_ph,
+      minHeight: ['40px', '40px', '40px', '48px'],
+      px: ['18px', '18px', '18px', '25px'],
+      fontSize: [14, 14, 14, 16],
+      fontWeight: 500,
+      '&.active': {
+        backgroundColor: (theme) => theme.colors.background,
+        color: (theme) => theme.colors.text,
+      },
+      ':focus': {
+        outline: '0 none',
+      },
+      ':hover': {
+        color: (theme) => theme.colors.primary,
+      },
+    },
   },
   heading: {
     color: (theme) => theme.colors.background,
