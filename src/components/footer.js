@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, Box, Flex, Text, Container } from 'theme-ui';
 import { useColorMode } from 'theme-ui';
-import { rgba } from 'polished';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdPlace } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 import { NavLink, Link } from 'components/link';
 import Logo from 'components/logo';
@@ -68,11 +68,15 @@ export default function Footer() {
             </Text>
             <Flex sx={styles.data}>
               <Box sx={styles.row}>
-                <AiOutlineMail/>
+                <IconContext.Provider value={{size: '30px'}}>
+                  <AiOutlineMail/>
+                </IconContext.Provider>
                 <Text sx={{mx:'10px'}}> iroda@mostepker.com </Text>
               </Box>
               <Box sx={styles.row}>
-                <MdPlace/>
+                <IconContext.Provider value={{size: '30px'}}>
+                  <MdPlace/>
+                </IconContext.Provider>
                 <Text sx={{mx:'10px'}}> 9024 Győr, Bartók Béla út 16. </Text>
               </Box>
             </Flex>

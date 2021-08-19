@@ -2,37 +2,48 @@
 import { jsx, Box, Button, Container, Image } from 'theme-ui';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import Slider from 'react-slick';
+import { useColorMode } from 'theme-ui';
+
 import SectionHeader from 'components/section-header';
-import uber from 'assets/images/clients/uber.png';
+import hilti from 'assets/images/clients/hilti.png';
+import meva_b from 'assets/images/clients/meva-black.png';
+import meva_w from 'assets/images/clients/meva-white.png';
+import mobilbox_b from 'assets/images/clients/mobilbox-black.png';
+import mobilbox_w from 'assets/images/clients/mobilbox-white.png';
+
+import peri from 'assets/images/clients/peri.png';
 import google from 'assets/images/clients/google.png';
-import paypal from 'assets/images/clients/paypal.png';
-import microsoft from 'assets/images/clients/microsoft.png';
-import dribbble from 'assets/images/clients/dribbble.png';
+
 const clients = [
   {
     id: 1,
-    name: 'uber',
-    logo: uber,
+    name: 'hilti',
+    logo_b: hilti,
+    logo_w: hilti,
   },
   {
     id: 2,
-    name: 'Google',
-    logo: google,
+    name: 'mobilbox',
+    logo_b: mobilbox_b,
+    logo_w: mobilbox_w,
   },
   {
     id: 3,
-    name: 'PayPal',
-    logo: paypal,
-  },
-  {
-    id: 4,
-    name: 'Microsoft',
-    logo: microsoft,
+    name: 'meva',
+    logo_b: meva_b,
+    logo_w: meva_w,
   },
   {
     id: 5,
-    name: 'Dribbble',
-    logo: dribbble,
+    name: 'peri',
+    logo_b: peri,
+    logo_w: peri,
+  },
+  {
+    id: 4,
+    name: 'Google',
+    logo_b: google,
+    logo_w: google,
   },
 ];
 
@@ -54,6 +65,8 @@ function SlickArrow({ className, onClick, control }) {
 }
 
 const Clients = () => {
+  const [ mode ] = useColorMode();
+
   const settings = {
     slidesToShow: 5,
     slidesToScroll: 1,
@@ -102,7 +115,11 @@ const Clients = () => {
         <Slider sx={styles.clients} {...settings}>
           {clients?.map((client) => (
             <Box key={client.id} as="figure" sx={styles.logo}>
-              <Image loading="lazy" src={client.logo} alt={client.name} />
+              <Image 
+                sx={{objectFit: 'contain'}} 
+                loading="lazy" 
+                src={ mode === 'dark' ? client.logo_w : client.logo_b} 
+                alt={client.name} />
             </Box>
           ))}
         </Slider>
@@ -132,6 +149,8 @@ const styles = {
     },
   },
   logo: {
+    maxWidth: ['140px', '195px'],
+    maxHeight: ['69px', '99px'],
     display: 'flex !important',
     justifyContent: 'center',
     mx: '10px',
