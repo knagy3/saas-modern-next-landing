@@ -30,8 +30,8 @@ export const LangStrings = {
       title: "Our reputation is as solid as concrete",
     },
     gallery: {
-      title: 'Our Projects',
-      slogen: 'Successful projects we are proud of'
+      slogen: 'Our Projects',
+      title: 'Successful projects we are proud of',
     },
     career: {
       slogan: "Join Us",
