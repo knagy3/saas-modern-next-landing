@@ -7,47 +7,51 @@ import StatItem from 'components/cards/stat-item';
 import { FaExpand, FaUsers } from 'react-icons/fa';
 import { GiConcreteBag, GiMetalBar } from "react-icons/gi";
 import SectionHeader from 'components/section-header';
+import useTranslation from 'hooks/useTranslation';
 
-const data = {
-  stats: [
-    {
-      id: 1,
-      icon: <FaUsers/>,
-      value: 62,
-      suffix: '',
-      title: 'people is employed per year',
-    },
-    {
-      id: 2,
-      icon: <GiConcreteBag/>,
-      value: 3220,
-      suffix: ' m2',
-      title: 'of concrete are processed per year',
-    },
-    {
-      id: 3,
-      icon: <GiMetalBar/>,
-      value: 1250,
-      suffix: ' tons',
-      title: 'of rebar are installed per year',
-    },
-    {
-      id: 4,
-      icon: <FaExpand/>,
-      value: 5250,
-      suffix: ' m2',
-      title: 'of shutter are installed per year',
-    },
-  ],
-};
 
 const Numbers = () => {
+  const { t } = useTranslation();
+
+  const data = {
+    stats: [
+      {
+        id: 0,
+        icon: <FaUsers/>,
+        value: 62,
+        suffix: '',
+        title: t('numbers', 'n_0_title'),
+      },
+      {
+        id: 1,
+        icon: <GiConcreteBag/>,
+        value: 3220,
+        suffix: ' m2',
+        title: t('numbers', 'n_1_title'),
+      },
+      {
+        id: 2,
+        icon: <GiMetalBar/>,
+        value: 1250,
+        suffix: ' tons',
+        title: t('numbers', 'n_2_title'),
+      },
+      {
+        id: 3,
+        icon: <FaExpand/>,
+        value: 5250,
+        suffix: ' m2',
+        title: t('numbers', 'n_3_title'),
+      },
+    ],
+  };
+
   return (
     <Box as="section" id="numbers" sx={styles.section}>
       <Container>
         <SectionHeader
-          slogan="Our Services"
-          title="Our everyday lives in numbers"
+          slogan={t('numbers', 'slogan')}
+          title={t('numbers', 'title')}
         />
         <Grid sx={styles.statsGrid}>
           {data.stats.map((stat) => (

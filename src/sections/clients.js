@@ -13,6 +13,7 @@ import mobilbox_w from 'assets/images/clients/mobilbox-white.png';
 
 import peri from 'assets/images/clients/peri.png';
 import google from 'assets/images/clients/google.png';
+import useTranslation from 'hooks/useTranslation';
 
 const clients = [
   {
@@ -66,6 +67,7 @@ function SlickArrow({ className, onClick, control }) {
 
 const Clients = () => {
   const [ mode ] = useColorMode();
+  const { t } = useTranslation();
 
   const settings = {
     slidesToShow: 5,
@@ -109,8 +111,8 @@ const Clients = () => {
     <Box id="clients" as="section" sx={styles.section}>
       <Container>
         <SectionHeader
-          slogan="Meet Our Clients"
-          title="Our reputation is as solid as concrete"
+          slogan={t('clients', 'slogan')}
+          title={t('clients', 'title')}
         />
         <Slider sx={styles.clients} {...settings}>
           {clients?.map((client) => (

@@ -24,31 +24,32 @@ import {
 } from 'react-icons/fa';
 
 import colors from '../theme/index';
-
-const data = {
-  subTitle: 'about us',
-  title: 'Commited to High Quality Service',
-  features: [
-    {
-      id: 1,
-      icon: <FaCrown/>,
-      altText: 'Foundation',
-      title: 'Foundation',
-      text:
-        'DAKI-ÉP Kft. was founded in 2018, our main activity is the construction of residential and non-residential buildings.',
-    },
-    {
-      id: 2,
-      icon: <FaBriefcase/>,
-      altText: 'Always dedicated',
-      title: 'Always dedicated',
-      text:
-        'It is important for us to be reliable partners in structural construction for our customers. We guarantee outstanding performance, accurate and professional work.',
-    },
-  ],
-};
+import useTranslation from 'hooks/useTranslation';
 
 export default function ServiceSection() {
+  const { t } = useTranslation();
+
+  const data = {
+    subTitle: t('about', 'subTitle'),
+    title: t('about', 'title'),
+    features: [
+      {
+        id: 0,
+        icon: <FaCrown/>,
+        altText: t('about', 'f_0_title'),
+        title: t('about', 'f_0_title'),
+        text: t('about', 'f_0_text'),
+      },
+      {
+        id: 1,
+        icon: <FaBriefcase/>,
+        altText: t('about', 'f_1_title'),
+        title: t('about', 'f_1_title'),
+        text: t('about', 'f_1_text'),
+      },
+    ],
+  };
+
   const [ mode ] = useColorMode();
   const [colorPrim, setColorPrim] = useState('');
   // modal popup video handler

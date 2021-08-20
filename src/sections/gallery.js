@@ -8,6 +8,7 @@ import GalleryCard from 'components/cards/gallery-card';
 import { useRouter } from "next/router";
 
 import projectItems from '../components/projects/project.data';
+import useTranslation from 'hooks/useTranslation';
 
 const masonryOptions = {
   transitionDuration: 0,
@@ -15,14 +16,15 @@ const masonryOptions = {
 
 const Gallery = () => {
   const router = useRouter();
+  const { t } = useTranslation();
 
   return (
     <Box id="gallery" as="section" sx={styles.section}>
       <Container sx={styles.container}>
         <SectionHeader
           sx={styles.heading}
-          slogan="Working space"
-          title="Let’s meet our interior room decoration"
+          slogan={t('gallery', 'slogan')}
+          title={t('gallery', 'title')}
         />
         <Box as={Masonry} options={masonryOptions} sx={styles.galleryWrapper}>
           {projectItems?.map((item) => (
@@ -34,7 +36,8 @@ const Gallery = () => {
           sx={styles.button}
           onClick={() => router.push("/projects/1")}
         >
-          Explore More <RiArrowRightSLine size="20px" />
+          Explore More 
+          <RiArrowRightSLine size="20px" />
         </Button>
       </Container>
     </Box>

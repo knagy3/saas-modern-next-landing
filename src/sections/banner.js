@@ -27,10 +27,10 @@ export default function Banner() {
             sx={styles.bannerContent}
           >
             <Heading as="h1" sx={styles.heroTitle}>
-              {t("banner_slogan")}
+              {t('banner', 'slogan')}
             </Heading>
             <Text as="p" sx={styles.desc}>
-              {t("banner")}
+              {t('banner', 'text')}
             </Text>
           </motion.div>
         </Box>
@@ -78,7 +78,6 @@ const styles = {
     },
   },
   heroTitle: {
-    justifyContent: 'center',
     fontSize: [22, 28, 28, 32, 36, 36],
     fontWeight: 700,
     letterSpacing: 'heading',

@@ -19,32 +19,11 @@ import slider3 from 'assets/images/features/3.png';
 import SwiperCore, { Autoplay, Pagination, EffectFade } from 'swiper';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import useTranslation from 'hooks/useTranslation';
 
 SwiperCore.use([Autoplay, Pagination, EffectFade]);
 
 const data = {
-  feature: [
-    {
-      id: 1,
-      icon: <FaExpand/>,
-      // icon: expand,
-      title: '1000 ft2',
-      description: 'you will get 1000ft square space facility here.',
-    },
-    {
-      id: 2,
-      icon: <FaUsers/>,
-      // icon: users,
-      title: '80 Members',
-      description: 'you will get advantage to live 80+ member here.',
-    },
-    {
-      id: 3,
-      icon: <FaWifi/>,
-      title: '100 mbps',
-      description: 'Internet speed is much better than others.',
-    },
-  ],
   gallery: [
     {
       id: 1,
@@ -72,6 +51,7 @@ const FeaturedSpace = () => {
   const swiperRef = useRef(null);
   const [togglePlay, setTogglePlay] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(0);
+  const { t } = useTranslation();
 
   let time = 3;
   let tick, percentTime;
@@ -114,15 +94,12 @@ const FeaturedSpace = () => {
           <Box sx={styles.leftContent}>
             <SectionHeading
               sx={styles.heading}
-              title="In our work we have pride, quality is what we provide"
-              description="Our staff are well-trained, helpful, purposeful professionals with good
-              problem-solving skills. They have a high load capacity and several years of professional
-              experience."
+              title={t('featured', 'title')}
+              description={t('featured', 'description1')}
             />
             <SectionHeading
               sx={styles.heading2}
-              description="The technical management is performed by our civil engineers and foremen with many years
-              of domestic and international professional experience."
+              description={t('featured', 'description2')}
             />
             {/* <Box sx={styles.featureWrapper}>
               {data?.feature?.map((feature) => (

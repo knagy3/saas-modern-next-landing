@@ -10,37 +10,8 @@ import SectionHeader from 'components/section-header';
 // import Rating from 'components/rating';
 import ButtonGroup from 'components/button-group';
 import colors from '../theme/index';
+import useTranslation from 'hooks/useTranslation';
 
-const data = [
-  {
-    id: 1,
-    title: 'Modern look & trending design',
-    description:
-      'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    name: 'Denny Hilguston',
-  },
-  {
-    id: 2,
-    title: 'Design Quality & performance',
-    description:
-      'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    name: 'Denny Hilguston',
-  },
-  {
-    id: 3,
-    title: 'Layout and organized layers',
-    description:
-      'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    name: 'Denny Hilguston',
-  },
-  {
-    id: 4,
-    title: 'Modern look & trending design',
-    description:
-      'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-    name: 'Denny Hilguston',
-  },
-];
 
 const responsive = {
   desktop: {
@@ -73,6 +44,38 @@ const responsive = {
 export default function CareerCard() {
   const [ mode ] = useColorMode();
   const [colorPrim, setColorPrim] = useState('');
+  const { t } = useTranslation();
+
+  const data = [
+    {
+      id: 1,
+      title: 'Modern look & trending design',
+      description:
+        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      name: 'Denny Hilguston',
+    },
+    {
+      id: 2,
+      title: 'Design Quality & performance',
+      description:
+        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      name: 'Denny Hilguston',
+    },
+    {
+      id: 3,
+      title: 'Layout and organized layers',
+      description:
+        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      name: 'Denny Hilguston',
+    },
+    {
+      id: 4,
+      title: 'Modern look & trending design',
+      description:
+        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      name: 'Denny Hilguston',
+    },
+  ];
 
   useEffect(() => {
     if( mode === 'dark' ) {
@@ -91,7 +94,10 @@ export default function CareerCard() {
     <section id="career" sx={{ variant: 'section.testimonial' }}>
     {/* <section id="career" > */}
       <Container css={{ textAlign: 'center' }}>
-        <SectionHeader slogan="Join Us" title="Meet our currently open positions" />
+        <SectionHeader 
+          slogan={t('career', 'slogan')}
+          title={t('career', 'title')}
+        />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel

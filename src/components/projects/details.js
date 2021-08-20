@@ -66,7 +66,7 @@ export default function Details({ id }) {
                     </Box>
                     <Box >
                         <h2>PROJECT TYPE</h2>
-                        <p>{t(`projects_${id}_project_type`)}</p>
+                        <p>{t('project', `pr_${id}_project_type`)}</p>
                     </Box>
                     <Box >
                         <h2>LOCATION</h2>
@@ -84,9 +84,9 @@ export default function Details({ id }) {
                 </Box>
             </Grid>
             <Box sx={styles.description}>
-                <h2>{t(`projects_${id}_header`)}</h2>
-                <p>{t(`projects_${id}_p1`)}</p>
-                <p>{t(`projects_${id}_p2`)}</p>
+                <h2>{t('project', `pr_${id}_header`)}</h2>
+                <p>{t('project', `pr_${id}_p1`)}</p>
+                <p>{t('project', `pr_${id}_p2`)}</p>
             </Box>
             <Divider sx={styles.divider}/>
             {isOpen && (

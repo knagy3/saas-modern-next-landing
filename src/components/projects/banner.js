@@ -33,7 +33,7 @@ export default function Banner({ id }) {
             sx={styles.bannerContent}
           >
             <Heading as="h1" sx={styles.heroTitle}>
-              {t(`projects_${id}_slogan`)}
+              {t('project', `pr_${id}_slogan`)}
             </Heading>
             <Text as="p" sx={styles.desc}>
               -{" "}{projectItems[id]?.name}
