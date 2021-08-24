@@ -36,7 +36,7 @@ const Gallery = () => {
           sx={styles.button}
           onClick={() => router.push("/projects/1")}
         >
-          Explore More 
+          {t('gallery', 'button')}
           <RiArrowRightSLine size="20px" />
         </Button>
       </Container>

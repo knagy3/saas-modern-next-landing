@@ -116,7 +116,7 @@ const Clients = () => {
         />
         <Slider sx={styles.clients} {...settings}>
           {clients?.map((client) => (
-            <Box key={client.id} as="figure" sx={styles.logo}>
+            <Box key={client.id}  sx={styles.logo}>
               <Image 
                 sx={{objectFit: 'contain'}} 
                 loading="lazy" 

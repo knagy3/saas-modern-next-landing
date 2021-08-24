@@ -41,7 +41,7 @@ const responsive = {
   },
 };
 
-export default function CareerCard() {
+export default function CareerCard({ setPlan }) {
   const [ mode ] = useColorMode();
   const [colorPrim, setColorPrim] = useState('');
   const { t } = useTranslation();
@@ -49,31 +49,18 @@ export default function CareerCard() {
   const data = [
     {
       id: 1,
-      title: 'Modern look & trending design',
-      description:
-        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-      name: 'Denny Hilguston',
+      title: t('career', 'n_1_title'),
+      description: t('career', 'n_1_description'),
     },
     {
       id: 2,
-      title: 'Design Quality & performance',
-      description:
-        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-      name: 'Denny Hilguston',
+      title: t('career', 'n_2_title'),
+      description: t('career', 'n_2_description'),
     },
     {
       id: 3,
-      title: 'Layout and organized layers',
-      description:
-        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-      name: 'Denny Hilguston',
-    },
-    {
-      id: 4,
-      title: 'Modern look & trending design',
-      description:
-        'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
-      name: 'Denny Hilguston',
+      title: t('career', 'n_3_title'),
+      description: t('career', 'n_3_description'),
     },
   ];
 
@@ -87,6 +74,7 @@ export default function CareerCard() {
 
   const handleClick = () => {
     // window.scrollTo(0, 0);
+    setPlan('career');
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   };
 
@@ -132,10 +120,10 @@ export default function CareerCard() {
               <div className="card-footer">
                 <Box sx={styles.apply} onClick={() => handleClick()}>
                   <Heading as="h4" sx={styles.heading}>
-                    Apply 
+                    {t('career', 'button')}
                   </Heading>
                   <IconContext.Provider
-                    value={{ color: colorPrim ,size: '24px' }}
+                    value={{color:colorPrim, size:'24px'}}
                   >
                     <TiArrowForward/>
                   </IconContext.Provider>
@@ -286,7 +274,7 @@ const styles = {
     lineHeight: [1.85, null, 2],
   },
   heading: {
-    fontSize: ['12px', null, null, '18px'],
+    fontSize: ['14px', null, null, '18px'],
     // fontWeight: 620,
     color: (theme) => theme.colors.primary,
     lineHeight: 1.4,

@@ -1,8 +1,15 @@
 export const LangStrings = {
   en: {
     banner: {
-      slogan: 'Our passion is concrete',
+      slogan: 'Our passion is Concrete',
       text: 'We operate as a dynamically developing company in the construction market. As a structural builder, we have become a key player in many investments across the country over the years.',
+    },
+    header: {
+      h0: 'Home',
+      h1: 'About Us',
+      h2: 'Projects',
+      h3: 'Career',
+      h4: 'Contact',
     },
     about: {
       subTitle: 'about us',
@@ -32,10 +39,28 @@ export const LangStrings = {
     gallery: {
       slogan: 'Our Projects',
       title: 'Successful projects we are proud of',
+      button: 'Explore More',
     },
     career: {
       slogan: "Join Us",
       title: "Meet our currently open positions",
+      button: "Apply",
+
+      n_1_title: 'Design Quality & performance',
+      n_1_description: 'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      n_2_title: 'Design Quality & performance',
+      n_2_description: 'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      n_3_title: 'Layout and organized layers',
+      n_3_description: 'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+    },
+    contact: {
+      title: "Contact Us to get the best offers",
+      description: "In urgent cases, feel free to contact us via the e-mail address below",
+      button1: "Business",
+      button2: "Career",
+      button3: "Contact Us",
+      button4: "Join Us",
+      paceholder: "Enter your e-mail...",
     },
     project: {
       pr_0_slogan: 'Helping you and your house become better acquainted',
@@ -77,8 +102,15 @@ export const LangStrings = {
   },
   hu: {
     banner: {
-      slogan: 'A mi szenvedélyünk a beton',
+      slogan: 'A mi szenvedélyünk beton',
       text: 'Dinamikusan fejlődő vállalatként működünk az építőipari piacon. Szerkezetépítőként számos beruházás meghatározó szereplőjévé váltunk az évek során az ország egész területén.',
+    },
+    header: {
+      h0: 'Kezdőlap',
+      h1: 'Rólunk',
+      h2: 'Projektjeink',
+      h3: 'Karrier',
+      h4: 'Kapcsolat',
     },
     about: {
       subTitle: 'rólunk',
@@ -107,11 +139,29 @@ export const LangStrings = {
     },
     gallery: {
       slogan: 'Projektjeink',
-      title: 'Sikeres projektek amikre büszkék vagyunk'
+      title: 'Sikeres projektek amikre büszkék vagyunk',
+      button: 'Többi megtekintése',
     },
     career: {
       slogan: "Csatlakozz hozzánk",
       title: "Ismerje meg a jelenleg nyitott pozícióinkat",
+      button: "Jelentkezés",
+
+      n_1_title: 'Pozi név 1',
+      n_1_description: 'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      n_2_title: 'Pozi név 2',
+      n_2_description: 'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+      n_3_title: 'Pozi név 3',
+      n_3_description: 'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
+    },
+    contact: {
+      title: "Vedd fel velünk a kapcsolatot a legjobb ajánlatokért",
+      description: "Sürgős esetekben keress fel minket bátran a lenti e-mail címen keresztül",
+      button1: "Üzlet",
+      button2: "Karrier",
+      button3: "Érdeklődnék",
+      button4: "Csatlakoznék",
+      paceholder: "Írd be az e-mail címed...",
     },
     project: {
       pr_0_slogan: 'Segítséget nyujt a házának a jobb megismerésében',

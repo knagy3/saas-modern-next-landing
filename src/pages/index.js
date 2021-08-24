@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'theme-ui';
 import theme from 'theme';
 
@@ -16,6 +16,8 @@ import { StickyProvider } from '../contexts/app/app.provider';
 import Subscription from 'sections/subscription';
 
 export default function IndexPage() {
+  const [plan, setPlan] = useState('business');
+
   return (
     <ThemeProvider theme={theme}>
       <StickyProvider>
@@ -27,9 +29,9 @@ export default function IndexPage() {
           <FeaturedSpace />
           <Clients />
           <Gallery />
-          <CareerCard />
+          <CareerCard setPlan={setPlan} />
           {/* <Faq /> */}
-          <Subscription />
+          <Subscription plan={plan} setPlan={setPlan} />
         </Layout>
       </StickyProvider>
     </ThemeProvider>

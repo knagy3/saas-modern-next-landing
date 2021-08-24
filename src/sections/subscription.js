@@ -5,12 +5,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useColorMode } from 'theme-ui';
 import emailjs, { init } from 'emailjs-com';
 import { useEffect, useRef, useState } from 'react';
-import { rgba } from 'polished';
+import useTranslation from 'hooks/useTranslation';
 
-const Subscription = () => {
+const Subscription = ({plan, setPlan}) => {
+  const { t } = useTranslation();
   const [ mode ] = useColorMode();
   const emailRef = useRef();
-  const [plan, setPlan] = useState('business');
 
   useEffect(() => {
     init("user_wRxlWz2LJqPGZl452bdTJ");
@@ -72,8 +72,8 @@ const Subscription = () => {
         <Box sx={styles.content}>
           <SectionHeading
             sx={styles.heading}
-            title="Subscribe to get best offers."
-            description="By subscribing with your mail, you will agree with terms"
+            title={t('contact', 'title')}
+            description={t('contact', 'description')}
           />
           <Flex sx={styles.priceSwitcher}>
             <Button
@@ -81,22 +81,22 @@ const Subscription = () => {
               className={plan === 'business' ? 'active' : ''}
               onClick={() => setPlan('business')}
             >
-              Business
+              {t('contact', 'button1')}
             </Button>
             <Button
               variant="text"
               className={plan === 'career' ? 'active' : ''}
               onClick={() => setPlan('career')}
             >
-              Career
+              {t('contact', 'button2')}
             </Button>
           </Flex>
           <Flex as="form" sx={styles.form} onSubmit={handleSubmit}>
-            <Box as="label" htmlFor="email" variant="styles.srOnly">
+            {/* <Box as="label" htmlFor="email" variant="styles.srOnly">
               Email
-            </Box>
-            <Input type="email" id="email" ref={emailRef} placeholder="Enter your email" />
-            <Button variant="white">{plan === 'business' ? (<>Contact Us</>) : (<>Join Us</>)}</Button>
+            </Box> */}
+            <Input type="email" id="email" ref={emailRef} placeholder={t('contact', 'paceholder')} />
+            <Button variant="white">{plan === 'business' ? (<>{t('contact', 'button3')}</>) : (<>{t('contact', 'button4')}</>)}</Button>
           </Flex>
         </Box>
         <ToastContainer
@@ -156,8 +156,8 @@ const styles = {
       letterSpacing: 'heading',
     },
     p: {
-      lineHeight: [2, 3.12],
-      mt: [20, 0],
+      // lineHeight: [2, 3.12],
+      mt: [20, 30],
       letterSpacing: 'heading',
       color: (theme) => theme.colors.background,
     },

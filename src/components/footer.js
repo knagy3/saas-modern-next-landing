@@ -64,14 +64,14 @@ export default function Footer() {
           <Flex sx={styles.copyright}>
             <Logo white={color} />
             <Text as="span">
-              All right reserved - Design &amp; Developed by NKr
+              All right reserved - D&amp;D by NKR WebDev
             </Text>
             <Flex sx={styles.data}>
               <Box sx={styles.row}>
                 <IconContext.Provider value={{size: '30px'}}>
                   <AiOutlineMail/>
                 </IconContext.Provider>
-                <Text sx={{mx:'10px'}}> iroda@mostepker.com </Text>
+                <Text sx={{mx:'10px'}}> dakiepkft@gmail.com </Text>
               </Box>
               <Box sx={styles.row}>
                 <IconContext.Provider value={{size: '30px'}}>
@@ -116,7 +116,7 @@ const styles = {
     display: ['block', null, null, null, 'flex'],
     justifyContent: 'center',
     paddingTop: '20px',
-    paddingBottom: '60px',
+    paddingBottom: '40px',
     textAlign: ['center', null, null, null],
     '@media only screen and (max-width: 400px)': {
       pb: 50,

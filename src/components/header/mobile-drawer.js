@@ -8,8 +8,6 @@ import { IoMdClose, IoMdMenu } from 'react-icons/io';
 import { Link } from 'react-scroll';
 import {
   FaHome,
-  FaFacebookF,
-  FaTwitter,
   FaSun,
   FaDribbble,
   FaGlobeAmericas,
@@ -18,19 +16,7 @@ import {
 import { useRouter } from "next/router";
 
 import useTranslation from '../../hooks/useTranslation';
-import menuItems from './header.data';
 import projectItems from '../projects/project.data';
-
-const social = [
-  {
-    path: '/',
-    icon: <FaFacebookF />,
-  },
-  {
-    path: '/',
-    icon: <FaTwitter />,
-  },
-];
 
 const features = [
   {
@@ -40,6 +26,7 @@ const features = [
 ];
 
 const MobileDrawer = ({ setUrl }) => {
+  const { t } = useTranslation();
   const router = useRouter();
   const { asPath } = useRouter();
   const { state, dispatch } = useContext(DrawerContext);
@@ -47,7 +34,7 @@ const MobileDrawer = ({ setUrl }) => {
   const [isEngish, setIsEngish] = useState(true);
   const [mode, setMode] = useColorMode();
   const [issDefaultPath, setIsDefaultPath] = useState(true);
-  
+
   useEffect(() => {
     // if (typeof window === 'undefined') {
     //   return null;
@@ -86,6 +73,33 @@ const MobileDrawer = ({ setUrl }) => {
       type: 'TOGGLE',
     });
   }, [dispatch]);
+
+  const menuItems = [
+    {
+      path: 'home',
+      label: t('header', 'h0'),
+    },
+    {
+      path: 'service',
+      label: t('header', 'h1'),
+    },
+    {
+      path: 'clients',
+      label: t('header', 'h2'),
+    },
+    {
+      path: 'career',
+      label: t('header', 'h3'),
+    },
+    // {
+    //   path: 'faq',
+    //   label: 'Q&A',
+    // },
+    {
+      path: 'contact',
+      label: t('header', 'h4'),
+    },
+  ];
 
   return (
     <Drawer
@@ -144,13 +158,6 @@ const MobileDrawer = ({ setUrl }) => {
                   <FaHome/>
                 </Box>
               </Box>
-              {social.map(({ path, icon }, i) => (
-                <Box as="span" key={i} sx={styles.social.icon}>
-                  <Box >
-                    {icon}
-                  </Box>
-                </Box>
-              ))}
               { mode === 'dark' 
                 ? ( <Box as="span" sx={styles.social.icon}>
                       <Box onClick={(e) => { const next = mode === 'dark' 

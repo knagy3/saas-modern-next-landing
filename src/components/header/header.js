@@ -8,11 +8,39 @@ import { useRouter } from "next/router";
 import Logo from 'components/logo';
 import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
 import MobileDrawer from './mobile-drawer';
-import menuItems from './header.data';
+import useTranslation from 'hooks/useTranslation';
 
 export default function Header({ className, setUrl }) {
   const [issDefaultPath, setIsDefaultPath] = useState(true);
   const { asPath } = useRouter();
+  const { t } = useTranslation();
+
+  const menuItems = [
+    {
+      path: 'home',
+      label: t('header', 'h0'),
+    },
+    {
+      path: 'service',
+      label: t('header', 'h1'),
+    },
+    {
+      path: 'clients',
+      label: t('header', 'h2'),
+    },
+    {
+      path: 'career',
+      label: t('header', 'h3'),
+    },
+    // {
+    //   path: 'faq',
+    //   label: 'Q&A',
+    // },
+    {
+      path: 'contact',
+      label: t('header', 'h4'),
+    },
+  ];
 
   useEffect(() => {
     if (asPath.length > 5) {

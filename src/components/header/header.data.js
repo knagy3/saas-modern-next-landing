@@ -1,19 +1,23 @@
+import useTranslation from "hooks/useTranslation";
+
+const { t } = useTranslation();
+
 export default [
   {
     path: 'home',
-    label: 'Home',
+    label: t('header', 'h0'),
   },
   {
     path: 'service',
-    label: 'About Us',
+    label: 'Rólunk',
   },
   {
     path: 'clients',
-    label: 'Projects',
+    label: 'Projektjeink',
   },
   {
     path: 'career',
-    label: 'Career',
+    label: 'Karrier',
   },
   // {
   //   path: 'faq',
@@ -21,6 +25,6 @@ export default [
   // },
   {
     path: 'contact',
-    label: 'Contact',
+    label: 'Kapcsolat',
   },
 ];
