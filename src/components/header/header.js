@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Flex, Button } from 'theme-ui';
+import { jsx, Container, Flex, Box, useColorMode, Heading } from 'theme-ui';
 import React, { useState, useEffect } from 'react';
 import { keyframes } from '@emotion/core';
 import { Link } from 'react-scroll';
@@ -9,11 +9,21 @@ import Logo from 'components/logo';
 import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
 import MobileDrawer from './mobile-drawer';
 import useTranslation from 'hooks/useTranslation';
+import {
+  FaHome,
+  FaSun,
+  FaDribbble,
+  FaGlobeAmericas,
+  FaMoon,
+} from 'react-icons/fa';
 
 export default function Header({ className, setUrl }) {
   const [issDefaultPath, setIsDefaultPath] = useState(true);
   const { asPath } = useRouter();
+  const [mode, setMode] = useColorMode();
   const { t } = useTranslation();
+  const { setLocale, locale } = useTranslation();
+  const [isEngish, setIsEngish] = useState(true);
 
   const menuItems = [
     {
@@ -50,6 +60,19 @@ export default function Header({ className, setUrl }) {
     }
   }, [asPath])
 
+  const handleLocaleChange = (e) => {
+    e.preventDefault();
+    if (isEngish) {
+      localStorage.setItem('lang', 'hu');
+      setLocale('hu');
+      setIsEngish(false);
+    } else {
+      localStorage.setItem('lang', 'en');
+      setLocale('en');
+      setIsEngish(true);
+    }
+  };
+
   return (
     <DrawerProvider>
       <header sx={styles.header} className={className} id="header">
@@ -72,13 +95,32 @@ export default function Header({ className, setUrl }) {
               ))}
             </Flex>
           }
-          {/* <Button
-            sx={styles.joinNow}
-            variant="primaryMd"
-            aria-label="Get Started"
-          >
-            Get Started
-          </Button> */}
+          <Box sx={styles.social}>  
+            <Box sx={styles.social_icon} onClick={() => router.push("/")}>
+              <FaHome/>
+            </Box>
+            { mode === 'dark' 
+                ? (   <Box
+                        sx={styles.social_icon}
+                          onClick={(e) => { const next = mode === 'dark' 
+                          ? 'light' : 'dark'
+                          setMode(next)}}
+                      >
+                        <FaSun/>
+                    </Box>)
+              : (   <Box 
+                      sx={styles.social_icon}
+                      onClick={(e) => { const next = mode === 'dark' 
+                        ? 'light' : 'dark'
+                        setMode(next)}}
+                    >
+                      <FaMoon />
+                    </Box>
+              )}
+              <Heading sx={styles.social_icon} onClick={(e) => handleLocaleChange(e)}>
+                {locale === 'hu' ? <>EN</> : <>HU</>}
+              </Heading>
+          </Box>
           <MobileDrawer setUrl={setUrl}/>
         </Container>
       </header>
@@ -125,6 +167,31 @@ const styles = {
       'nev > a': {
         color: (theme) => theme.colors.text,
       },
+    },
+  },
+  social: {
+    display: 'none',
+    '@media screen and (min-width: 560px)': {
+      display: 'flex',
+    },
+    mx: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  social_icon: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'text',
+    fontSize: 20,
+    mr: '15px',
+    transition: 'all 0.25s',
+    cursor: 'pointer',
+    ':last-child': {
+      mr: '0',
+    },
+    '&:hover': {
+      color: (theme) => theme.colors.primary,
     },
   },
   container: {

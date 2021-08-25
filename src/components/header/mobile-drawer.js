@@ -18,19 +18,13 @@ import { useRouter } from "next/router";
 import useTranslation from '../../hooks/useTranslation';
 import projectItems from '../projects/project.data';
 
-const features = [
-  {
-    path: '/',
-    icon: <FaGlobeAmericas />,
-  },
-];
 
 const MobileDrawer = ({ setUrl }) => {
   const { t } = useTranslation();
   const router = useRouter();
   const { asPath } = useRouter();
   const { state, dispatch } = useContext(DrawerContext);
-  const { setLocale, locales } = useTranslation();
+  const { setLocale, locale } = useTranslation();
   const [isEngish, setIsEngish] = useState(true);
   const [mode, setMode] = useColorMode();
   const [issDefaultPath, setIsDefaultPath] = useState(true);
@@ -153,33 +147,36 @@ const MobileDrawer = ({ setUrl }) => {
           }
           <Box sx={styles.menuFooter}>
             <Box sx={styles.social}>
-              <Box as="span" sx={styles.social.icon}>
-                <Box onClick={() => router.push("/")}>
-                  <FaHome/>
-                </Box>
+              <Box  
+                sx={styles.social.icon}
+                onClick={() => router.push("/")}
+              >
+                <FaHome/>
               </Box>
               { mode === 'dark' 
-                ? ( <Box as="span" sx={styles.social.icon}>
-                      <Box onClick={(e) => { const next = mode === 'dark' 
+                ? ( <Box 
+                      sx={styles.social.icon}
+                      onClick={(e) => { const next = mode === 'dark' 
                         ? 'light' : 'dark'
                         setMode(next)}}
-                      >
-                        <FaSun/>
-                      </Box>
+                    >
+                      <FaSun/>
                     </Box>)
-                : ( <Box as="span" sx={styles.social.icon}>
-                      <Box onClick={(e) => { const next = mode === 'dark' 
+                : ( < Box 
+                      sx={styles.social.icon}
+                      onClick={(e) => { const next = mode === 'dark' 
                         ? 'light' : 'dark'
                         setMode(next)}}
-                      >
-                        <FaMoon />
-                      </Box>
-                    </Box>)}
-              {features.map(({ icon }, i) => (
-                <Box as="span" key={i} sx={styles.social.icon}>
-                  <Link onClick={(e) => handleLocaleChange(e)}>{icon}</Link>
-                </Box>
-              ))}
+                    >
+                      <FaMoon />
+                    </Box>
+              )}
+              <Box 
+                sx={styles.social.icon}
+                onClick={(e) => handleLocaleChange(e)}
+              >
+                {locale === 'hu' ? <>EN</> : <>HU</>}
+              </Box>
             </Box>
           </Box>
         </Box>

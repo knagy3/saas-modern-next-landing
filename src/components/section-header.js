@@ -9,7 +9,6 @@ export default function SectionHeader({ title, slogan }) {
         sx={{
           variant: 'sectionHeader.subTitle',
           color: (theme) => theme.colors.primary,
-          // color: isWhite ? 'white' : 'primary',
           opacity: 1,
         }}
       >
@@ -20,7 +19,6 @@ export default function SectionHeader({ title, slogan }) {
         sx={{
           variant: 'sectionHeader.title',
           color: (theme) => theme.colors.heading,
-          // color: isWhite ? 'white' : 'heading',
         }}
       >
         {title}
