@@ -5,9 +5,15 @@ import TrackVisibility from 'react-on-screen';
 // import SectionHeading from 'components/section-heading';
 import StatItem from 'components/cards/stat-item';
 import { FaExpand, FaUsers } from 'react-icons/fa';
+import { GrUserWorker } from "react-icons/gr";
 import { GiConcreteBag, GiMetalBar } from "react-icons/gi";
 import SectionHeader from 'components/section-header';
 import useTranslation from 'hooks/useTranslation';
+
+import workers from 'assets/images/icons/worker.svg';
+import mixer from 'assets/images/icons/concrete-mixer.svg';
+import beam from 'assets/images/icons/beam.svg';
+import square from 'assets/images/icons/square.svg';
 
 
 const Numbers = () => {
@@ -17,28 +23,28 @@ const Numbers = () => {
     stats: [
       {
         id: 0,
-        icon: <FaUsers/>,
+        icon: workers,
         value: 62,
         suffix: '',
         title: t('numbers', 'n_0_title'),
       },
       {
         id: 1,
-        icon: <GiConcreteBag/>,
+        icon: mixer,
         value: 3220,
         suffix: ' m2',
         title: t('numbers', 'n_1_title'),
       },
       {
         id: 2,
-        icon: <GiMetalBar/>,
+        icon: beam,
         value: 1250,
         suffix: ' tons',
         title: t('numbers', 'n_2_title'),
       },
       {
         id: 3,
-        icon: <FaExpand/>,
+        icon: square,
         value: 5250,
         suffix: ' m2',
         title: t('numbers', 'n_3_title'),

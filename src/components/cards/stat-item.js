@@ -2,7 +2,7 @@
 import CountUp from 'react-countup';
 import { jsx, Box, Text } from 'theme-ui';
 import { IconContext } from "react-icons";
-import { useColorMode } from 'theme-ui';
+import { useColorMode, Image } from 'theme-ui';
 import { useEffect, useState } from 'react';
 
 import colors from '../../theme/index';
@@ -21,11 +21,12 @@ const StatItem = ({ stat, isVisible }) => {
 
   return (
     <Box sx={styles.item}>
-      <IconContext.Provider
+      {/* <IconContext.Provider
         value={{ color: colorPrim ,size: '70px' }}
       >
         {stat.icon}
-      </IconContext.Provider>
+      </IconContext.Provider> */}
+      <Image src={stat.icon} alt='default alt text' sx={styles.img} />
       <Text sx={styles.value}>
         {isVisible && <CountUp end={stat.value} suffix={stat.suffix} />}
       </Text>
@@ -41,6 +42,13 @@ export default StatItem;
 const styles = {
   item: {
     textAlign: 'center',
+  },
+  img: {
+    width: ['70px', null, null, '80px', '90px', 'auto'],
+    height: 'auto',
+    flexShrink: 0,
+    // mr: [2, 3, null, null, 4, 5],
+    // ml: -2,
   },
   value: {
     color: 'heading',
