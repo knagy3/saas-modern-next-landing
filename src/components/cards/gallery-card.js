@@ -62,7 +62,7 @@ const styles = {
       },
     },
     figcaption: {
-      color: (theme) => theme.colors.primary,
+      color: 'white',
       position: 'absolute',
       fontWeight: 700,
       fontSize: 18,

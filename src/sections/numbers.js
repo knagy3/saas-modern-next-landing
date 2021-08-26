@@ -1,12 +1,8 @@
 /** @jsx jsx */
-import { Fragment } from 'react';
 import { jsx, Box, Container, Grid } from 'theme-ui';
 import TrackVisibility from 'react-on-screen';
 // import SectionHeading from 'components/section-heading';
 import StatItem from 'components/cards/stat-item';
-import { FaExpand, FaUsers } from 'react-icons/fa';
-import { GrUserWorker } from "react-icons/gr";
-import { GiConcreteBag, GiMetalBar } from "react-icons/gi";
 import SectionHeader from 'components/section-header';
 import useTranslation from 'hooks/useTranslation';
 
@@ -15,6 +11,10 @@ import mixer from 'assets/images/icons/concrete-mixer.svg';
 import beam from 'assets/images/icons/beam.svg';
 import square from 'assets/images/icons/square.svg';
 
+import workers_w from 'assets/images/icons/worker-white.svg';
+import mixer_w from 'assets/images/icons/concrete-mixer-white.svg';
+import beam_w from 'assets/images/icons/beam-white.svg';
+import square_w from 'assets/images/icons/square-white.svg';
 
 const Numbers = () => {
   const { t } = useTranslation();
@@ -24,6 +24,7 @@ const Numbers = () => {
       {
         id: 0,
         icon: workers,
+        icon_w: workers_w,
         value: 62,
         suffix: '',
         title: t('numbers', 'n_0_title'),
@@ -31,6 +32,7 @@ const Numbers = () => {
       {
         id: 1,
         icon: mixer,
+        icon_w: mixer_w,
         value: 3220,
         suffix: ' m2',
         title: t('numbers', 'n_1_title'),
@@ -38,6 +40,7 @@ const Numbers = () => {
       {
         id: 2,
         icon: beam,
+        icon_w: beam_w,
         value: 1250,
         suffix: ' tons',
         title: t('numbers', 'n_2_title'),
@@ -45,6 +48,7 @@ const Numbers = () => {
       {
         id: 3,
         icon: square,
+        icon_w: square_w,
         value: 5250,
         suffix: ' m2',
         title: t('numbers', 'n_3_title'),

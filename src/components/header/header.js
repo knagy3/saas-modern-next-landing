@@ -174,7 +174,8 @@ const styles = {
     '@media screen and (min-width: 560px)': {
       display: 'flex',
     },
-    mx: 'auto',
+    marginLeft: 'auto',
+    marginRight: '55px',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -208,7 +209,7 @@ const styles = {
     a: {
       fontSize: 2,
       fontWeight: 'body',
-      px: 5,
+      px: [1, 2, 3, 4, 4, 5],
       cursor: 'pointer',
       lineHeight: '1.2',
       transition: 'all 0.15s',

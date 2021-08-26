@@ -15,14 +15,14 @@ export default {
     border_color: '#E9EDF5', // border color
     // primary: '#8D448B', // primary button and link color
     // primary: '#4cd964', // primary button and link color
-    primary: '#0e1037', // primary button and link color
-    // primary: '#f44336', // primary button and link color
+    primary: 'rgba(43,103,237)',
+    // primary: '#0e1037', // primary button and link color
     secondary: '#30c', // secondary color - can be used for hover states
     muted: '#7B8188', // muted color
     accent: '#609', // a contrast color for emphasizing UI
     dark: '#10132D',
     banner: rgba('#fff', 0.85),
-    cardBoxShadow: '0px 4px 10px rgba(38,78,118,0.52)',
+    cardBoxShadow: '4px 4px 10px rgba(38,78,118,0.52)',
     cardBoxShadowHover: '0px 5px 20px rgba(38,78,118,0.55)',
     background_footer: '#020718',
     background_subscribe_button: rgba('#fff', 0.08),

@@ -12,12 +12,15 @@ import ButtonGroup from 'components/button-group';
 import colors from '../theme/index';
 import useTranslation from 'hooks/useTranslation';
 
+import ShapeLeft from 'assets/images/shape-left.png';
+import ShapeRight from 'assets/images/shape-left2.svg';
+
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1310 },
     items: 3,
-    slidesToSlide: 3, // optional, default to 1.
+    slidesToSlide: 1, // optional, default to 1.
   },
   // desktop: {
   //   breakpoint: { max: 3000, min: 1619 },
@@ -26,13 +29,13 @@ const responsive = {
   // },
   laptop: {
     breakpoint: { max: 1619, min: 1024 },
-    items: 3,
-    slidesToSlide: 3, // optional, default to 1.
+    items: 2,
+    slidesToSlide: 1, // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 640 },
     items: 2,
-    slidesToSlide: 2, // optional, default to 1.
+    slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 639, min: 0 },
@@ -50,17 +53,59 @@ export default function CareerCard({ setPlan }) {
     {
       id: 1,
       title: t('career', 'n_1_title'),
-      description: t('career', 'n_1_description'),
+      section1: t('career', 'n_1_section1'),
+      tasks: [
+        t('career', 'n_1_job_1'),
+        t('career', 'n_1_job_2'),
+        t('career', 'n_1_job_3'),
+        t('career', 'n_1_job_4'),
+        t('career', 'n_1_job_5'),
+        t('career', 'n_1_job_6'),
+      ],
+      section2: t('career', 'n_1_section2'),
+      needs: [
+        t('career', 'n_1_needs_1'),
+        t('career', 'n_1_needs_2'),
+        t('career', 'n_1_needs_3'),
+      ],
     },
     {
       id: 2,
       title: t('career', 'n_2_title'),
-      description: t('career', 'n_2_description'),
+      section1: t('career', 'n_2_section1'),
+      tasks: [
+        t('career', 'n_1_job_1'),
+        t('career', 'n_1_job_2'),
+        t('career', 'n_1_job_3'),
+        t('career', 'n_1_job_4'),
+        t('career', 'n_1_job_5'),
+        t('career', 'n_1_job_6'),
+      ],
+      section2: t('career', 'n_2_section2'),
+      needs: [
+        t('career', 'n_1_needs_1'),
+        t('career', 'n_1_needs_2'),
+        t('career', 'n_1_needs_3'),
+      ],
     },
     {
       id: 3,
       title: t('career', 'n_3_title'),
-      description: t('career', 'n_3_description'),
+      section1: t('career', 'n_3_section1'),
+      tasks: [
+        t('career', 'n_1_job_1'),
+        t('career', 'n_1_job_2'),
+        t('career', 'n_1_job_3'),
+        t('career', 'n_1_job_4'),
+        t('career', 'n_1_job_5'),
+        t('career', 'n_1_job_6'),
+      ],
+      section2: t('career', 'n_3_section2'),
+      needs: [
+        t('career', 'n_1_needs_1'),
+        t('career', 'n_1_needs_2'),
+        t('career', 'n_1_needs_3'),
+      ],
     },
   ];
 
@@ -100,7 +145,7 @@ export default function CareerCard({ setPlan }) {
           draggable={true}
           focusOnSelect={false}
           infinite={true}
-          itemClass=""
+          itemClass="carousel-item"
           keyBoardControl
           minimumTouchDrag={80}
           renderButtonGroupOutside
@@ -116,7 +161,18 @@ export default function CareerCard({ setPlan }) {
               <Heading as="h3" sx={styles.title}>
                 {item.title}
               </Heading>
-              <Text sx={styles.description}>{item.description}</Text>
+              <Text sx={styles.section}>{item.section1}</Text>
+              <ul sx={styles.list}>
+                {item.tasks.map((task) => (
+                  <li sx={styles.item}> <p sx={{my:['14px', '12px'],}}> {task} </p> </li>
+                ))}
+              </ul>
+              <Text sx={styles.section}>{item.section2}</Text>
+              <ul sx={styles.list}>
+                {item.needs.map((need) => (
+                  <li sx={styles.item}> <p> {need} </p> </li>
+                ))}
+              </ul>
               <div className="card-footer">
                 <Box sx={styles.apply} onClick={() => handleClick()}>
                   <Heading as="h4" sx={styles.heading}>
@@ -163,6 +219,38 @@ const styles = {
         'calc(40% + 865px)',
       ],
     },
+    '.carousel-item': {
+      '&:nth-of-type(2n)': {
+        '&::after': {
+          position: 'absolute',
+          content: '""',
+          top: '33px',
+          right: '22px',
+          height: '100%',
+          width: '26%',
+          // zIndex: 1,
+          backgroundImage: `url(${ShapeLeft})`,
+          backgroundRepeat: `no-repeat`,
+          backgroundPosition: 'top right',
+          backgroundSize: '100%',
+        },
+      },
+      '&:nth-of-type(2n-1)': {
+        '&::after': {
+          position: 'absolute',
+          content: '""',
+          bottom: '41px',
+          right: '22px',
+          height: '100%',
+          width: '26%',
+          zIndex: 1,
+          backgroundImage: `url(${ShapeRight})`,
+          backgroundRepeat: `no-repeat`,
+          backgroundPosition: 'bottom right',
+          backgroundSize: '100%',
+        },
+      },
+    },
   },
   // carouselWrapper: {
   //   display: 'flex',
@@ -200,7 +288,7 @@ const styles = {
     backgroundColor: (theme) => theme.colors.background,
     boxShadow: (theme) => theme.colors.cardBoxShadow,
     transition: 'all 0.3s',
-    borderRadius: '6px',
+    borderRadius: '4px',
     p: [
       '30px 20px 35px',
       '30px 25px 35px',
@@ -260,6 +348,20 @@ const styles = {
       },
     },
   },
+  list: {
+    lineHeight: '1.25',
+    listStyle: 'disc',
+    m: 0,
+    px: 3,
+    py: 1,
+  },
+  item: {
+    my: ['14px', '12px'],
+    fontSize: [1, null, null, 2],
+    fontWeight: 'normal',
+    color: 'text',
+    lineHeight: 1.25,
+  },
   title: {
     fontSize: [1, 2],
     fontWeight: 750,
@@ -267,11 +369,11 @@ const styles = {
     color: 'text',
     lineHeight: 1.6,
   },
-  description: {
+  section: {
     fontSize: [1, null, null, 2],
     fontWeight: 'normal',
     color: 'text',
-    lineHeight: [1.85, null, 2],
+    lineHeight: 1.4,
   },
   heading: {
     fontSize: ['14px', null, null, '18px'],

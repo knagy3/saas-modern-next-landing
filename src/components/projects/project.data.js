@@ -1,10 +1,10 @@
-import { buildUrl } from 'cloudinary-build-url';
+import { buildImageUrl } from 'cloudinary-build-url';
+
 const cloud= {
   cloudName: 'daki'
 };
-const urlHomeImage1 = buildUrl('projects/home/1_u42oxr', { cloud });
-
-const urlBannerImage1 = buildUrl('projects/project_3/banner_xelhym', { cloud });
+const urlHomeImage1 = buildImageUrl('projects/home/1_u42oxr', { cloud });
+const urlBannerImage1 = buildImageUrl('projects/project_3/banner_xelhym', { cloud });
 
 import BannerImage2 from 'assets/images/projects/banners/1.jpg';
 import BannerImage3 from 'assets/images/projects/banners/2.jpg';

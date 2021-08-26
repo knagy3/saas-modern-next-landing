@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import { keyframes } from '@emotion/core';
 import TextFeature from 'components/text-feature';
 import { IoIosPlay } from 'react-icons/io';
-import { buildUrl } from 'cloudinary-build-url';
+import { buildImageUrl } from 'cloudinary-build-url';
 import { IconContext } from "react-icons";
 import { useColorMode } from 'theme-ui';
 import DynamicComponent from 'components/DynamicComponent';
@@ -25,6 +25,12 @@ import {
 
 import colors from '../theme/index';
 import useTranslation from 'hooks/useTranslation';
+
+const url = buildImageUrl('service/service-thumb_tp65iy', {
+  cloud: {
+    cloudName: 'daki',
+  }
+});
 
 export default function ServiceSection() {
   const { t } = useTranslation();
@@ -58,11 +64,8 @@ export default function ServiceSection() {
     e.preventDefault();
     setVideoOpen(true);
   };
-  const url = buildUrl('service/service-thumb_tp65iy', {
-    cloud: {
-      cloudName: 'daki'
-    }
-  });
+
+ 
 
   useEffect(() => {
     if( mode === 'dark' ) {
@@ -78,6 +81,7 @@ export default function ServiceSection() {
         <Box sx={styles.thumbnail}>
           <Image 
             src={url}
+            // src="https://res.cloudinary.com/daki/image/upload/v1627724905/service/service-thumb_tp65iy.png"
             alt="Thumbnail" 
           />
           <Button
