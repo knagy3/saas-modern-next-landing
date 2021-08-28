@@ -4,8 +4,6 @@ const cloud = {
   cloudName: 'dakiep'
 };
 
-import PostThumb4 from 'assets/images/blog/4.jpg';
-
 const gallery1Url = buildImageUrl('sections/gallery/1', { cloud });
 const gallery2Url = buildImageUrl('sections/gallery/2', { cloud });
 const gallery3Url = buildImageUrl('sections/gallery/3', { cloud });
