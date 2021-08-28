@@ -74,18 +74,17 @@ export default function CareerCard({ setPlan }) {
       title: t('career', 'n_2_title'),
       section1: t('career', 'n_2_section1'),
       tasks: [
-        t('career', 'n_1_job_1'),
-        t('career', 'n_1_job_2'),
-        t('career', 'n_1_job_3'),
-        t('career', 'n_1_job_4'),
-        t('career', 'n_1_job_5'),
-        t('career', 'n_1_job_6'),
+        t('career', 'n_2_job_1'),
+        t('career', 'n_2_job_2'),
+        t('career', 'n_2_job_3'),
+        t('career', 'n_2_job_4'),
+        t('career', 'n_2_job_5'),
       ],
       section2: t('career', 'n_2_section2'),
       needs: [
-        t('career', 'n_1_needs_1'),
-        t('career', 'n_1_needs_2'),
-        t('career', 'n_1_needs_3'),
+        t('career', 'n_2_needs_1'),
+        t('career', 'n_2_needs_2'),
+        t('career', 'n_2_needs_3'),
       ],
     },
     {
@@ -93,18 +92,17 @@ export default function CareerCard({ setPlan }) {
       title: t('career', 'n_3_title'),
       section1: t('career', 'n_3_section1'),
       tasks: [
-        t('career', 'n_1_job_1'),
-        t('career', 'n_1_job_2'),
-        t('career', 'n_1_job_3'),
-        t('career', 'n_1_job_4'),
-        t('career', 'n_1_job_5'),
-        t('career', 'n_1_job_6'),
+        t('career', 'n_3_job_1'),
+        t('career', 'n_3_job_2'),
+        t('career', 'n_3_job_3'),
+        t('career', 'n_3_job_4'),
+        t('career', 'n_3_job_5'),
       ],
       section2: t('career', 'n_3_section2'),
       needs: [
-        t('career', 'n_1_needs_1'),
-        t('career', 'n_1_needs_2'),
-        t('career', 'n_1_needs_3'),
+        t('career', 'n_3_needs_1'),
+        t('career', 'n_3_needs_2'),
+        t('career', 'n_3_needs_3'),
       ],
     },
   ];
@@ -156,21 +154,21 @@ export default function CareerCard({ setPlan }) {
           slidesToSlide={1}
         >
           {data.map((item) => (
-            <Box sx={styles.reviewCard} key={`testimonial--key${item.id}`}>
+            <Box sx={styles.reviewCard} key={item.id}>
               {/* <Rating rating={item.review} /> */}
               <Heading as="h3" sx={styles.title}>
                 {item.title}
               </Heading>
               <Text sx={styles.section}>{item.section1}</Text>
               <ul sx={styles.list}>
-                {item.tasks.map((task) => (
-                  <li sx={styles.item}> <p sx={{my:['14px', '12px'],}}> {task} </p> </li>
+                {item.tasks.map((task, index) => (
+                  <li sx={styles.item}  key={index}> <p sx={{my:['14px', '12px'],}}> {task} </p> </li>
                 ))}
               </ul>
               <Text sx={styles.section}>{item.section2}</Text>
               <ul sx={styles.list}>
-                {item.needs.map((need) => (
-                  <li sx={styles.item}> <p> {need} </p> </li>
+                {item.needs.map((need, index) => (
+                  <li sx={styles.item} key={index}> <p> {need} </p> </li>
                 ))}
               </ul>
               <div className="card-footer">
@@ -228,7 +226,7 @@ const styles = {
           right: '22px',
           height: '100%',
           width: '26%',
-          // zIndex: 1,
+          zIndex: 1,
           backgroundImage: `url(${ShapeLeft})`,
           backgroundRepeat: `no-repeat`,
           backgroundPosition: 'top right',
@@ -239,14 +237,14 @@ const styles = {
         '&::after': {
           position: 'absolute',
           content: '""',
-          bottom: '41px',
+          top: '33px',
           right: '22px',
           height: '100%',
           width: '26%',
           zIndex: 1,
           backgroundImage: `url(${ShapeRight})`,
           backgroundRepeat: `no-repeat`,
-          backgroundPosition: 'bottom right',
+          backgroundPosition: 'top right',
           backgroundSize: '100%',
         },
       },

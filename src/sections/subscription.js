@@ -4,16 +4,16 @@ import SectionHeading from 'components/section-heading';
 import { ToastContainer, toast } from 'react-toastify';
 import { useColorMode } from 'theme-ui';
 import emailjs, { init } from 'emailjs-com';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import useTranslation from 'hooks/useTranslation';
 
-const Subscription = ({plan, setPlan}) => {
+const Subscription = ({ plan, setPlan }) => {
   const { t } = useTranslation();
   const [ mode ] = useColorMode();
   const emailRef = useRef();
 
   useEffect(() => {
-    init("user_wRxlWz2LJqPGZl452bdTJ");
+    init("user_VkN0zRDmBWvMoyUgzL8uu");
   }, []);
 
   const sendEmail = (template, object) => {
@@ -23,10 +23,10 @@ const Subscription = ({plan, setPlan}) => {
     };
     // emailjs.send(serviceID, templateID, templateParams, userID);
     emailjs.send(
-      'service_6o2sfwg', 
+      'service_9ed0x6r', 
       template, 
       templateParams, 
-      'user_wRxlWz2LJqPGZl452bdTJ')
+      'user_VkN0zRDmBWvMoyUgzL8uu')
       .then((result) => {
 
       }, (error) => {
@@ -42,16 +42,16 @@ const Subscription = ({plan, setPlan}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let object = 'Köszönjük a megkeresést';
-    let template = 'template_fd27i38';
+    let template = 'template_jhsk67p';
 
     if (validateEmail(emailRef.current.value)) {
       if (localStorage.getItem('lang') === "en") {
-        template ='template_0wudgxp';
-        plan === 'business'
+        template ='template_qlg8ooj';
+        plan !== 'career'
           ? object = 'Thank you for your inquiry'
           : object = 'Thank you for your interest for the position';
       } else {
-        if (plan !== 'business') {
+        if (plan !== 'career') {
           object = 'Köszönjük az érdeklődését a pozíció iránt';
         }
       }
@@ -75,28 +75,30 @@ const Subscription = ({plan, setPlan}) => {
             title={t('contact', 'title')}
             description={t('contact', 'description')}
           />
-          <Flex sx={styles.priceSwitcher}>
-            <Button
-              variant="text"
-              className={plan === 'business' ? 'active' : ''}
-              onClick={() => setPlan('business')}
-            >
-              {t('contact', 'button1')}
-            </Button>
-            <Button
-              variant="text"
-              className={plan === 'career' ? 'active' : ''}
-              onClick={() => setPlan('career')}
-            >
-              {t('contact', 'button2')}
-            </Button>
-          </Flex>
+          {plan !== 'default' &&
+            <Flex sx={styles.priceSwitcher}>
+              <Button
+                variant="text"
+                className={plan === 'business' ? 'active' : ''}
+                onClick={() => setPlan('business')}
+              >
+                {t('contact', 'button1')}
+              </Button>
+              <Button
+                variant="text"
+                className={plan === 'career' ? 'active' : ''}
+                onClick={() => setPlan('career')}
+              >
+                {t('contact', 'button2')}
+              </Button>
+            </Flex>
+          }
           <Flex as="form" sx={styles.form} onSubmit={handleSubmit}>
             {/* <Box as="label" htmlFor="email" variant="styles.srOnly">
               Email
             </Box> */}
             <Input type="email" id="email" ref={emailRef} placeholder={t('contact', 'paceholder')} />
-            <Button variant="white">{plan === 'business' ? (<>{t('contact', 'button3')}</>) : (<>{t('contact', 'button4')}</>)}</Button>
+            <Button variant="white">{plan !== 'career' ? (<>{t('contact', 'button3')}</>) : (<>{t('contact', 'button4')}</>)}</Button>
           </Flex>
         </Box>
         <ToastContainer

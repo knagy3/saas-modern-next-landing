@@ -17,7 +17,6 @@ import { buildImageUrl } from 'cloudinary-build-url';
 import { IconContext } from "react-icons";
 import { useColorMode } from 'theme-ui';
 import DynamicComponent from 'components/DynamicComponent';
-import ServiceThumb from 'assets/images/service-thumb.png';
 import {
   FaCrown,
   FaBriefcase,
@@ -26,9 +25,10 @@ import {
 import colors from '../theme/index';
 import useTranslation from 'hooks/useTranslation';
 
-const url = buildImageUrl('service/service-thumb_tp65iy', {
+// import ServiceThumb from 'assets/images/service-thumb.png';
+const url = buildImageUrl('sections/about/service-thumb', {
   cloud: {
-    cloudName: 'daki',
+    cloudName: 'dakiep',
   }
 });
 

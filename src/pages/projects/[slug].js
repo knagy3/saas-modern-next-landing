@@ -25,7 +25,7 @@ function Project() {
                     <Banner id={url.substr(-1)}/>
                     <Details id={url.substr(-1)}/>
                     <Blog setUrl={setUrl}/>
-                    <Subscription />
+                    <Subscription plan="default"/>
                 </Layout>
             </StickyProvider>
         </ThemeProvider>

@@ -2,44 +2,42 @@
 import { rgba } from 'polished';
 import { useState, useRef, useEffect } from 'react';
 import { jsx, Box, Container, Heading, Text } from 'theme-ui';
+import { buildImageUrl } from 'cloudinary-build-url';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay, Pagination, EffectFade } from 'swiper';
+
 import SectionHeading from 'components/section-heading';
 import Progressbar from 'components/progressbar';
-import Feature from 'components/cards/feature';
-import Image from 'components/image';
-import {
-  FaWifi,
-  FaExpand,
-  FaUsers
-} from 'react-icons/fa';
-
-import slider1 from 'assets/images/features/1.png';
-import slider2 from 'assets/images/features/2.webp';
-import slider3 from 'assets/images/features/3.png';
-
-import SwiperCore, { Autoplay, Pagination, EffectFade } from 'swiper';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 import useTranslation from 'hooks/useTranslation';
+// import Feature from 'components/cards/feature';
+import Image from 'components/image';
 
 SwiperCore.use([Autoplay, Pagination, EffectFade]);
+
+const cloud = {
+  cloudName: 'dakiep'
+};
+const slide1Url = buildImageUrl('sections/about/slide_1', { cloud });
+const slide2Url = buildImageUrl('sections/about/slide_2', { cloud });
+const slide3Url = buildImageUrl('sections/about/slide_3', { cloud });
 
 const data = {
   gallery: [
     {
       id: 1,
-      image: slider1,
+      image: slide1Url,
       title: 'Kin Co-working Space',
       desc: '442 Broadway, New York',
     },
     {
       id: 2,
-      image: slider2,
+      image: slide2Url,
       title: 'Kin Co-working Space',
       desc: '212 Broadway, Jamaica',
     },
     {
       id: 3,
-      image: slider3,
+      image: slide3Url,
       title: 'Kin Co-working Space',
       desc: '212 Broadway, Houston',
     },

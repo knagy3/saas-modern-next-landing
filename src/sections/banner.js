@@ -1,9 +1,16 @@
 /** @jsx jsx */
 import { jsx, Box, Container, Heading, Text } from 'theme-ui';
 import { motion } from "framer-motion";
+import { buildImageUrl } from 'cloudinary-build-url';
 
-import bannerBg from 'assets/images/banner-bg.jpg';
+// import bannerBg from 'assets/images/banner-bg.jpg';
 import useTranslation from '../hooks/useTranslation';
+
+const bannerUrl = buildImageUrl('sections/banner/banner-bg', {
+  cloud: {
+    cloudName: 'dakiep',
+  }
+});
 
 export default function Banner() {
   const { t } = useTranslation();
@@ -41,7 +48,7 @@ export default function Banner() {
 
 const styles = {
   section: {
-    background: `url(${bannerBg}) no-repeat center top / cover`,
+    background: `url(${bannerUrl}) no-repeat center top / cover`,
     backgroundSize: ['100%', null, null, null, 'cover'],
   },
   contentWrapper: {

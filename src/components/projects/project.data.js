@@ -1,90 +1,60 @@
 import { buildImageUrl } from 'cloudinary-build-url';
 
-const cloud= {
-  cloudName: 'daki'
+const cloud = {
+  cloudName: 'dakiep'
 };
-const urlHomeImage1 = buildImageUrl('projects/home/1_u42oxr', { cloud });
-const urlBannerImage1 = buildImageUrl('projects/project_3/banner_xelhym', { cloud });
 
-import BannerImage2 from 'assets/images/projects/banners/1.jpg';
-import BannerImage3 from 'assets/images/projects/banners/2.jpg';
-
-import PostThumb1 from 'assets/images/blog/1.png';
-import PostThumb2 from 'assets/images/blog/2.png';
-import PostThumb3 from 'assets/images/blog/3.png';
 import PostThumb4 from 'assets/images/blog/4.jpg';
 
-import gallery2 from 'assets/images/gallery/2.png';
-import gallery3 from 'assets/images/gallery/3.png';
-import gallery4 from 'assets/images/gallery/4.png';
-import gallery5 from 'assets/images/gallery/5.png';
-import gallery6 from 'assets/images/gallery/6.png';
+const gallery1Url = buildImageUrl('sections/gallery/1', { cloud });
+const gallery2Url = buildImageUrl('sections/gallery/2', { cloud });
+const gallery3Url = buildImageUrl('sections/gallery/3', { cloud });
+const gallery4Url = buildImageUrl('sections/gallery/4', { cloud });
 
+const slide1Url = buildImageUrl('projects/proj_1/slide', { cloud });
+const slide2Url = buildImageUrl('projects/proj_2/slide', { cloud });
+const slide3Url = buildImageUrl('projects/proj_3/slide', { cloud });
+
+const proj1BannerUrl = buildImageUrl('projects/proj_1/banner', { cloud });
+const proj2BannerUrl = buildImageUrl('projects/proj_2/banner', { cloud });
+const proj3BannerUrl = buildImageUrl('projects/proj_3/banner', { cloud });
 
 export default [
   {
-    id: '0',
+    id: '1',
     name: 'Creative Market',
     slogan: 'Helping you and your house become better acquinted',
-    bannerImg: urlBannerImage1,
-    homeImage: urlHomeImage1,
-    imgSrc: PostThumb1,
+    bannerImg: proj1BannerUrl,
+    homeImage: gallery1Url,
+    imgSrc: slide1Url,
     altText: 'Marketing',
     date: 'April 10, 21',
     client: 'KESZ, Hungary',
     project_type: 'Contruction, Brading',
     location: 'Mountain View CA 94043',
     year: '2021',
-  },
-  {
-    id: '1',
-    name: 'Startup Product Sales',
-    slogan: 'Creating quality urban lifestyles, building stronger communities',
-    bannerImg: BannerImage2,
-    homeImage: gallery2,
-    imgSrc: PostThumb2,
-    altText: 'Marketing',
-    date: 'Jan 10, 20',
-    client: 'Studio Massimo, Italy',
-    project_type: 'Contruction, Spa',
-    location: 'Budapest 1149',
-    year: '2020',
   },
   {
     id: '2',
-    name: 'Monopoly Market',
-    slogan: 'Helping you and your house become better acquinted',
-    bannerImg: BannerImage3,
-    homeImage: gallery3,
-    imgSrc: PostThumb3,
+    name: 'Startup Product Sales',
+    slogan: 'Creating quality urban lifestyles, building stronger communities',
+    bannerImg: proj2BannerUrl,
+    homeImage: gallery2Url,
+    imgSrc: slide2Url,
     altText: 'Marketing',
-    date: 'April 10, 21',
-    client: 'KESZ, Hungary',
-    project_type: 'Contruction, Brading',
-    location: 'Mountain View CA 94043',
-    year: '2021',
+    date: 'Jan 10, 20',
+    client: 'Studio Massimo, Italy',
+    project_type: 'Contruction, Spa',
+    location: 'Budapest 1149',
+    year: '2020',
   },
   {
     id: '3',
-    name: 'Creative Market',
-    slogan: 'Creating quality urban lifestyles, building stronger communities',
-    bannerImg: urlBannerImage1,
-    homeImage: gallery4,
-    imgSrc: PostThumb4,
-    altText: 'Marketing',
-    date: 'Jan 10, 20',
-    client: 'Studio Massimo, Italy',
-    project_type: 'Contruction, Spa',
-    location: 'Budapest 1149',
-    year: '2020',
-  },
-  {
-    id: '4',
-    name: 'Startup Product Sales',
+    name: 'Monopoly Market',
     slogan: 'Helping you and your house become better acquinted',
-    bannerImg: BannerImage2,
-    homeImage: gallery5,
-    imgSrc: PostThumb1,
+    bannerImg: proj3BannerUrl,
+    homeImage: gallery3Url,
+    imgSrc: slide3Url,
     altText: 'Marketing',
     date: 'April 10, 21',
     client: 'KESZ, Hungary',
@@ -92,18 +62,18 @@ export default [
     location: 'Mountain View CA 94043',
     year: '2021',
   },
-  {
-    id: '5',
-    name: 'Monopoly Market',
-    slogan: 'Creating quality urban lifestyles, building stronger communities',
-    bannerImg: BannerImage3,
-    homeImage: gallery6,
-    imgSrc: PostThumb2,
-    altText: 'Marketing',
-    date: 'Jan 10, 20',
-    client: 'Studio Massimo, Italy',
-    project_type: 'Contruction, Spa',
-    location: 'Budapest 1149',
-    year: '2020',
-  },
+  // {
+  //   id: '4',
+  //   name: 'Creative Market',
+  //   slogan: 'Creating quality urban lifestyles, building stronger communities',
+  //   bannerImg: proj1BannerUrl,
+  //   homeImage: gallery4Url,
+  //   imgSrc: PostThumb4,
+  //   altText: 'Marketing',
+  //   date: 'Jan 10, 20',
+  //   client: 'Studio Massimo, Italy',
+  //   project_type: 'Contruction, Spa',
+  //   location: 'Budapest 1149',
+  //   year: '2020',
+  // },
 ];

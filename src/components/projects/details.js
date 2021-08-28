@@ -1,21 +1,14 @@
 import React, { useState } from 'react'
 import { Box, Divider, Grid, Image } from 'theme-ui'
+import { buildImageUrl } from 'cloudinary-build-url';
 
 import projectItems from './project.data';
 import useTranslation from '../../hooks/useTranslation';
 import Lightbox from "react-image-lightbox";
 
-import Pic1 from 'assets/images/projects/1.jpg';
-import Pic2 from 'assets/images/projects/2.jpg';
-import Pic3 from 'assets/images/projects/3.jpg';
-import Pic4 from 'assets/images/projects/4.jpg';
-
-const images = [
-    Pic1,
-    Pic2,
-    Pic3,
-    Pic4
-];
+const cloud = {
+    cloudName: 'dakiep'
+};
 
 export default function Details({ id }) {
     const { t } = useTranslation();
@@ -41,35 +34,47 @@ export default function Details({ id }) {
         setIsOpen(true);
     };
 
+    const img1Url = buildImageUrl(`projects/proj_${id}/1`, { cloud });
+    const img2Url = buildImageUrl(`projects/proj_${id}/2`, { cloud });
+    const img3Url = buildImageUrl(`projects/proj_${id}/3`, { cloud });
+    const img4Url = buildImageUrl(`projects/proj_${id}/4`, { cloud });
+
+    const images = [
+        img1Url,
+        img2Url,
+        img3Url,
+        img4Url
+    ];
+
     return (
         <Box sx={styles.section}>
             <Grid  width={[250, 250, 250]} sx={styles.grid}>
                 <Box  sx={{cursor:'pointer',marginRight:'auto'}}>
-                    <Image src={Pic1} alt="pic1" onClick={(e) => openSlideshow(e, 0)}/>
+                    <Image src={img1Url} alt="pic1" onClick={(e) => openSlideshow(e, 0)}/>
                 </Box>
                 <Box sx={{cursor:'pointer',margin:'auto'}}>
-                    <Image src={Pic2} alt="pic2" onClick={(e) => openSlideshow(e, 1)}/>
+                    <Image src={img2Url} alt="pic2" onClick={(e) => openSlideshow(e, 1)}/>
                 </Box>
                 <Box sx={{cursor:'pointer',marginLeft:'auto'}}>
-                    <Image src={Pic3} alt="pic3" onClick={(e) => openSlideshow(e, 2)}/>
+                    <Image src={img3Url} alt="pic3" onClick={(e) => openSlideshow(e, 2)}/>
                 </Box>
             </Grid>
             <Grid gap={0} columns={['1fr 2fr']} width={[250, 450]}  sx={styles.grid}>
                 <Box sx={styles.heading}>
                     <Box >
-                        <h2>DATE</h2>
+                        <h2>{t('project', 'date')}</h2>
                         <p>{projectItems[id]?.date}</p>
                     </Box>
                     <Box >
-                        <h2>CLIENT</h2>
+                        <h2>{t('project', 'client')}</h2>
                         <p>{projectItems[id]?.client}</p>
                     </Box>
                     <Box >
-                        <h2>PROJECT TYPE</h2>
+                        <h2>{t('project', 'type')}</h2>
                         <p>{t('project', `pr_${id}_project_type`)}</p>
                     </Box>
                     <Box >
-                        <h2>LOCATION</h2>
+                        <h2>{t('project', 'location')}</h2>
                         <p>{projectItems[id]?.location}</p>
                     </Box>
                     {/* <Box >
@@ -78,7 +83,7 @@ export default function Details({ id }) {
                     </Box> */}
                 </Box>
                 <Box sx={styles.imageL} >
-                    <Image src={Pic4} alt="pic4" style={{cursor:'pointer',width:'1000px'}} 
+                    <Image src={img4Url} alt="pic4" style={{cursor:'pointer',width:'1000px'}} 
                         onClick={(e) => openSlideshow(e, 3)}
                     />
                 </Box>
