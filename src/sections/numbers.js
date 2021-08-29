@@ -34,7 +34,7 @@ const Numbers = () => {
         icon: mixer,
         icon_w: mixer_w,
         value: 3220,
-        suffix: ' m2',
+        suffix: ' m3',
         title: t('numbers', 'n_1_title'),
       },
       {
@@ -42,7 +42,7 @@ const Numbers = () => {
         icon: beam,
         icon_w: beam_w,
         value: 1250,
-        suffix: ' tons',
+        suffix: t('numbers', 'tons'),
         title: t('numbers', 'n_2_title'),
       },
       {

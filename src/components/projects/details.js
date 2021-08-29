@@ -61,13 +61,10 @@ export default function Details({ id }) {
             </Grid>
             <Grid gap={0} columns={['1fr 2fr']} width={[250, 450]}  sx={styles.grid}>
                 <Box sx={styles.heading}>
-                    <Box >
-                        <h2>{t('project', 'date')}</h2>
-                        <p>{projectItems[id]?.date}</p>
-                    </Box>
+                    
                     <Box >
                         <h2>{t('project', 'client')}</h2>
-                        <p>{projectItems[id]?.client}</p>
+                        <p>{projectItems[id-1]?.client}</p>
                     </Box>
                     <Box >
                         <h2>{t('project', 'type')}</h2>
@@ -75,11 +72,15 @@ export default function Details({ id }) {
                     </Box>
                     <Box >
                         <h2>{t('project', 'location')}</h2>
-                        <p>{projectItems[id]?.location}</p>
+                        <p>{projectItems[id-1]?.location}</p>
+                    </Box>
+                    <Box >
+                        <h2>{t('project', 'date')}</h2>
+                        <p>{projectItems[id-1]?.date}</p>
                     </Box>
                     {/* <Box >
                         <h2>YEAR</h2>
-                        <p>{projectItems[id]?.year}</p>
+                        <p>{projectItems[id-1]?.year}</p>
                     </Box> */}
                 </Box>
                 <Box sx={styles.imageL} >

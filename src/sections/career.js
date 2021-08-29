@@ -20,12 +20,12 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1310 },
     items: 3,
-    slidesToSlide: 1, // optional, default to 1.
+    slidesToSlide: 3, // optional, default to 1.
   },
   // desktop: {
   //   breakpoint: { max: 3000, min: 1619 },
-  //   items: 4,
-  //   slidesToSlide: 4, // optional, default to 1.
+  //   items: 3,
+  //   slidesToSlide: 3, // optional, default to 1.
   // },
   laptop: {
     breakpoint: { max: 1619, min: 1024 },

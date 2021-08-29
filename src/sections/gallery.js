@@ -34,7 +34,7 @@ const Gallery = () => {
         <Button 
           variant="muted_2" 
           sx={styles.button}
-          onClick={() => router.push("/projects/0")}
+          onClick={() => router.push("/projects/1")}
         >
           {t('gallery', 'button')}
           <RiArrowRightSLine size="20px" />

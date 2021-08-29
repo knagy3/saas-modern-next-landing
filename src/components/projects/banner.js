@@ -12,7 +12,7 @@ export default function Banner({ id }) {
     <Box 
       as="div" 
       sx={{ 
-        background: `url(${projectItems[id]?.bannerImg}) no-repeat center top / cover`,
+        background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
         backgroundSize: ['100%', null, null, null, 'cover'],
       }}
     >
@@ -36,7 +36,7 @@ export default function Banner({ id }) {
               {t('project', `pr_${id}_slogan`)}
             </Heading>
             <Text as="p" sx={styles.desc}>
-              -{" "}{projectItems[id]?.name}
+              -{" "}{projectItems[id-1]?.name}
             </Text>
           </motion.div>
         </Box>

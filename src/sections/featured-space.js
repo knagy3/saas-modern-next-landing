@@ -99,11 +99,6 @@ const FeaturedSpace = () => {
               sx={styles.heading2}
               description={t('featured', 'description2')}
             />
-            {/* <Box sx={styles.featureWrapper}>
-              {data?.feature?.map((feature) => (
-                <Feature key={feature.id} data={feature} />
-              ))}
-            </Box> */}
           </Box>
           <Box sx={styles.rightContent}>
             <Progressbar
@@ -203,6 +198,7 @@ const styles = {
     mt: [6, null, null, null, 0],
     maxWidth: '100%',
     '.swiper-pagination-bullets': {
+      width: '600px',
       bottom: 20,
     },
     '.swiper-pagination-bullet': {
@@ -244,12 +240,16 @@ const styles = {
     },
   },
   image: {
+    borderRadius: 10,
+    overflow: 'hidden',
+    width: '600px',
+    height: '700px',
     position: 'relative',
     display: 'flex',
-    alignItems: 'flex-start',
-    '> img': {
-      borderRadius: 10,
-    },
+    alignItems: 'center',
+    // '> img': {
+    //   borderRadius: 10,
+    // },
     figcaption: {
       backgroundColor: 'primary',
       display: 'flex',

@@ -56,13 +56,13 @@ const Subscription = ({ plan, setPlan }) => {
         }
       }
       if (mode === 'dark') {
-        toast("We will contact you soon!");
+        toast(t('contact', 'toast'));
       } else {
-        toast.dark("We will contact you soon!");
+        toast.dark(t('contact', 'toast'));
       }
       sendEmail(template, object);
     } else {
-      toast.error("The e-mail address is not valid!");
+      toast.error(t('contact', 'toast_error'));
     }
   };
 

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Image, Box, Heading, Text, Flex, Link } from 'theme-ui';
+import { jsx, Image, Box, Heading, Text, Flex } from 'theme-ui';
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
@@ -7,9 +7,8 @@ export default function PostCard({
   id,
   src,
   alt,
-  postLink,
   title,
-  authorName,
+  client,
   date,
   setUrl
 }) {
@@ -24,11 +23,10 @@ export default function PostCard({
 
   return (
     <motion.div 
-      whileHover={{ scale: 1.05 }} 
+      // whileHover={{ scale: 1.05 }} 
       whileTap={{ scale: 0.8 }} 
       sx={styles.card} 
     >
-      <Link path="/">
         <Box sx={styles.thumbnail}>
           <Image src={src} alt={alt} />
         </Box>
@@ -37,18 +35,14 @@ export default function PostCard({
           <Heading sx={styles.title} 
             onClick={() => handleClick()}
           >
-            {/* <Link href={postLink} variant="blog">
-              {title}
-            </Link> */}
             {title}
           </Heading>
 
           <Flex sx={styles.postFooter}>
-            <Text sx={styles.postFooter.name}>{authorName}</Text>
+            <Text sx={styles.postFooter.name}>{client}</Text>
             <Text sx={styles.postFooter.date}>{date}</Text>
           </Flex>
         </Flex>
-      </Link>
     </motion.div>
   );
 }
@@ -69,6 +63,7 @@ const styles = {
     borderRadius: '7px 7px 0 0',
     overflow: 'hidden',
     display: 'flex',
+    maxHeight: '305px',
     img: {
       width: '100%',
     },

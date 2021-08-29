@@ -12,18 +12,16 @@ import useTranslation from 'hooks/useTranslation';
 import {
   FaHome,
   FaSun,
-  FaDribbble,
-  FaGlobeAmericas,
   FaMoon,
 } from 'react-icons/fa';
 
 export default function Header({ className, setUrl }) {
   const [issDefaultPath, setIsDefaultPath] = useState(true);
   const { asPath } = useRouter();
+  const router = useRouter();
   const [mode, setMode] = useColorMode();
   const { t } = useTranslation();
   const { setLocale, locale } = useTranslation();
-  const [isEngish, setIsEngish] = useState(true);
 
   const menuItems = [
     {
@@ -35,17 +33,13 @@ export default function Header({ className, setUrl }) {
       label: t('header', 'h1'),
     },
     {
-      path: 'clients',
+      path: 'gallery',
       label: t('header', 'h2'),
     },
     {
       path: 'career',
       label: t('header', 'h3'),
     },
-    // {
-    //   path: 'faq',
-    //   label: 'Q&A',
-    // },
     {
       path: 'contact',
       label: t('header', 'h4'),
@@ -62,14 +56,12 @@ export default function Header({ className, setUrl }) {
 
   const handleLocaleChange = (e) => {
     e.preventDefault();
-    if (isEngish) {
+    if (locale === 'en') {
       localStorage.setItem('lang', 'hu');
       setLocale('hu');
-      setIsEngish(false);
     } else {
       localStorage.setItem('lang', 'en');
       setLocale('en');
-      setIsEngish(true);
     }
   };
 
@@ -96,7 +88,10 @@ export default function Header({ className, setUrl }) {
             </Flex>
           }
           <Box sx={styles.social}>  
-            <Box sx={styles.social_icon} onClick={() => router.push("/")}>
+            <Box 
+              sx={styles.social_icon} 
+              onClick={() => router.push("/")}
+            >
               <FaHome/>
             </Box>
             { mode === 'dark' 

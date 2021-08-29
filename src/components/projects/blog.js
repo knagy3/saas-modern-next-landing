@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { Container, Box } from 'theme-ui';
+import Carousel from 'react-multi-carousel';
 
 import SectionHeader from 'components/section-header';
 import PostCard from 'components/post-card.js';
 import ButtonGroup from 'components/button-group';
-import Carousel from 'react-multi-carousel';
-
 import projectItems from './project.data';
+import useTranslation from 'hooks/useTranslation';
 
 const responsive = {
   desktop: {
@@ -23,7 +23,7 @@ const responsive = {
   tablet: {
     breakpoint: { max: 1024, min: 640 },
     items: 2,
-    slidesToSlide: 2, // optional, default to 1.
+    slidesToSlide: 1, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 639, min: 0 },
@@ -33,12 +33,14 @@ const responsive = {
 };
 
 export default function Blog({ setUrl }) {
+  const { t } = useTranslation();
+
   return (
-    <Box id="blog" as="section" sx={styles.section}>
+    <Box as="section" sx={styles.section}>
       <Container>
         <SectionHeader
-          slogan="SIMILAR PROJECTS"
-          title="Explore our projects for your business solution"
+          slogan={t('project', 'blog_slogan')}
+          title={t('project', 'blog_title')}
         />
         <Box sx={styles.carouselWrapper}>
           <Carousel
@@ -69,9 +71,9 @@ export default function Blog({ setUrl }) {
                 id={item.id}
                 src={item.imgSrc}
                 alt={item.altText}
-                title={item.name}
-                authorName={item.client}
-                date={item.date}
+                title={t('project', `pr_${item.id}_project_type`)}
+                client={item.client}
+                date={item.year}
                 setUrl={setUrl}
               />
             ))}

@@ -12,10 +12,15 @@ import Subscription from 'sections/subscription';
 
 function Project() {
     const { asPath } = useRouter();
+    const router = useRouter();
     const [url, setUrl] = useState('');
-    
+
     useEffect(() => {
         setUrl(asPath);
+        if ( asPath.includes("slug") ) {
+            // ERROR: need to be solved later!
+            router.push('/');
+        }
     }, [])
 
     return (

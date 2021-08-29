@@ -2,7 +2,10 @@
 import { jsx, Box, Flex, Image } from 'theme-ui';
 import { useRouter } from "next/router";
 
+import useTranslation from 'hooks/useTranslation';
+
 const GalleryCard = ({ item }) => {
+  const { t } = useTranslation();
   const router = useRouter();
 
   return (
@@ -14,9 +17,11 @@ const GalleryCard = ({ item }) => {
       <Image 
         loading="lazy" 
         src={item?.homeImage} 
-        alt={item?.name}
+        alt={item?.altText}
       />
-      <Box as="figcaption">{item?.name}</Box>
+      <Box as="figcaption"> 
+        {t('project', `pr_${item.id}_project_type`)}{" - "}{item?.location} 
+      </Box>
     </Flex>
   );
 };

@@ -17,6 +17,7 @@ export function LanguageProvider({ children }) {
       language = localStorage.getItem('lang') || locale;
     }
     setLocale(language);
+    localStorage.setItem('lang', language);
   }, [locale]);
 
   return (

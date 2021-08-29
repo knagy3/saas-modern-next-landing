@@ -9,8 +9,6 @@ import { Link } from 'react-scroll';
 import {
   FaHome,
   FaSun,
-  FaDribbble,
-  FaGlobeAmericas,
   FaMoon,
 } from 'react-icons/fa';
 import { useRouter } from "next/router";
@@ -25,20 +23,8 @@ const MobileDrawer = ({ setUrl }) => {
   const { asPath } = useRouter();
   const { state, dispatch } = useContext(DrawerContext);
   const { setLocale, locale } = useTranslation();
-  const [isEngish, setIsEngish] = useState(true);
   const [mode, setMode] = useColorMode();
   const [issDefaultPath, setIsDefaultPath] = useState(true);
-
-  useEffect(() => {
-    // if (typeof window === 'undefined') {
-    //   return null;
-    // }
-    if (localStorage.getItem('lang') === "en") {
-      setIsEngish(true);
-    } else {
-      setIsEngish(false);
-    }
-  }, []);
 
   useEffect(() => {
     if (asPath.length > 5) {
@@ -50,14 +36,12 @@ const MobileDrawer = ({ setUrl }) => {
 
   const handleLocaleChange = (e) => {
     e.preventDefault();
-    if (isEngish) {
+    if (locale === 'en') {
       localStorage.setItem('lang', 'hu');
       setLocale('hu');
-      setIsEngish(false);
     } else {
       localStorage.setItem('lang', 'en');
       setLocale('en');
-      setIsEngish(true);
     }
   };
 
@@ -78,17 +62,13 @@ const MobileDrawer = ({ setUrl }) => {
       label: t('header', 'h1'),
     },
     {
-      path: 'clients',
+      path: 'gallery',
       label: t('header', 'h2'),
     },
     {
       path: 'career',
       label: t('header', 'h3'),
     },
-    // {
-    //   path: 'faq',
-    //   label: 'Q&A',
-    // },
     {
       path: 'contact',
       label: t('header', 'h4'),

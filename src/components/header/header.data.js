@@ -12,7 +12,7 @@ export default [
     label: 'Rólunk',
   },
   {
-    path: 'clients',
+    path: 'gallery',
     label: 'Projektjeink',
   },
   {

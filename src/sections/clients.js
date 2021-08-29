@@ -10,9 +10,9 @@ import meva_b from 'assets/images/clients/meva-black.png';
 import meva_w from 'assets/images/clients/meva-white.png';
 import mobilbox_b from 'assets/images/clients/mobilbox-black.png';
 import mobilbox_w from 'assets/images/clients/mobilbox-white.png';
-
 import peri from 'assets/images/clients/peri.png';
-import google from 'assets/images/clients/google.png';
+// import google from 'assets/images/clients/google.png';
+
 import useTranslation from 'hooks/useTranslation';
 
 const clients = [
@@ -40,12 +40,12 @@ const clients = [
     logo_b: peri,
     logo_w: peri,
   },
-  {
-    id: 4,
-    name: 'Google',
-    logo_b: google,
-    logo_w: google,
-  },
+  // {
+  //   id: 4,
+  //   name: 'Google',
+  //   logo_b: google,
+  //   logo_w: google,
+  // },
 ];
 
 function SlickArrow({ className, onClick, control }) {
