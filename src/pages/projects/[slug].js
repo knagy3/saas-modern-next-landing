@@ -16,10 +16,12 @@ function Project() {
     const [url, setUrl] = useState('');
 
     useEffect(() => {
-        setUrl(asPath);
         if ( asPath.includes("slug") ) {
             // ERROR: need to be solved later!
-            router.push('/');
+            setUrl('/projects/' + localStorage.getItem('slug'));
+        } else {
+            setUrl(asPath);
+            localStorage.setItem('slug', asPath.substr(-1));
         }
     }, [])
 

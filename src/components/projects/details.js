@@ -9,6 +9,9 @@ import Lightbox from "react-image-lightbox";
 const cloud = {
     cloudName: 'dakiep'
 };
+const transformations = {
+    quality: '30',
+};
 
 export default function Details({ id }) {
     const { t } = useTranslation();
@@ -34,10 +37,10 @@ export default function Details({ id }) {
         setIsOpen(true);
     };
 
-    const img1Url = buildImageUrl(`projects/proj_${id}/1`, { cloud });
-    const img2Url = buildImageUrl(`projects/proj_${id}/2`, { cloud });
-    const img3Url = buildImageUrl(`projects/proj_${id}/3`, { cloud });
-    const img4Url = buildImageUrl(`projects/proj_${id}/4`, { cloud });
+    const img1Url = buildImageUrl(`projects/proj_${id}/img1`, { cloud, transformations });
+    const img2Url = buildImageUrl(`projects/proj_${id}/img2`, { cloud, transformations });
+    const img3Url = buildImageUrl(`projects/proj_${id}/img3`, { cloud, transformations });
+    const img4Url = buildImageUrl(`projects/proj_${id}/img4`, { cloud, transformations });
 
     const images = [
         img1Url,

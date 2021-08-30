@@ -9,7 +9,10 @@ import useTranslation from '../hooks/useTranslation';
 const bannerUrl = buildImageUrl('sections/banner/banner-bg', {
   cloud: {
     cloudName: 'dakiep',
-  }
+  },
+  transformations: {
+    quality: 'auto:best',
+  },
 });
 
 export default function Banner() {

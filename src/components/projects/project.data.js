@@ -1,28 +1,33 @@
 import { buildImageUrl } from 'cloudinary-build-url';
 
 const cloud = {
-  cloudName: 'dakiep'
+  cloudName: 'dakiep',
+};
+const transformations = {
+  quality: '50',
+};
+const transformations30 = {
+  quality: '30',
 };
 
-const gallery1Url = buildImageUrl('sections/gallery/1', { cloud });
-const gallery2Url = buildImageUrl('sections/gallery/2', { cloud });
-const gallery3Url = buildImageUrl('sections/gallery/3', { cloud });
+const gallery1Url = buildImageUrl('sections/gallery/1', { cloud, transformations: transformations30 });
+const gallery2Url = buildImageUrl('sections/gallery/2', { cloud, transformations });
+const gallery3Url = buildImageUrl('sections/gallery/3', { cloud, transformations });
 
-const slide1Url = buildImageUrl('projects/proj_1/slide', { cloud });
-const slide2Url = buildImageUrl('projects/proj_2/slide', { cloud });
-const slide3Url = buildImageUrl('projects/proj_3/slide', { cloud });
+// const slide1Url = buildImageUrl('projects/proj_1/slide', { cloud });
+// const slide2Url = buildImageUrl('projects/proj_2/slide', { cloud });
+// const slide3Url = buildImageUrl('projects/proj_3/slide', { cloud });
 
-const proj1BannerUrl = buildImageUrl('projects/proj_1/banner', { cloud });
-const proj2BannerUrl = buildImageUrl('projects/proj_2/banner', { cloud });
-const proj3BannerUrl = buildImageUrl('projects/proj_3/banner', { cloud });
+const proj1BannerUrl = buildImageUrl('projects/proj_1/banner-img', { cloud, transformations: transformations30 });
+const proj2BannerUrl = buildImageUrl('projects/proj_2/banner-img', { cloud, transformations: transformations30 });
+const proj3BannerUrl = buildImageUrl('projects/proj_3/banner-img', { cloud, transformations: transformations30 });
 
 export default [
   {
     id: '1',
-    name: 'Creative Market',
     bannerImg: proj1BannerUrl,
     homeImage: gallery1Url,
-    imgSrc: slide1Url,
+    imgSrc: gallery1Url,
     altText: 'Marketing',
     date: 'April 10, 2020',
     client: 'Nestlé ',
@@ -31,10 +36,9 @@ export default [
   },
   {
     id: '2',
-    name: 'Startup Product Sales',
     bannerImg: proj2BannerUrl,
     homeImage: gallery2Url,
-    imgSrc: slide2Url,
+    imgSrc: gallery2Url,
     altText: 'Marketing',
     date: 'Jan 10, 2021',
     client: 'Zalaegerszeg Önkormányzata',
@@ -43,10 +47,9 @@ export default [
   },
   {
     id: '3',
-    name: 'Monopoly Market',
     bannerImg: proj3BannerUrl,
     homeImage: gallery3Url,
-    imgSrc: slide3Url,
+    imgSrc: gallery3Url,
     altText: 'Marketing',
     date: 'April 10, 2021',
     client: 'SAMSUNG SDI',

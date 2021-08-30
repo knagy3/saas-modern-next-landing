@@ -111,7 +111,7 @@ const MobileDrawer = ({ setUrl }) => {
                 ))}
               </Box>) 
             : (<Box sx={styles.menu}>
-                {projectItems.map(({ id, name }, i) => (
+                {projectItems.map(({ id, location }, i) => (
                   <Box
                     sx={styles.link}
                     key={i}
@@ -120,7 +120,7 @@ const MobileDrawer = ({ setUrl }) => {
                       setUrl(`/projects/${id}`);
                   }}
                   >
-                    {name}
+                    {t('project', `pr_${id}_project_type`)}{" - "}{location}
                   </Box>
                 ))}
               </Box>)
@@ -175,6 +175,9 @@ const styles = {
     width: '30px',
     '@media screen and (min-width: 1024px)': {
       display: '',
+    },
+    '&:hover': {
+      color: (theme) => theme.colors.primary,
     },
   },
   drawer: {

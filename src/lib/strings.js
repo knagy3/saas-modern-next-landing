@@ -50,7 +50,7 @@ export const LangStrings = {
       n_1_title: 'CONSTRUCTION MANAGER',
       n_1_section1: 'Tasks waiting for you:',
       n_1_job_1: 'Technical and professional management of construction works',
-      n_1_job_2: 'Schedule, prepare financial schedules and adhere to them??????',
+      n_1_job_2: 'Schedule, prepare financial schedules and adhere to them',
       n_1_job_3: 'Keeping in touch with subcontractors, customer, industry designers, technical inspector, suppliers',
       n_1_job_4: 'Coordination of material orders, tools, human resources',
       n_1_job_5: 'Active participation in construction discussions',
@@ -107,7 +107,7 @@ export const LangStrings = {
       pr_1_p2: '',
     
       pr_2_slogan: 'Helping you and your house become better acquainted',
-      pr_2_project_type: 'Artwork Contruction',
+      pr_2_project_type: 'Bridge  Contruction',
       pr_2_header: 'Our company carried out the construction of many works of art. From the pile clamping beam to the entire bridge head structure.',
       pr_2_p1: '',
       pr_2_p2: '',
@@ -231,8 +231,8 @@ export const LangStrings = {
       pr_1_p2: '',
     
       pr_2_slogan: 'Segítséget nyujt a házának a jobb megismerésében',
-      pr_2_project_type: 'Műtárgyépítés',
-      pr_2_header: 'Társaságunk végezte számos műtárgy kivitelezését. A cölöpösszefogó gerendától a teljes hídfő szerkezet kivitelezési munkálatait. ',
+      pr_2_project_type: 'Hídépítés ',
+      pr_2_header: 'Társaságunk végezte számos műtárgy kivitelezését. A cölöpösszefogó gerendától a teljes hídfő szerkezet kivitelezési munkálatáig. ',
       pr_2_p1: '',
       pr_2_p2: '',
     

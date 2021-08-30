@@ -81,7 +81,6 @@ export default function ServiceSection() {
         <Box sx={styles.thumbnail}>
           <Image 
             src={url}
-            // src="https://res.cloudinary.com/daki/image/upload/v1627724905/service/service-thumb_tp65iy.png"
             alt="Thumbnail" 
           />
           <Button
@@ -158,9 +157,10 @@ const styles = {
     display: 'inline-flex',
     position: 'relative',
     '> img': {
+      borderRadius: '10px',
       position: 'relative',
       zIndex: 1,
-      height: [310, 'auto'],
+      height: ['auto', 'auto'],
     },
   },
   shapeBox: {

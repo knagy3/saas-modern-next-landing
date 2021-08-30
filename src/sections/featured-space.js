@@ -17,9 +17,13 @@ SwiperCore.use([Autoplay, Pagination, EffectFade]);
 const cloud = {
   cloudName: 'dakiep'
 };
-const slide1Url = buildImageUrl('sections/about/slide_1', { cloud });
-const slide2Url = buildImageUrl('sections/about/slide_2', { cloud });
-const slide3Url = buildImageUrl('sections/about/slide_3', { cloud });
+const transformations = {
+  quality: '50',
+};
+const slide1Url = buildImageUrl('sections/about/slide_1', { cloud, transformations });
+const slide2Url = buildImageUrl('sections/about/slide_2', { cloud, transformations });
+const slide3Url = buildImageUrl('sections/about/slide_3', { cloud, transformations });
+const slide4Url = buildImageUrl('sections/about/slide_4', { cloud, transformations });
 
 const data = {
   gallery: [
@@ -38,6 +42,12 @@ const data = {
     {
       id: 3,
       image: slide3Url,
+      title: 'Kin Co-working Space',
+      desc: '212 Broadway, Houston',
+    },
+    {
+      id: 4,
+      image: slide4Url,
       title: 'Kin Co-working Space',
       desc: '212 Broadway, Houston',
     },
@@ -198,7 +208,7 @@ const styles = {
     mt: [6, null, null, null, 0],
     maxWidth: '100%',
     '.swiper-pagination-bullets': {
-      width: '600px',
+      width: ['325', '375px', null, null, '425px','600px'],
       bottom: 20,
     },
     '.swiper-pagination-bullet': {
@@ -242,8 +252,8 @@ const styles = {
   image: {
     borderRadius: 10,
     overflow: 'hidden',
-    width: '600px',
-    height: '700px',
+    width: ['325px', '375px', null, null, '425px','600px'],
+    height: ['390px', '435px', null, null, '500px','700px'],
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
