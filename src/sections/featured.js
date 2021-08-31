@@ -90,10 +90,10 @@ const Featured = () => {
     startProgressbar();
   }, []);
 
-  const handleToggle = () => {
-    isPause.current = !isPause.current;
-    setTogglePlay((prev) => !prev);
-  };
+  // const handleToggle = () => {
+  //   isPause.current = !isPause.current;
+  //   setTogglePlay((prev) => !prev);
+  // };
 
   return (
     <Box id="feature" as="section" sx={styles.section}>
@@ -111,12 +111,12 @@ const Featured = () => {
             />
           </Box>
           <Box sx={styles.rightContent}>
-            <Progressbar
+            {/* <Progressbar
               sx={styles.progressbar}
               togglePlay={togglePlay}
               handleClick={handleToggle}
               currentWidth={currentWidth}
-            />
+            /> */}
             <Swiper
               loop={true}
               effect="fade"
@@ -129,12 +129,12 @@ const Featured = () => {
                 <SwiperSlide key={item.id}>
                   <Box as="figure" sx={styles.image}>
                     <Image loading="lazy" src={item.image} alt="" />
-                    <Box as="figcaption">
+                    {/* <Box as="figcaption">
                       <Box>
                         <Heading as="h4">{item.title}</Heading>
                         <Text as="p">{item.desc}</Text>
                       </Box>
-                    </Box>
+                    </Box> */}
                   </Box>
                 </SwiperSlide>
               ))}
@@ -250,16 +250,19 @@ const styles = {
     },
   },
   image: {
-    borderRadius: 10,
-    overflow: 'hidden',
-    width: ['325px', '375px', null, null, '425px','600px'],
-    height: ['390px', '435px', null, null, '500px','700px'],
+    // borderRadius: 10,
+    // overflow: 'hidden',
+    // width: ['325px', '375px', null, null, '425px','600px'],
+    // height: ['390px', '435px', null, null, '500px','700px'],
+    // position: 'relative',
+    // display: 'flex',
+    // alignItems: 'center',
     position: 'relative',
     display: 'flex',
-    alignItems: 'center',
-    // '> img': {
-    //   borderRadius: 10,
-    // },
+    alignItems: 'flex-start',
+    '> img': {
+      borderRadius: 10,
+    },
     figcaption: {
       backgroundColor: 'primary',
       display: 'flex',

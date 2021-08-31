@@ -116,7 +116,7 @@ export const LangStrings = {
     
       pr_3_slogan: 'Concrete results',
       pr_3_name: 'BÜK Nestlé Hungaria Kft - Construction of test buildings',
-      pr_3_project_type: 'Contruction',
+      pr_3_project_type: 'Structural Contruction',
       pr_3_header: 'Test Construction work for foundation and ascending structures of buildings and service buildings has been carried out by our company within this project.',
       pr_3_p1: '',
       pr_3_p2: '',
@@ -243,7 +243,7 @@ export const LangStrings = {
     
       pr_3_slogan: 'Szakértelem és minőség',
       pr_3_name: 'GÖD Samsung SDI Magyarország Zrt. - Tesztépületek kivitelezése',
-      pr_3_project_type: 'Építkezés',
+      pr_3_project_type: 'Szerkezetépítés',
       pr_3_header: 'Tesztépületek és kiszolgáló épületek alapozási és felmenő szerkezeteinek kivitelezési munkáit végezte társaságunk a projekt során. ',
       pr_3_p1: '',
       pr_3_p2: '',
