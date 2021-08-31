@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useRouter } from "next/router";
+import { AnimatePresence, motion } from "framer-motion";
 // import Router from 'next/router';
 import 'react-image-lightbox/style.css';
 import 'swiper/swiper-bundle.min.css';
@@ -10,33 +12,30 @@ import 'react-modal-video/css/modal-video.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '../assets/css/video.css';
 
-
-import { useRouter } from "next/router";
-
 import { initGA, logPageView } from 'analytics';
 import { LanguageProvider } from '../contexts/LanguageContext';
-import { AnimatePresence, motion } from "framer-motion";
 
 export default function CustomApp({ Component, pageProps }) {
   const { pathname } = useRouter();
   const router= useRouter();
 
   // const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
-  const transition = { duration: 0.7 };
+  const transition = { duration: 1.5 };
   const frameVariants = {
     pageInitial: {
-      opacity: 0, 
+      opacity: 0.1, 
+      transition
       // scale: 0.9, opacity: 0, 
     },
     pageAnimate: {
-      opacity: 1, transition
+      opacity: 1, 
+      transition
       // scale: 1, opacity: 1, transition,
     },
-    // enter: { scale: 1, opacity: 1, transition },
     pageExit: {
       // scale: 0.5,
-      opacity: 0,
-      transition: { duration: 1 }
+      opacity: 0.1,
+      transition
     }
   };
 
@@ -54,7 +53,7 @@ export default function CustomApp({ Component, pageProps }) {
     <LanguageProvider>
       <AnimatePresence >
         <motion.div key={router.route} 
-          initial="pageInitial" animate="pageAnimate" exit="pageExit" 
+          initial="pageInitial" animate="pageAnimate" enter="pageEnter" exit="pageExit" 
           variants={frameVariants}
         >
           <Component {...pageProps} />

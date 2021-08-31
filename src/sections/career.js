@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container, Heading, Text, Box, Image } from 'theme-ui';
+import { jsx, Container, Heading, Text, Box } from 'theme-ui';
 import Carousel from 'react-multi-carousel';
 import { TiArrowForward } from "react-icons/ti";
 import { IconContext } from "react-icons";
@@ -122,8 +122,7 @@ export default function CareerCard({ setPlan }) {
   };
 
   return (
-    <section id="career" sx={{ variant: 'section.testimonial' }}>
-    {/* <section id="career" > */}
+    <Box id="career" as="section" sx={styles.mainSection}>
       <Container css={{ textAlign: 'center' }}>
         <SectionHeader 
           slogan={t('career', 'slogan')}
@@ -187,11 +186,15 @@ export default function CareerCard({ setPlan }) {
           ))}
         </Carousel>
       </Box>
-    </section>
+    </Box>
   );
 }
 
 const styles = {
+  mainSection: {
+    pt: [50, 50, 50, 70, 60, 100],
+    pb: [40, 40, 50, 60, 60, 100],
+  },
   apply: {
     display: 'flex',
     flexDirection: 'row',

@@ -32,7 +32,7 @@ const url = buildImageUrl('sections/about/service-thumb', {
   }
 });
 
-export default function ServiceSection() {
+export default function Service() {
   const { t } = useTranslation();
 
   const data = {
@@ -64,8 +64,6 @@ export default function ServiceSection() {
     e.preventDefault();
     setVideoOpen(true);
   };
-
- 
 
   useEffect(() => {
     if( mode === 'dark' ) {
@@ -136,8 +134,8 @@ const playPluse = keyframes`
 
 const styles = {
   section: {
-    pt: [35, null, null, null, 60],
-    pb: [35, null, null, 60, 60],
+    pt: [40, null, null, null, 80],
+    pb: [40, null, null, 60, 60],
   },
   coreFeature: {
     py: [0, null, null, 2, null, 7],

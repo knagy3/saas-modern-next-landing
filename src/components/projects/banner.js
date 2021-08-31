@@ -11,8 +11,11 @@ export default function Banner({ id }) {
   return (
     <Box 
       as="div" 
-      sx={{ 
+      sx={id == 1 ?{ 
         background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
+        backgroundSize: ['100%', null, null, null, 'cover'],
+      } :{ 
+        background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center center / cover`,
         backgroundSize: ['100%', null, null, null, 'cover'],
       }}
     >
@@ -36,7 +39,7 @@ export default function Banner({ id }) {
               {t('project', `pr_${id}_slogan`)}
             </Heading>
             <Text as="p" sx={styles.desc}>
-              -{" "}{projectItems[id-1]?.name}
+            {t('project', `pr_${id}_name`)}
             </Text>
           </motion.div>
         </Box>

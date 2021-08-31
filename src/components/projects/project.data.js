@@ -9,9 +9,12 @@ const transformations = {
 const transformations30 = {
   quality: '30',
 };
+const transformations5 = {
+  quality: '5',
+};
 
 const gallery1Url = buildImageUrl('sections/gallery/1', { cloud, transformations: transformations30 });
-const gallery2Url = buildImageUrl('sections/gallery/2', { cloud, transformations });
+const gallery2Url = buildImageUrl('sections/gallery/2', { cloud, transformations: transformations30  });
 const gallery3Url = buildImageUrl('sections/gallery/3', { cloud, transformations });
 
 // const slide1Url = buildImageUrl('projects/proj_1/slide', { cloud });

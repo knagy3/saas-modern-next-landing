@@ -134,8 +134,8 @@ export default Clients;
 
 const styles = {
   section: {
-    pt: [50, 50, 50, 70, 60, 80],
-    pb: [30, 40, 50, 60, 50, 80],
+    pt: [50, 50, 50, 70, 60, 100],
+    pb: [40, 40, 50, 60, 60, 100],
   },
   clients: {
     display: 'flex',

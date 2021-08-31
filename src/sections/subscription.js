@@ -16,17 +16,15 @@ const Subscription = ({ plan, setPlan }) => {
     init("user_VkN0zRDmBWvMoyUgzL8uu");
   }, []);
 
-  const sendEmail = (template, object) => {
+  const sendEmail = (template) => {
     const templateParams = {
       to_email: emailRef.current.value,
-      object: object,
     };
     // emailjs.send(serviceID, templateID, templateParams, userID);
     emailjs.send(
-      'service_9ed0x6r', 
+      'service_mlb6lof', 
       template, 
-      templateParams, 
-      'user_VkN0zRDmBWvMoyUgzL8uu')
+      templateParams)
       .then((result) => {
 
       }, (error) => {
@@ -41,26 +39,18 @@ const Subscription = ({ plan, setPlan }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let object = 'Köszönjük a megkeresést';
     let template = 'template_jhsk67p';
 
     if (validateEmail(emailRef.current.value)) {
-      if (localStorage.getItem('lang') === "en") {
+      if (plan === 'career') {
         template ='template_qlg8ooj';
-        plan !== 'career'
-          ? object = 'Thank you for your inquiry'
-          : object = 'Thank you for your interest for the position';
-      } else {
-        if (plan !== 'career') {
-          object = 'Köszönjük az érdeklődését a pozíció iránt';
-        }
-      }
+      } 
       if (mode === 'dark') {
         toast(t('contact', 'toast'));
       } else {
         toast.dark(t('contact', 'toast'));
       }
-      sendEmail(template, object);
+      sendEmail(template);
     } else {
       toast.error(t('contact', 'toast_error'));
     }

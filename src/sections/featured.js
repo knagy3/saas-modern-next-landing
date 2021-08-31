@@ -30,31 +30,31 @@ const data = {
     {
       id: 1,
       image: slide1Url,
-      title: 'Kin Co-working Space',
-      desc: '442 Broadway, New York',
+      title: 'Calgary, Canada',
+      desc: 'July 31, 2020',
     },
     {
       id: 2,
       image: slide2Url,
-      title: 'Kin Co-working Space',
-      desc: '212 Broadway, Jamaica',
+      title: 'New York, USA',
+      desc: 'April 2, 2020',
     },
     {
       id: 3,
       image: slide3Url,
-      title: 'Kin Co-working Space',
-      desc: '212 Broadway, Houston',
+      title: 'Hamilton, Canada',
+      desc: 'Jan 27, 2018',
     },
     {
       id: 4,
       image: slide4Url,
-      title: 'Kin Co-working Space',
-      desc: '212 Broadway, Houston',
+      title: 'Ahvaz, Iran',
+      desc: 'July 17, 2019',
     },
   ],
 };
 
-const FeaturedSpace = () => {
+const Featured = () => {
   const isPause = useRef(false);
   const swiperRef = useRef(null);
   const [togglePlay, setTogglePlay] = useState(false);
@@ -146,7 +146,7 @@ const FeaturedSpace = () => {
   );
 };
 
-export default FeaturedSpace;
+export default Featured;
 
 const styles = {
   section: {
@@ -205,7 +205,7 @@ const styles = {
   },
   rightContent: {
     position: 'relative',
-    mt: [6, null, null, null, 0],
+    mt: [3, null, null, null, 0],
     maxWidth: '100%',
     '.swiper-pagination-bullets': {
       width: ['325', '375px', null, null, '425px','600px'],
