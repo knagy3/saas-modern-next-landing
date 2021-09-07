@@ -192,8 +192,8 @@ export default function CareerCard({ setPlan }) {
 
 const styles = {
   mainSection: {
-    pt: [50, 50, 50, 70, 60, 100],
-    pb: [40, 40, 50, 60, 60, 100],
+    pt: [50, 50, 50, 60, 70, 85],
+    pb: [40, 40, 50, 60, 70, 95],
   },
   apply: {
     display: 'flex',

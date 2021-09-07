@@ -3,7 +3,6 @@ import { jsx, Box, Container, Heading, Text } from 'theme-ui';
 import { motion } from "framer-motion";
 import { buildImageUrl } from 'cloudinary-build-url';
 
-// import bannerBg from 'assets/images/banner-bg.jpg';
 import useTranslation from '../hooks/useTranslation';
 
 const bannerUrl = buildImageUrl('sections/banner/banner-bg', {
@@ -11,7 +10,7 @@ const bannerUrl = buildImageUrl('sections/banner/banner-bg', {
     cloudName: 'dakiep',
   },
   transformations: {
-    quality: 'auto:best',
+    quality: 'auto',
   },
 });
 

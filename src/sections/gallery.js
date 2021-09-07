@@ -48,7 +48,7 @@ export default Gallery;
 
 const styles = {
   section: {
-    pt: [50, 50, 50, 70, 60, 100],
+    pt: [50, 50, 50, 70, 60, 95],
     pb: [40, 40, 50, 80, 80, 85],
   },
   heading: {

@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Pagination, EffectFade } from 'swiper';
 
 import SectionHeading from 'components/section-heading';
-import Progressbar from 'components/progressbar';
+// import Progressbar from 'components/progressbar';
 import useTranslation from 'hooks/useTranslation';
 // import Feature from 'components/cards/feature';
 import Image from 'components/image';
