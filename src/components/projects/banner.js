@@ -10,14 +10,11 @@ export default function Banner({ id }) {
 
   return (
     <Box 
-      as="div" sx={styles.section}
-      // sx={id == 1 ?{ 
-      //   background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
-      //   backgroundSize: ['100%', null, null, null, 'cover'],
-      // } :{ 
-      //   background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center center / cover`,
-      //   backgroundSize: ['100%', null, null, null, 'cover'],
-      // }}
+      as="div" 
+      sx={{ 
+        background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
+        backgroundSize: ['100%', null, null, null, 'cover'],
+      }}
     >
       <Container>
         <Box sx={styles.contentWrapper}>
@@ -49,10 +46,10 @@ export default function Banner({ id }) {
 }
 
 const styles = {
-  section: {
-    background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
-    backgroundSize: ['100%', null, null, null, 'cover'],
-  },
+  // section: {
+  //   background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
+  //   backgroundSize: ['100%', null, null, null, 'cover'],
+  // },
   contentWrapper: {
     display: 'flex',
     alignItems: 'center',
