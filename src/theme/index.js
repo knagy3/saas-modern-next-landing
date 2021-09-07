@@ -323,7 +323,7 @@ export default {
     flexDirection: 'column',
     alignItems: 'center',
     mt: ['-3px', null, -1],
-    marginBottom: ['50px', null, '60px', null, null, '65px', null, '80px'],
+    marginBottom: ['40px', null, '50px', null, null, '55px', null, '65px'],
     mx: 'auto',
     
     title: {
