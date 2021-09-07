@@ -80,25 +80,7 @@ export default function Footer() {
                 <Text sx={{mx:'10px'}}> 9024 Győr, Bartók Béla út 16. </Text>
               </Box>
             </Flex>
-          </Flex>
-          
-
-          {/* <Flex as="ul" sx={styles.nav}>
-            {navItems?.map((item) => (
-              <li key={item.id}>
-                {!issDefaultPath 
-                  ? (<Link sx={{cursor: 'pointer'}} path={item.path}>
-                      {item.title}
-                    </Link>
-                  ) : (
-                    <NavLink 
-                      sx={{cursor: 'pointer'}} 
-                      label={item.title}
-                      path={item.link}
-                    /> )}
-              </li>
-            ))}
-          </Flex> */}
+          </Flex>          
         </Flex>
       </Container>
     </Box>
@@ -115,8 +97,7 @@ const styles = {
     borderTopColor: (theme) => theme.colors.background,
     display: ['block', null, null, null, 'flex'],
     justifyContent: 'center',
-    paddingTop: '20px',
-    paddingBottom: '40px',
+    py: ['15px', null, null, '30px'],
     textAlign: ['center', null, null, null],
     '@media only screen and (max-width: 400px)': {
       pb: 50,

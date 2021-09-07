@@ -12,7 +12,7 @@ import Subscription from 'sections/subscription';
 
 function Project() {
     const { asPath } = useRouter();
-    const router = useRouter();
+    // const router = useRouter();
     const [url, setUrl] = useState('');
 
     useEffect(() => {

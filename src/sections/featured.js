@@ -57,7 +57,7 @@ const data = {
 const Featured = () => {
   const isPause = useRef(false);
   const swiperRef = useRef(null);
-  const [togglePlay, setTogglePlay] = useState(false);
+  // const [togglePlay, setTogglePlay] = useState(false);
   const [currentWidth, setCurrentWidth] = useState(0);
   const { t } = useTranslation();
 

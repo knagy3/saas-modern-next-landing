@@ -50,7 +50,7 @@ export default function Banner({ id }) {
 
 const styles = {
   section: {
-    background: `url(${bannerBg1}) no-repeat center top / cover`,
+    background: `url(${projectItems[id-1]?.bannerImg}) no-repeat center top / cover`,
     backgroundSize: ['100%', null, null, null, 'cover'],
   },
   contentWrapper: {
