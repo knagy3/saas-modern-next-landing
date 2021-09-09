@@ -61,11 +61,11 @@ const styles = {
       letterSpacing: ['1.5px', null, '2px'],
     },
     title: {
-      fontSize: ['24px', null, '28px', '30px', '36px', '42px', null, '48px'],
+      fontSize: ['24px', null, '28px', null, '30px', '36px'],
       color: 'heading_secondary',
       lineHeight: [1.3, null, null, null, 1.2],
       fontWeight: '700',
-      letterSpacing: '-.5px',
+      letterSpacing: 'heading',
       mb: 5,
     },
   },

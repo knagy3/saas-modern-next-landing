@@ -73,7 +73,6 @@ export default function Details({ id }) {
             </Grid>
             <Grid gap={0} columns={['1fr 2fr']} width={[250, 450]}  sx={styles.grid}>
                 <Box sx={styles.heading}>
-                    
                     <Box >
                         <h2>{t('project', 'client')}</h2>
                         <p>{projectItems[id-1]?.client}</p>
@@ -90,10 +89,6 @@ export default function Details({ id }) {
                         <h2>{t('project', 'date')}</h2>
                         <p>{projectItems[id-1]?.date}</p>
                     </Box>
-                    {/* <Box >
-                        <h2>YEAR</h2>
-                        <p>{projectItems[id-1]?.year}</p>
-                    </Box> */}
                 </Box>
                 <Box sx={styles.imageL} >
                     <Image src={img4Url} alt="pic4" style={{cursor:'pointer',width:'1000px'}} 
@@ -149,8 +144,9 @@ const styles = {
         },
         p: {
             // lineHeight: [2, 3.12],
-            mt: [10, 0],
+            mt: 0,
             letterSpacing: 'heading',
+            fontSize: ['16px', '18px'],
             color: (theme) => theme.colors.text,
         },
     },

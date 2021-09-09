@@ -127,7 +127,7 @@ export const LangStrings = {
   },
   hu: {
     banner: {
-      slogan: 'A szenvedélyünk beton',
+      slogan: 'Szenvedélyünk a beton',
       text: 'Dinamikusan fejlődő vállalatként működünk az építőipari piacon. Szerkezetépítőként számos beruházás meghatározó szereplőjévé váltunk az évek során az ország egész területén.',
     },
     header: {
@@ -230,14 +230,14 @@ export const LangStrings = {
       pr_1_slogan: 'Ön megálmodja, mi megvalósítjuk',
       pr_1_name: 'BÜK Nestlé Hungaria Kft - Kazánház alépítmények',
       pr_1_project_type: 'Csarnoképítés',
-      pr_1_header: 'Kazánház alapozási és felmenőszerkezetek építési munkái munkáit végezte társaságunk a projekt keretein belül. ',
+      pr_1_header: 'Kazánház alapozási és felmenőszerkezetek építési munkáit végezte társaságunk a projekt keretein belül. ',
       pr_1_p1: '',
       pr_1_p2: '',
     
       pr_2_slogan: 'A jövőbe vezető út… építés alatt áll',
       pr_2_name: 'Zalaegerszeg - Hídépítés',
       pr_2_project_type: 'Hídépítés ',
-      pr_2_header: 'Társaságunk végezte számos műtárgy kivitelezését. A cölöpösszefogó gerendától a teljes hídfő szerkezet kivitelezési munkálatáig. ',
+      pr_2_header: 'Társaságunk végezte számos műtárgy építését. A cölöpösszefogó gerendától a hídfőn át a pályalemezek kivitelezési munkálatáig. ',
       pr_2_p1: '',
       pr_2_p2: '',
     

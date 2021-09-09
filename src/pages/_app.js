@@ -20,11 +20,12 @@ export default function CustomApp({ Component, pageProps }) {
   const router= useRouter();
 
   // const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
-  const transition = { duration: 1.5 };
+  const transition = { duration: 1.3 };
+  const transitionInit = { duration: 0.5 };
   const frameVariants = {
     pageInitial: {
       opacity: 0.1, 
-      transition
+      transitionInit
       // scale: 0.9, opacity: 0, 
     },
     pageAnimate: {

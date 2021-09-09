@@ -100,7 +100,7 @@ export default function Service() {
               <Box sx={styles.card} key={item.id}>
                 {/* <Image src={item.imgSrc} alt={item.altText} sx={styles.icon} /> */}
                 <IconContext.Provider
-                  value={{ color: colorPrim, size: '50px' }}
+                  value={{ color: colorPrim, size: ['50px', '60px'] }}
                 >
                   <Box sx={styles.icon}>
                     {item.icon}
@@ -232,10 +232,10 @@ const styles = {
   },
 
   icon: {
-    width: ['45px', null, null, null, '55px'],
+    width: ['50px', null, null, null, '65px'],
     height: 'auto',
     flexShrink: 0,
-    mr: [3, null, null, null, 4],
+    mr: [3, 4],
   },
   wrapper: {
     width: '100%',
@@ -252,7 +252,7 @@ const styles = {
     },
 
     subTitle: {
-      fontSize: [1, null, null, '14px', 1],
+      fontSize: [1, null, null, '16px', '16px'],
       fontWeight: 400,
       lineHeight: 1.9,
     },

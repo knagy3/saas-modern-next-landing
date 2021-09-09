@@ -9,7 +9,9 @@ class CustomDocument extends Document {
   render() {
     return (
       <Html lang="en-US">
-        <Head />
+        <Head>
+          <link rel="shortcut icon" href="/icon.png" />
+        </Head>
         <body>
           <Main />
           <NextScript />

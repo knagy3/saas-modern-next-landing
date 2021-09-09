@@ -54,9 +54,9 @@ export default {
     body: 'DM Sans',
     // body:
     //   'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'DM Sans, sans-serif',
+    heading: 'sans-serif',
     // heading: 'Bree Serif',
-    monospace: 'Menlo, monospace',
+    monospace: 'sans-serif',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   fontWeights: {
@@ -75,7 +75,7 @@ export default {
   letterSpacings: {
     body: 'normal',
     caps: '0.2em',
-    heading: '-0.5px',
+    heading: '0.5px',
   },
   space: [0, 4, 8, 12, 16, 32, 48, 64, 96, 128],
   sizes: {},
@@ -332,11 +332,11 @@ export default {
       lineHeight: [1.3, null, null, 1.25],
       textAlign: 'center',
       fontWeight: '700',
-      letterSpacing: '-.5px',
+      letterSpacing: 'heading',
     },
 
     subTitle: {
-      fontSize: [0, '13px', null, '14px'],
+      fontSize: [0, '14px', null, '16px'],
       // color: 'primary',
       textAlign: 'center',
       letterSpacing: ['1.5px', null, '2px'],
@@ -354,7 +354,7 @@ export default {
       borderRadius: 30,
       p: '3px 11px',
       fontSize: 1,
-      letterSpacing: '-0.5px',
+      letterSpacing: 'heading',
     },
     outline: {
       color: 'primary',

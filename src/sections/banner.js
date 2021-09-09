@@ -83,7 +83,7 @@ const styles = {
     '@media only screen and (min-height: 720px) and (max-height: 760px), (min-width: 1501px) and (max-width: 1560px) ': {
       maxWidth: 515,
       mt: 70,
-      padding: '30px 50px 65px',
+      padding: '30px 30px 45px',
     },
   },
   heroTitle: {
@@ -96,7 +96,7 @@ const styles = {
     },
   },
   desc: {
-    fontSize: [15, 16, 15, 17, 19],
+    fontSize: [16, 16, 16, 17, 19],
     lineHeight: [1.53, 1.53, 1.53, 2, 2, 2,],
     maxWidth: 440,
     marginTop: [15, 15, 15, null, null, null, 30],
