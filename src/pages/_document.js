@@ -10,7 +10,8 @@ class CustomDocument extends Document {
     return (
       <Html lang="en-US">
         <Head>
-          <link rel="shortcut icon" href="/icon.png" />
+          <link rel="shortcut icon" href="/icon.png"/>
+          <title>DAKI-ÉP Kft</title>
         </Head>
         <body>
           <Main />

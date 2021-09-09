@@ -36,7 +36,7 @@ export default function CustomApp({ Component, pageProps }) {
     pageExit: {
       // scale: 0.5,
       opacity: 0.1,
-      transition
+      transitionInit
     }
   };
 
